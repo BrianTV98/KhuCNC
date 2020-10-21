@@ -1,0 +1,19 @@
+// trang web chuyên về thuật toán Data Scient
+https://scikit-learn.org/stable/
+
+//tài liệu thầy giao đọc
+https://sites.google.com/site/caohock4uit/bai-hoc-quan-ly-du-an/chuong-5-mo-hinh-chuoi-thoi-gian
+
+// làm thế nào để kết nối scientific project with web Django
+https://www.kdnuggets.com/2019/01/build-api-machine-learning-model-using-flask.html
+
+
+//fix loi khong nhan dc fbprophet tren python 3.7
+https://stackoverflow.com/questions/53178281/installing-fbprophet-python-on-windows-10
+
+//learning api with flash
+https://www.youtube.com/watch?v=GMppyAPbLYk
+
+
+//xử lý lỗi không trả về được list json
+https://medium.com/@yzhong.cs/serialize-and-deserialize-complex-json-in-python-205ecc636caa
