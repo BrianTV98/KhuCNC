@@ -13,6 +13,7 @@ https://stackoverflow.com/questions/53178281/installing-fbprophet-python-on-wind
 
 //learning api with flash
 https://www.youtube.com/watch?v=GMppyAPbLYk
+https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
 
 
 //xử lý lỗi không trả về được list json

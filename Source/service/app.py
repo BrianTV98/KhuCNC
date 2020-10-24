@@ -8,11 +8,13 @@ import numpy as np
 import pickle as p
 import json
 import pickle
-
+from datetime import datetime
 from pyexpat import model
-
+from flask import abort  # tra ve ma loi
 from flask.json import JSONEncoder
 from flask_restful import Api, Resource
+
+from model.thongke import ThongKe
 
 app = Flask(__name__)
 api = Api(app)
@@ -51,7 +53,8 @@ list_company = pd.read_sql_query('SELECT SO_CNDKKD ,TEN_DN FROM dbo.DOANHNGHIEP'
 
 # Controller
 class GetAllCompany(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         listOfReading = [(Company(row.SO_CNDKKD, row.TEN_DN)) for index, row in list_company.iterrows()]
         response = [vars(ob) for ob in listOfReading]
         return response
@@ -59,6 +62,53 @@ class GetAllCompany(Resource):
 
 api.add_resource(GetAllCompany, "/api/getAllCompany")
 
+
+# tinh hinh dau tu
+
+
+class ThongKeTinhHinhDauTu(Resource):
+    @staticmethod
+    def post():
+        year_from = request.form.get('from')
+        year_to = request.form.get('to')
+
+        query = 'EXEC SP_THONGKE_VON_DAU_TU' + str(year_from) + "," + str(year_to)
+
+        result = pd.read_sql_query(query, conn)
+
+        listThongKe = [
+            (ThongKe(row.TONG_VON_DAU_TU_FDI, row.TONG_VON_DAU_TU_VN, int(row.SOLUONG_FDI), int(row.SOLUONG_VN))) for
+            index, row in result.iterrows()]
+
+        response = [vars(ob) for ob in listThongKe]
+
+        return response[0]
+
+
+api.add_resource(ThongKeTinhHinhDauTu, "/api/tinhhinhdautu")
+
+
+# @app.route('/api/tinhhinhdautu', methods=['POST'])
+# def thongKeTinhHinhDauTu():
+#     # try:
+#         year_from = request.form.get('from')
+#         year_to = request.form.get('to')
+#
+#         query = 'EXEC SP_THONGKE_VON_DAU_TU' + str(year_from) + "," + str(year_to)
+#
+#         result = pd.read_sql_query(query, conn)
+#
+#         listThongKe = [(ThongKe(row.TONG_VON_DAU_TU_FDI, row.TONG_VON_DAU_TU_VN, row.SOLUONG_FDI, row.SOLUONG_VN)) for index, row in result.iterrows()]
+#
+#         response = [vars(ob) for ob in listThongKe]
+#
+#         return response.to_json()
+# except:
+#     abort(400)
+
+
+# Param: SO_DKKD
+# result: Von Dau Tu FDI(Vốn đầu tư nước ngoài), VietNam, Tong
 
 # end
 
