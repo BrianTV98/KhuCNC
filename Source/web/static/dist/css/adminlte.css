@@ -18399,6 +18399,7 @@ html.maximized-card {
   border-left-color: #28a745;
 }
 
+
 .todo-list .info {
   border-left-color: #17a2b8;
 }
@@ -19461,6 +19462,7 @@ html.maximized-card {
 
 .small-box:hover {
   text-decoration: none;
+  cursor: pointer !important;
 }
 
 .small-box:hover .icon > i, .small-box:hover .icon > i.fa, .small-box:hover .icon > i.fas, .small-box:hover .icon > i.far, .small-box:hover .icon > i.fab, .small-box:hover .icon > i.fal, .small-box:hover .icon > i.fad, .small-box:hover .icon > i.ion {
@@ -31289,3 +31291,8 @@ a.text-muted:hover {
   color: #fff;
 }
 /*# sourceMappingURL=adminlte.css.map */
+
+// New Css
+.small-box:hover{
+    cursor: pointer !important;
+}
