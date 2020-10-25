@@ -1,6 +1,6 @@
 import { SpinnerOptions } from './SpinnerOptions';
 import { RawOptionsCallbacks } from './RawOptionsCallbacks';
-import { Layout } from '..';
+import { Layout } from '../index';
 export interface BaseOptions {
     animationDuration?: number;
     callbacks?: RawOptionsCallbacks;

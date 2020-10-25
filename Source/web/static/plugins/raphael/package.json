@@ -71,7 +71,7 @@
     "dev": "webpack -d",
     "prepublishOnly": "yarn build-all",
     "start": "yarn build-all",
-    "test": "echo \"Open dev/test/index.html with your browser\" && exit 1"
+    "test": "echo \\\"Open dev/test/index.html with your browser\\\" && exit 1"
   },
   "version": "2.3.0"
 }

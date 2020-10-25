@@ -1,4 +1,4 @@
-import { Position } from './../types/interfaces';
+import { Position } from '../types/interfaces';
 import StyledFilterizrElement from '../StyledFilterizrElement';
 import FilterizrOptions from '../FilterizrOptions';
 export default class StyledFilterItem extends StyledFilterizrElement {

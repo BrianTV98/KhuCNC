@@ -72,7 +72,7 @@
       "url": "https://github.com/jquery/jquery-mousewheel/blob/master/LICENSE.txt"
     }
   ],
-  "main": "./jquery.mousewheel.js",
+  "main": "jquery.mousewheel.js",
   "name": "jquery-mousewheel",
   "repository": {
     "type": "git",

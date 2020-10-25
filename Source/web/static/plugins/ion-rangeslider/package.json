@@ -62,7 +62,7 @@
     "skins"
   ],
   "license": "MIT",
-  "main": "./js/ion.rangeSlider.js",
+  "main": "js/ion.rangeSlider.js",
   "name": "ion-rangeslider",
   "peerDependencies": {
     "jquery": ">=1.8"
