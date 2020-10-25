@@ -22,7 +22,7 @@
         <!-- JQVMap -->
         <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
         <!-- Theme style -->
-        <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+        <link rel="stylesheet" href="{% static 'dist/css/adminlte.css' %}">
         <!-- overlayScrollbars -->
         <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
         <!-- Daterange picker -->
@@ -30,7 +30,6 @@
         <!-- summernote -->
         <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
         <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
-        <link rel="stylesheet" href="">
         </head>
 
         <body class="hold-transition sidebar-mini layout-fixed">
@@ -155,7 +154,7 @@
                                 <i class="fas fa-file mr-2"></i> 3 new reports
                                 <span class="float-right text-muted text-sm">2 days</span>
                             </a>
-                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-divide"></div>
                             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                         </div>
                     </li>
@@ -177,7 +176,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="index3.html" class="brand-link">
-                    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">Exploratory</span>
                 </a>
@@ -187,7 +186,7 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="dist/fontawesome/119171448_1657984694364386_4955939991367944081_o.jpg"
+                            <img src="{% static 'dist/fontawesome/119171448_1657984694364386_4955939991367944081_o.jpg' %}"
                                  class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
@@ -867,7 +866,7 @@
                         <div class="row">
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-info">
+                                <div class="small-box bg-info tablinks" class="tablinks" onclick="openCity(event, 'London')">
                                     <div class="inner">
                                         <h3>150</h3>
 
@@ -876,15 +875,14 @@
                                     <div class="icon">
                                         <i class="fas fa-table"></i>
                                     </div>
-                                    <div class="small-box-footer tablinks" onclick="openCity(event, 'London')">More info
-                                        <i
-                                                class="fas fa-arrow-circle-right"></i></div>
+                                    <div class="small-box-footer " >More info
+                                        <i class="fas fa-arrow-circle-right"></i></div>
                                 </div>
                             </div>
                             <!-- ./col -->
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-success">
+                                <div class="small-box bg-success tablinks" class="tablinks" onclick="openCity(event, 'Paris')">
                                     <div class="inner">
                                         <h3>53<sup style="font-size: 20px">%</sup></h3>
 
@@ -893,7 +891,7 @@
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
                                     </div>
-                                    <div href="#" class="small-box-footer tablinks" onclick="openCity(event, 'Paris')">
+                                    <div href="#" class="small-box-footer "  >
                                         More info <i
                                             class="fas fa-arrow-circle-right"></i>
                                     </div>
@@ -902,7 +900,7 @@
                             <!-- ./col -->
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-warning">
+                                <div class="small-box bg-warning " class="tablinks" onclick="openCity(event, 'Tokyo')">
                                     <div class="inner">
                                         <h3>44</h3>
 
@@ -911,7 +909,7 @@
                                     <div class="icon">
                                         <i class="far fa-chart-bar"></i>
                                     </div>
-                                    <div href="#" class="small-box-footer tablinks" onclick="openCity(event, 'Tokyo')">
+                                    <div href="#" class="small-box-footer " >
                                         More info <i
                                             class="fas fa-arrow-circle-right"></i></div>
                                 </div>
@@ -919,7 +917,7 @@
                             <!-- ./col -->
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-danger">
+                                <div class="small-box bg-danger tablinks" class="tablinks" onclick="openCity(event, 'Analytics')">
                                     <div class="inner">
                                         <h3>65</h3>
 
@@ -928,8 +926,8 @@
                                     <div class="icon">
                                         <i class="far fa-lightbulb"></i>
                                     </div>
-                                    <div href="#" class="small-box-footer tablinks"
-                                         onclick="openCity(event, 'Analytics')">More info <i
+                                    <div href="#" class="small-box-footer "
+                                         >More info <i
                                             class="fas fa-arrow-circle-right"></i></div>
                                 </div>
                             </div>
@@ -961,16 +959,27 @@
                                     <div class="card-body">
                                         <div class="tab-content p-0">
                                             <!-- Morris chart - Sales -->
-                                            <div class="chart tab-pane active" id="revenue-chart"
+                                            <div class="tabcontent" id="London"
                                                  style="position: relative; height: 300px;">
                                                 <canvas id="revenue-chart-canvas" height="300"
                                                         style="height: 300px;"></canvas>
                                             </div>
-                                            <div class="chart tab-pane" id="sales-chart"
+                                            <div class="tabcontent" id="Paris"
                                                  style="position: relative; height: 300px;">
-                                                <canvas id="sales-chart-canvas" height="300"
-                                                        style="height: 300px;"></canvas>
+                                                <canvas height="300"
+                                                        style="height: 300px;"><a href=""> hihi</a> </canvas>
                                             </div>
+                                            <div class="tabcontent" id="Tokyo"
+                                                 style="position: relative; height: 300px;">
+                                                <canvas  height="300"
+                                                        style="height: 300px;"><a href="">ahuhu</a> </canvas>
+                                            </div>
+                                            <div class="tabcontent" id="Analytics"
+                                                 style="position: relative; height: 300px;">
+                                                <canvas  height="300"
+                                                        style="height: 300px;"><a href="">hoho</a> </canvas>
+                                            </div>
+
                                         </div>
                                     </div><!-- /.card-body -->
                                 </div>
@@ -1490,7 +1499,7 @@
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-                <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+                <strong>Copyright &copy; 2014-2020 <a href="">AdminLTE.io</a>.</strong>
                 All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 3.1.0-pre
@@ -1539,7 +1548,7 @@
         <script src="{% static 'dist/js/demo.js' %}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
-
+        <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' %}"></script>
         <script>
 
             function openCity(evt, cityName) {
