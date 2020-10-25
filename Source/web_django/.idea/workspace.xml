@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67d38ded-adbd-486f-a3a5-e81f0ced3868" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../web/templates/indext.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../web/web/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../service/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/../service/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/web_django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web_django.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +80,8 @@
       <workItem from="1603166052615" duration="82000" />
       <workItem from="1603541347263" duration="1702000" />
       <workItem from="1603594138244" duration="568000" />
-      <workItem from="1603594815508" duration="304000" />
+      <workItem from="1603594815508" duration="879000" />
+      <workItem from="1603614567348" duration="61000" />
     </task>
     <servers />
   </component>
