@@ -964,24 +964,24 @@
 
                                             <div class="modal-1" id="ahihi" style="display: flex; margin-top: 20px;">
                                                 <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px"></li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;">SỐ LƯỢNG</li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;">Vốn đầu tư</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;background: steelblue;"></li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;background: steelblue;">SỐ LƯỢNG</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;background: steelblue;">Vốn đầu tư</li>
                                                 </ul>
                                                 <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px">FDI</li>
-                                                    <li class="list-group-item soloing"  style="border-right: none !important;height:50px"></li>
-                                                    <li class="list-group-item vaunt" style="border-right: none !important;height:50px">A</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;background: steelblue;">FDI</li>
+                                                    <li class="list-group-item soloing"  style="border-right: none !important;height:50px;text-align: center;";></li>
+                                                    <li class="list-group-item kongoni" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                 </ul>
                                                 <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px">VIỆT NAM</li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px">Dapibus ac facilisis in</li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px">Morbi leo risus</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;background: steelblue;">VIỆT NAM</li>
+                                                    <li class="list-group-item vaunt" style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                    <li class="list-group-item tong" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                 </ul>
                                                 <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="height:50px">TỔNG</li>
-                                                    <li class="list-group-item" style="height:50px">Dapibus ac facilisis in</li>
-                                                    <li class="list-group-item" style="height:50px">Morbi leo risus</li>
+                                                    <li class="list-group-item" style="height:50px;text-align: center;background: steelblue;">TỔNG</li>
+                                                    <li class="list-group-item tahini1" style="height:50px;text-align: center;"></li>
+                                                    <li class="list-group-item Oahu" style="height:50px;text-align: center;"></li>
                                                 </ul>
                                             </div>
 
@@ -1619,10 +1619,47 @@
                 evt.currentTarget.className += " active";
             }
 
-            $(".add").click(function(){
-            console.log("1");
-        })
+        var arr = [];
 
+
+
+            $(".add").click(function (e) {
+                 e.preventDefault();
+
+            var object = {
+            from: parseInt($("#example1").val()),
+            to: parseInt($("#example2").val())
+        };
+        var objectStringify = JSON.stringify(object);
+
+            console.log("3",object);
+            console.log("4",objectStringify);
+
+                $.ajax({
+                    method: "POST",
+                    url: "http://192.168.1.26:8000/api/khucnc/thongkedautu",
+                    headers: {
+                    'Content-Type': 'application/json; charset=utf8'
+                },
+                data: objectStringify,
+                success: function (data) {
+                    var i = 0;
+                    $.each(data, function (key, value) {
+                        arr[i++] = value;
+                    });
+
+                    $(".soloing").text(  arr[2]);
+                    $(".vaunt").text(arr[3]);
+                    $(".kongoni").text(arr[0]);
+                    $(".tong").text(arr[1]);
+
+                    var tong1 = arr[2] + arr[3];
+                    var tong2 = arr[0] + arr[1];
+                    $(".tahini1").text(tong1);
+                    $(".Oahu").text(tong2);
+                }
+            });
+        });
         </script>
 
         </body>
