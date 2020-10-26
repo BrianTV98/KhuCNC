@@ -28685,7 +28685,9 @@ blockquote.quote-gray-dark h6 {
   border-color: #ce196c;
   color: #fff;
 }
-
+.list-group{
+    border-radius: unset !important;
+}
 .bg-red {
   background-color: #dc3545 !important;
 }
@@ -31291,8 +31293,14 @@ a.text-muted:hover {
   color: #fff;
 }
 /*# sourceMappingURL=adminlte.css.map */
+.modal-1{
+    display: flex !important;
+}
+#ahihi{
+    display: flex !important;
+}
 
-// New Css
+/*  New Css */
 .small-box:hover{
     cursor: pointer !important;
 }
