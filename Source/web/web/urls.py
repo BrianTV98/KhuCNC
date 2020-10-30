@@ -20,5 +20,7 @@ from web import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.index, name="index"),
-    path("report", views.report, name="report")
+    path("report", views.report, name="report"),
+    path("thongke", views.thongke, name="thongke"),
+    path("testData", views.testData, name="testData")
 ]

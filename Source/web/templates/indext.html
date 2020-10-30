@@ -12,7 +12,6 @@
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'dist/js/main.js' %}">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Tempusdominus Bootstrap 4 -->
@@ -31,13 +30,6 @@
         <!-- summernote -->
         <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
         <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-
-        <!-- Year-->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-
         </head>
 
         <body class="hold-transition sidebar-mini layout-fixed">
@@ -229,8 +221,25 @@
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <ul class="">
-
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="./index.html" class="nav-link active">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard v1</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./index2.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard v2</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./index3.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard v3</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -947,53 +956,17 @@
                                             </ul>
                                         </div>
                                     </div><!-- /.card-header -->
-                                    <div class="card-body" style="height: 412px;" >
+                                    <div class="card-body">
                                         <div class="tab-content p-0">
                                             <!-- Morris chart - Sales -->
                                             <div class="tabcontent" id="London"
                                                  style="position: relative; height: 300px;">
-                                                <!-- <canvas  height="300"
-                                                        style="height: 300px;"> -->
-                                                <strong>Year Picker :</strong> <input  class="form-control" type="text" placeholder="click to show datepicker"  id="example1">
-                                                <strong>Year Picker :</strong> <input  class="form-control" type="text" placeholder="click to show datepicker"  id="example2">
-
-                                            <button type="button" class="btn btn-dark add" style="margin-top: 20px;
-    width: 80px;">Add</button>
-
-
-
-                                            <div class="modal-1" id="ahihi" style="display: flex; margin-top: 20px;">
-                                                <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;background: steelblue;"></li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;background: steelblue;">SỐ LƯỢNG</li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;background: steelblue;">Vốn đầu tư</li>
-                                                </ul>
-                                                <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;background: steelblue;">FDI</li>
-                                                    <li class="list-group-item soloing"  style="border-right: none !important;height:50px;text-align: center;";></li>
-                                                    <li class="list-group-item kongoni" style="border-right: none !important;height:50px;text-align: center;"></li>
-                                                </ul>
-                                                <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;background: steelblue;">VIỆT NAM</li>
-                                                    <li class="list-group-item vaunt" style="border-right: none !important;height:50px;text-align: center;"></li>
-                                                    <li class="list-group-item tong" style="border-right: none !important;height:50px;text-align: center;"></li>
-                                                </ul>
-                                                <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="height:50px;text-align: center;background: steelblue;">TỔNG</li>
-                                                    <li class="list-group-item tahini1" style="height:50px;text-align: center;"></li>
-                                                    <li class="list-group-item Oahu" style="height:50px;text-align: center;"></li>
-                                                </ul>
+                                                <canvas id="revenue-chart-canvas" height="300"
+                                                        style="height: 300px;"></canvas>
                                             </div>
-
-
-
-
-                                                <!-- </canvas> -->
-                                            </div>
-
                                             <div class="tabcontent" id="Paris"
                                                  style="position: relative; height: 300px;">
-                                                <canvas id="revenue-chart-canvas" height="300"
+                                                <canvas height="300"
                                                         style="height: 300px;"><a href=""> hihi</a> </canvas>
                                             </div>
                                             <div class="tabcontent" id="Tokyo"
@@ -1575,34 +1548,7 @@
         <script src="{% static 'dist/js/demo.js' %}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script> </head>
-
-        <!--Year picker -->
-        <script type="text/javascript">
-            // When the document is ready
-            $(document).ready(function () {
-
-                $('#example1').datepicker({
-                    minViewMode: 'years',
-                    autoclose: true,
-                     format: 'yyyy'
-                });
-
-                $('#example2').datepicker({
-                    minViewMode: 'years',
-                    autoclose: true,
-                     format: 'yyyy'
-                });
-
-            });
-        </script>
+        <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' %}"></script>
         <script>
 
             function openCity(evt, cityName) {
@@ -1618,48 +1564,6 @@
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
             }
-
-        var arr = [];
-
-
-
-            $(".add").click(function (e) {
-                 e.preventDefault();
-
-            var object = {
-            from: parseInt($("#example1").val()),
-            to: parseInt($("#example2").val())
-        };
-        var objectStringify = JSON.stringify(object);
-
-            console.log("3",object);
-            console.log("4",objectStringify);
-
-                $.ajax({
-                    method: "POST",
-                    url: "http://192.168.1.26:8000/api/khucnc/thongkedautu",
-                    headers: {
-                    'Content-Type': 'application/json; charset=utf8'
-                },
-                data: objectStringify,
-                success: function (data) {
-                    var i = 0;
-                    $.each(data, function (key, value) {
-                        arr[i++] = value;
-                    });
-
-                    $(".soloing").text(  arr[2]);
-                    $(".vaunt").text(arr[3]);
-                    $(".kongoni").text(arr[0]);
-                    $(".tong").text(arr[1]);
-
-                    var tong1 = arr[2] + arr[3];
-                    var tong2 = arr[0] + arr[1];
-                    $(".tahini1").text(tong1);
-                    $(".Oahu").text(tong2);
-                }
-            });
-        });
         </script>
 
         </body>
