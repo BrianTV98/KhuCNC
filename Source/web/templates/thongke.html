@@ -7,7 +7,7 @@
     </head>
     <body>
 
-    {{ thongkechung }}
+    {{ thongkechung.SO_CNDKKD }}
     <form action="{% url 'thongke' %}" method="get">
 {#        {% csrf_token %}#}
         Bắt đầu : <input type="text" name="a" value="2010" ><br>
@@ -15,6 +15,7 @@
         <input type="submit">
     </form>
     {{ thongkeDauTu }}
+     {{ tylechiRd }}
 
 
     </body>

@@ -5,6 +5,7 @@ from django.views import View
 from pyodbc import DatabaseError
 
 from web.model.Company import Company
+from web.model.RD_ViewModel import RD_ViewModel
 from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
 
@@ -42,20 +43,25 @@ def thongke(request):
         val2 = "2020"
 
     try:
-        sp = 'EXEC [dbo].[SP_DASHBOARD_THONGKE_VON_DAU_TU]' + " '" + val1 + "','" + val2+"'"
+        sp = 'EXEC [dbo].[SP_DASHBOARD_THONGKE_VON_DAU_TU]' + " '" + val1 + "','" + val2 + "'"
         thongkeDauTu = pd.read_sql_query(sp, conn)
         thongkegDauTuResult = [
             (ThongKeDauTu(row.TONGVONDAUTU_FDI, row.TONGVONDAUTU_VN, row.SOLUONG_FDI, row.SOLUONG_VN)) for
             index, row in thongkeDauTu.iterrows()]
         thongkeDauTuresponse = [vars(ob) for ob in thongkegDauTuResult]
-        return render(request, 'thongke.html', {"thongkechung": response,
-                                                "thongkeDauTu": thongkeDauTuresponse})
+
+        test = testABC
+        return render(request, 'thongke.html', {"thongkechung": response[0],
+                                                "thongkeDauTu": thongkeDauTuresponse,
+                                                "tylechiRd": test})
     except Exception as e:
         print(e)
         pass
     # Khi mà viết một trang muốn sử dụng nhiều request thì nên dùng class-based view
     # Trong đố sẽ như sau
     return render(request, 'thongke.html')
+
+
 # class ThongKe(View):
 #     def get(self, request, *args, **kwargs):
 #         # Trong ddaay trar ve template
@@ -72,3 +78,14 @@ def testData(request):
         index, row in thongkeChung.iterrows()]
     response = [vars(ob) for ob in thongKeChungResult]
     return render(request, "testdata.html", {'thongkechung': response[0]})
+
+
+# funtion :
+def testABC():
+    sp = "SELECT* FROM V_RD"
+    thongKeTyLeChiRD = pd.read_sql_query(sp, conn)
+    thongKeTyLeChiRDResult = [
+        (RD_ViewModel(row.TEN_DN, row.NAM, row.TY_LE_CHI_PHI_RD, row.TY_LE_DH_TREN_DH_THAM_GIA_RD, row.KINH_PHI)) for
+        index, row in thongKeTyLeChiRD.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    return thongKeTyLeChiRDResponse;
