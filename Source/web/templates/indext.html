@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thống kê</title>
     {% load static %}
-    {% block content %}
+     {% block content %}
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -41,6 +41,16 @@
         </head>
 
         <body class="hold-transition sidebar-mini layout-fixed">
+
+
+
+
+
+
+
+
+
+
         <div class="wrapper">
 
             <!-- Navbar -->
@@ -229,8 +239,25 @@
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <ul class="">
-
+                                <ul class="nav nav-treeview" style="display: block;">
+                                    <li class="nav-item">
+                  <a href="./index.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard v1</p>
+                  </a>
+                </li>
+                                    <li class="nav-item">
+                  <a href="./index2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard v2</p>
+                  </a>
+                </li>
+                                    <li class="nav-item">
+                  <a href="./index3.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard v3</p>
+                  </a>
+                </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -859,9 +886,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-info tablinks" class="tablinks" onclick="openCity(event, 'London')">
                                     <div class="inner">
-                                        <h3>150</h3>
+                                        <h3 class="inner-1">150</h3>
 
-                                        <p>Summary</p>
+                                        <p style="text-transform: uppercase;">DỰ ÁN ĐẦU TƯ</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fas fa-table"></i>
@@ -875,9 +902,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-success tablinks" class="tablinks" onclick="openCity(event, 'Paris')">
                                     <div class="inner">
-                                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                        <h3 class="inner-2"> 53<sup style="font-size: 20px">%</sup></h3>
 
-                                        <p>Table</p>
+                                        <p style="text-transform: uppercase;">Doanh nghiệp hoạt động</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
@@ -893,9 +920,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-warning " class="tablinks" onclick="openCity(event, 'Tokyo')">
                                     <div class="inner">
-                                        <h3>44</h3>
+                                        <h3 class="inner-3">44</h3>
 
-                                        <p>Chart</p>
+                                        <p style="text-transform: uppercase;">Dự án R&D</p>
                                     </div>
                                     <div class="icon">
                                         <i class="far fa-chart-bar"></i>
@@ -910,9 +937,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-danger tablinks" class="tablinks" onclick="openCity(event, 'Analytics')">
                                     <div class="inner">
-                                        <h3>65</h3>
+                                        <h3 class="inner-3">65</h3>
 
-                                        <p>Analytics</p>
+                                        <p style="text-transform: uppercase;">Lao động chất lượng cao</p>
                                     </div>
                                     <div class="icon">
                                         <i class="far fa-lightbulb"></i>
@@ -928,7 +955,7 @@
                         <!-- Main row -->
                         <div class="row">
                             <!-- Left col -->
-                            <section class="col-lg-10 connectedSortable">
+                            <section class="col-lg-12 connectedSortable">
                                 <!-- Custom tabs (Charts with tabs)-->
                                 <div class="card">
                                     <div class="card-header">
@@ -964,22 +991,22 @@
 
                                             <div class="modal-1" id="ahihi" style="display: flex; margin-top: 20px;">
                                                 <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;background: steelblue;"></li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;background: steelblue;">SỐ LƯỢNG</li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;background: steelblue;">Vốn đầu tư</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;"></li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">SỐ LƯỢNG</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">Vốn đầu tư</li>
                                                 </ul>
                                                 <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;background: steelblue;">FDI</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">FDI</li>
                                                     <li class="list-group-item soloing"  style="border-right: none !important;height:50px;text-align: center;";></li>
                                                     <li class="list-group-item kongoni" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                 </ul>
                                                 <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;background: steelblue;">VIỆT NAM</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">VIỆT NAM</li>
                                                     <li class="list-group-item vaunt" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                     <li class="list-group-item tong" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                 </ul>
                                                 <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
-                                                    <li class="list-group-item" style="height:50px;text-align: center;background: steelblue;">TỔNG</li>
+                                                    <li class="list-group-item" style="height:50px;text-align: center;">TỔNG</li>
                                                     <li class="list-group-item tahini1" style="height:50px;text-align: center;"></li>
                                                     <li class="list-group-item Oahu" style="height:50px;text-align: center;"></li>
                                                 </ul>
@@ -1368,7 +1395,7 @@
                             </section>
                             <!-- /.Left col -->
                             <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                            <section class="col-lg-2 connectedSortable">
+                            <section class="col-lg-2 connectedSortable" style="display:none">
 
                                 <!-- Map card -->
                                 <div class="card bg-gradient-primary">
@@ -1619,12 +1646,26 @@
                 evt.currentTarget.className += " active";
             }
 
-        var arr = [];
+
+                $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
+                $(".inner-2").text({{thongkechung.DOANH_NGHIEP_HOAT_DONG}});
+                $(".inner-3").text({{thongkechung.SO_DA_RD}});
+                $(".inner-4").text({{thongkechung.LAO_DONG_CHAT_LUONG_CAO}});
+
+                var arr = [];
 
 
 
             $(".add").click(function (e) {
                  e.preventDefault();
+
+
+
+
+
+
+
+
 
             var object = {
             from: parseInt($("#example1").val()),
@@ -1637,7 +1678,7 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "http://192.168.1.20:8000/api/khucnc/thongkedautu",
+                    url: "http://192.168.1.26:8000/api/khucnc/thongkedautu",
                     headers: {
                     'Content-Type': 'application/json; charset=utf8'
                 },

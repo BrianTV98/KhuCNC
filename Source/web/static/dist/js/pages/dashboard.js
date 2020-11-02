@@ -7,7 +7,7 @@
 
 /* global moment:false, Chart:false, Sparkline:false */
 
-$(document).ready(function () {
+$(function () {
   'use strict'
 
   // Make the dashboard widgets sortable Using jquery UI

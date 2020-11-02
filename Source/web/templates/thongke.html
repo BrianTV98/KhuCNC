@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+    {{ thongkechung }}
+    <form action="{% url 'thongke' %}" method="get">
+{#        {% csrf_token %}#}
+        Bắt đầu : <input type="text" name="a" value="2010" ><br>
+        Kết thúc: <input type="text" name="b" value="2020"><br>
+        <input type="submit">
+    </form>
+    {{ thongkeDauTu }}
+
+
+    </body>
+{% endblock content %}
+</html>
