@@ -22,5 +22,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("report", views.report, name="report"),
     path("thongke", views.thongke, name="thongke"),
+    path("phantich", views.phantich, name="phantich"),
     path("testData", views.testData, name="testData")
 ]

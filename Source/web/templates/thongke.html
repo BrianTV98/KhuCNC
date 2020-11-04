@@ -1,23 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-{% block content %}
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
-    <body>
 
-    {{ thongkechung.SO_CNDKKD }}
-    <form action="{% url 'thongke' %}" method="get">
-{#        {% csrf_token %}#}
-        Bắt đầu : <input type="text" name="a" value="2010" ><br>
-        Kết thúc: <input type="text" name="b" value="2020"><br>
-        <input type="submit">
-    </form>
-    {{ thongkeDauTu }}
-     {{ tylechiRd }}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tổng kết</title>
+    {% load static %}
+    {% block content %}
+        <!-- Google Font: Source Sans Pro -->
+        <!--<link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+         Font Awesome -->
+
+        <!-- DataTable -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+        </head>
+
+        <body class="hold-transition sidebar-mini layout-fixed">
 
 
-    </body>
-{% endblock content %}
+        <div class="container">
+            <table id="table" data-height="460">
+                <thead>
+                <tr id="body-table">
+                    <th data-field="col1">Tên dự án</th>
+                    <!-- <th data-field="row2">Năm 2015</th>
+                    <th data-field="row3">Năm 2016</th>
+                    <th data-field="row4">Năm 2017</th>
+                    <th data-field="row5">Năm 2018</th>
+                    <th data-field="row6">Năm 2019</th> -->
+                </tr>
+                </thead>
+            </table>
+        </div>
+        {{ tylechiRd }}
+        <script>
+            console.log("ahihi");
+            var $table = $('#table');
+            var mydata
+                =  {{ tylechiRd }};
+
+
+
+
+
+
+
+            $.each(mydata, function (index, value) {
+                arrYears[index] = mydata[index].NAM;
+
+                arrTenDN[index] = mydata[index].TEN_DN;
+            });
+
+
+            var arrYearsFilter = arrYears.filter((item, index) => arrYears.indexOf(item) === index);
+            var arrDN = arrTenDN.filter((item, index) => arrTenDN.indexOf(item) === index);
+
+            arrYearsFilter.sort();
+            console.log(mydata);
+            // console.log(arrYearsFilter);
+            // console.log(arrDN.length);
+            console.log(arrDN[0]);
+            var dataTable = [];
+
+            var k;
+            var objectrowTable;
+
+            for (var i = 0; i < arrDN.length; i++) {
+                k = 0;
+                objectrowTable = {};
+                objectrowTable['col' + (k + 1)] = arrDN[i];
+                console.log(arrDN[i]);
+                k++;
+                for (var j = 0; j < arrYearsFilter.length; j++) {
+                    $.each(mydata, function (index, value) {
+                        if (mydata[index].TEN_DN === arrDN[i] && mydata[index].NAM === arrYearsFilter[j]) {
+                            if (isNaN(mydata[index].TY_LE_CHI_PHI_RD)) {
+                                objectrowTable['col' + (
+                                    k + 1)] = "-";
+                            } else {
+                                objectrowTable['col' + (k + 1)] = mydata[index].TY_LE_CHI_PHI_RD;
+                            }
+                            k++;
+                        }
+                    });
+                }
+                dataTable[i] = objectrowTable;
+
+            }
+            var content = "";
+
+            for (var i = 0; i < arrYearsFilter.length; i++) {
+                content = '<th data-field="' + 'col' + (i + 2) + '">Năm ' + arrYearsFilter[i] + '</th>';
+                $(content).appendTo
+                ("#body-table");
+            }
+            console.log("1", arrYearsFilter.length);
+            console.log("datatable", dataTable);
+
+            $(function () {
+                $('#table').bootstrapTable({
+                    data: dataTable
+                });
+            });
+        </script>
+        </head>
+
+
+        </body>
+    {% endblock %}
 </html>

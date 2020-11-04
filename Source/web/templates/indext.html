@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thống kê</title>
+    <title>Tổng kết</title>
     {% load static %}
-    {% block content %}
+     {% block content %}
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,13 +30,19 @@
         <!-- summernote -->
         <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
         <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+        <!-- Year-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
         </head>
 
         <body class="hold-transition sidebar-mini layout-fixed">
+
         <div class="wrapper">
-
             <!-- Navbar -->
-
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
@@ -175,7 +181,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="index3.html" class="brand-link">
+                <a href="indext.html" class="brand-link">
                     <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">Exploratory</span>
@@ -221,32 +227,32 @@
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview">
+                                <ul class="nav nav-treeview" style="display: block;">
                                     <li class="nav-item">
-                                        <a href="./index.html" class="nav-link active">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard v1</p>
-                                        </a>
-                                    </li>
+                  <a href="/thongke" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thống kê</p>
+                  </a>
+                </li>
                                     <li class="nav-item">
-                                        <a href="./index2.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard v2</p>
-                                        </a>
-                                    </li>
+                  <a href="./index2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard v2</p>
+                  </a>
+                </li>
                                     <li class="nav-item">
-                                        <a href="./index3.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard v3</p>
-                                        </a>
-                                    </li>
+                  <a href="./index3.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard v3</p>
+                  </a>
+                </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/widgets.html" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
                                     <p>
-                                        Widgets
+                                        Phân tích
                                         <span class="right badge badge-danger">New</span>
                                     </p>
                                 </a>
@@ -868,9 +874,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-info tablinks" class="tablinks" onclick="openCity(event, 'London')">
                                     <div class="inner">
-                                        <h3>150</h3>
+                                        <h3 class="inner-1">150</h3>
 
-                                        <p>Summary</p>
+                                        <p style="text-transform: uppercase;">DỰ ÁN ĐẦU TƯ</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fas fa-table"></i>
@@ -884,9 +890,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-success tablinks" class="tablinks" onclick="openCity(event, 'Paris')">
                                     <div class="inner">
-                                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                        <h3 class="inner-2"> 53<sup style="font-size: 20px">%</sup></h3>
 
-                                        <p>Table</p>
+                                        <p style="text-transform: uppercase;">Doanh nghiệp hoạt động</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
@@ -902,9 +908,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-warning " class="tablinks" onclick="openCity(event, 'Tokyo')">
                                     <div class="inner">
-                                        <h3>44</h3>
+                                        <h3 class="inner-3">44</h3>
 
-                                        <p>Chart</p>
+                                        <p style="text-transform: uppercase;">Dự án R&D</p>
                                     </div>
                                     <div class="icon">
                                         <i class="far fa-chart-bar"></i>
@@ -919,9 +925,9 @@
                                 <!-- small box -->
                                 <div class="small-box bg-danger tablinks" class="tablinks" onclick="openCity(event, 'Analytics')">
                                     <div class="inner">
-                                        <h3>65</h3>
+                                        <h3 class="inner-3">65</h3>
 
-                                        <p>Analytics</p>
+                                        <p style="text-transform: uppercase;">Lao động chất lượng cao</p>
                                     </div>
                                     <div class="icon">
                                         <i class="far fa-lightbulb"></i>
@@ -937,7 +943,7 @@
                         <!-- Main row -->
                         <div class="row">
                             <!-- Left col -->
-                            <section class="col-lg-10 connectedSortable">
+                            <section class="col-lg-12 connectedSortable">
                                 <!-- Custom tabs (Charts with tabs)-->
                                 <div class="card">
                                     <div class="card-header">
@@ -956,17 +962,53 @@
                                             </ul>
                                         </div>
                                     </div><!-- /.card-header -->
-                                    <div class="card-body">
+                                    <div class="card-body" style="height: 412px;" >
                                         <div class="tab-content p-0">
                                             <!-- Morris chart - Sales -->
                                             <div class="tabcontent" id="London"
                                                  style="position: relative; height: 300px;">
-                                                <canvas id="revenue-chart-canvas" height="300"
-                                                        style="height: 300px;"></canvas>
+                                                <!-- <canvas  height="300"
+                                                        style="height: 300px;"> -->
+                                                <strong>Year Picker :</strong> <input  class="form-control" type="text" placeholder="click to show datepicker"  id="example1">
+                                                <strong>Year Picker :</strong> <input  class="form-control" type="text" placeholder="click to show datepicker"  id="example2">
+
+                                            <button type="button" class="btn btn-dark add" style="margin-top: 20px;
+    width: 80px;">Add</button>
+
+
+
+                                            <div class="modal-1" id="ahihi" style="display: flex; margin-top: 20px;">
+                                                <ul class="list-group col-lg-3" style="border-radius:inherit !important;width: 248px;padding-right: unset;">
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;"></li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">SỐ LƯỢNG</li>
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">Vốn đầu tư</li>
+                                                </ul>
+                                                <ul class="list-group col-lg-3" style="border-radius:inherit !important;width: 248px;padding-right: unset;">
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">FDI</li>
+                                                    <li class="list-group-item soloing"  style="border-right: none !important;height:50px;text-align: center;";></li>
+                                                    <li class="list-group-item kongoni" style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                </ul>
+                                                <ul class="list-group col-lg-3" style="border-radius: inherit !important;width: 248px;padding-right: unset;">
+                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">VIỆT NAM</li>
+                                                    <li class="list-group-item vaunt" style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                    <li class="list-group-item tong" style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                </ul>
+                                                <ul class="list-group col-lg-3" style="border-radius: inherit !important;width: 248px;padding-right: unset;">
+                                                    <li class="list-group-item" style="height:50px;text-align: center;">TỔNG</li>
+                                                    <li class="list-group-item tahini1" style="height:50px;text-align: center;"></li>
+                                                    <li class="list-group-item Oahu" style="height:50px;text-align: center;"></li>
+                                                </ul>
                                             </div>
+
+
+
+
+                                                <!-- </canvas> -->
+                                            </div>
+
                                             <div class="tabcontent" id="Paris"
                                                  style="position: relative; height: 300px;">
-                                                <canvas height="300"
+                                                <canvas id="revenue-chart-canvas" height="300"
                                                         style="height: 300px;"><a href=""> hihi</a> </canvas>
                                             </div>
                                             <div class="tabcontent" id="Tokyo"
@@ -1007,76 +1049,7 @@
                                     <!-- /.card-header -->
                                     <div class="card-body">
                                         <!-- Conversations are loaded here -->
-                                        <div class="direct-chat-messages">
-                                            <!-- Message. Default to the left -->
-                                            <div class="direct-chat-msg">
-                                                <div class="direct-chat-infos clearfix">
-                                                    <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                                    <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                                                </div>
-                                                <!-- /.direct-chat-infos -->
-                                                <img class="direct-chat-img" src="dist/img/user1-128x128.jpg"
-                                                     alt="message user image">
-                                                <!-- /.direct-chat-img -->
-                                                <div class="direct-chat-text">
-                                                    Is this template really for free? That's unbelievable!
-                                                </div>
-                                                <!-- /.direct-chat-text -->
-                                            </div>
-                                            <!-- /.direct-chat-msg -->
 
-                                            <!-- Message to the right -->
-                                            <div class="direct-chat-msg right">
-                                                <div class="direct-chat-infos clearfix">
-                                                    <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                                    <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                                                </div>
-                                                <!-- /.direct-chat-infos -->
-                                                <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                                     alt="message user image">
-                                                <!-- /.direct-chat-img -->
-                                                <div class="direct-chat-text">
-                                                    You better believe it!
-                                                </div>
-                                                <!-- /.direct-chat-text -->
-                                            </div>
-                                            <!-- /.direct-chat-msg -->
-
-                                            <!-- Message. Default to the left -->
-                                            <div class="direct-chat-msg">
-                                                <div class="direct-chat-infos clearfix">
-                                                    <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                                    <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                                                </div>
-                                                <!-- /.direct-chat-infos -->
-                                                <img class="direct-chat-img" src="dist/img/user1-128x128.jpg"
-                                                     alt="message user image">
-                                                <!-- /.direct-chat-img -->
-                                                <div class="direct-chat-text">
-                                                    Working with AdminLTE on a great new app! Wanna join?
-                                                </div>
-                                                <!-- /.direct-chat-text -->
-                                            </div>
-                                            <!-- /.direct-chat-msg -->
-
-                                            <!-- Message to the right -->
-                                            <div class="direct-chat-msg right">
-                                                <div class="direct-chat-infos clearfix">
-                                                    <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                                    <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                                                </div>
-                                                <!-- /.direct-chat-infos -->
-                                                <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                                     alt="message user image">
-                                                <!-- /.direct-chat-img -->
-                                                <div class="direct-chat-text">
-                                                    I would love to.
-                                                </div>
-                                                <!-- /.direct-chat-text -->
-                                            </div>
-                                            <!-- /.direct-chat-msg -->
-
-                                        </div>
                                         <!--/.direct-chat-messages-->
 
                                         <!-- Contacts are loaded here -->
@@ -1341,7 +1314,7 @@
                             </section>
                             <!-- /.Left col -->
                             <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                            <section class="col-lg-2 connectedSortable">
+                            <section class="col-lg-2 connectedSortable" style="display:none">
 
                                 <!-- Map card -->
                                 <div class="card bg-gradient-primary">
@@ -1548,7 +1521,38 @@
         <script src="{% static 'dist/js/demo.js' %}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
-        <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script> </head>
+
+        <!--Year picker -->
+        <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                $('#example1').datepicker({
+                    minViewMode: 'years',
+                    autoclose: true,
+                     format: 'yyyy'
+                });
+
+                $('#example2').datepicker({
+                    minViewMode: 'years',
+                    autoclose: true,
+                     format: 'yyyy'
+                });
+            });
+
+
+
+
+
+
+        </script>
         <script>
 
             function openCity(evt, cityName) {
@@ -1564,6 +1568,53 @@
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
             }
+
+
+                $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
+                $(".inner-2").text({{thongkechung.DOANH_NGHIEP_HOAT_DONG}});
+                $(".inner-3").text({{thongkechung.SO_DA_RD}});
+                $(".inner-4").text({{thongkechung.LAO_DONG_CHAT_LUONG_CAO}});
+
+                var arr = [];
+
+            $(".add").click(function (e) {
+                 e.preventDefault();
+
+
+            var object = {
+            from: parseInt($("#example1").val()),
+            to: parseInt($("#example2").val())
+        };
+        var objectStringify = JSON.stringify(object);
+
+            console.log("3",object);
+            console.log("4",objectStringify);
+
+                $.ajax({
+                    method: "POST",
+                    url: "http://192.168.1.26:8000/api/khucnc/thongkedautu",
+                    headers: {
+                    'Content-Type': 'application/json; charset=utf8'
+                },
+                data: objectStringify,
+                success: function (data) {
+                    var i = 0;
+                    $.each(data, function (key, value) {
+                        arr[i++] = value;
+                    });
+
+                    $(".soloing").text(  arr[2]);
+                    $(".vaunt").text(arr[3]);
+                    $(".kongoni").text(arr[0]);
+                    $(".tong").text(arr[1]);
+
+                    var tong1 = arr[2] + arr[3];
+                    var tong2 = arr[0] + arr[1];
+                    $(".tahini1").text(tong1);
+                    $(".Oahu").text(tong2);
+                }
+            });
+        });
         </script>
 
         </body>
