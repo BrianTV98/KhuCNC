@@ -24,11 +24,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
 
-{{tylechiRd}}
-
-
-
-
 <div class="container">
                                         <table id="table" data-height="460">
                                             <thead>
@@ -38,14 +33,13 @@
                                                 <th data-field="row3">Năm 2016</th>
                                                 <th data-field="row4">Năm 2017</th>
                                                 <th data-field="row5">Năm 2018</th>
-                                                <th data-field="row6">Năm 2019</th> --> -->
+                                                <th data-field="row6">Năm 2019</th> -->
                                             </tr>
                                             </thead>
                                         </table>
                                     </div>
 
 <script>
-    <script>
     console.log("ahihi");
     var $table = $('#table');
     var mydata
@@ -494,14 +488,11 @@
       }
       dataTable[i] = objectrowTable;
 
-
-
-
     }
     var content = "";
 
     for (var i = 0; i < arrYearsFilter.length; i++) {
-      content = '<th data-field="' + 'col' + (i + 2) + '">Năm' + arrYearsFilter[i] + '</th>';
+      content = '<th data-field="' + 'col' + (i + 2) + '">Năm ' + arrYearsFilter[i] + '</th>';
       $(content).appendTo
         ("#body-table");
     }
