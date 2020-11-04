@@ -22,14 +22,18 @@ import urllib
 import json
 
 conn = pyodbc.connect('Driver={SQL Server};'  # connect with SQL server
-                      'Server=DESKTOP-05ICLAS\\SERVER2;'
+                      'Server=DESKTOP-RRUVR94;'
                       'Database=DUAN_KHUCNC;'
                       'Trusted_Connection=yes;')
 
 
 def index(request):
-
-    return render(request, 'indext.html')
+    thongkeChung = pd.read_sql_query('EXEC [dbo].[SP_DASHBOARD_THONGKECHUNG]', conn)
+    thongKeChungResult = [
+        (ThongKeChung(row.SO_DU_AN_DT, row.DOANH_NGHIEP_HOAT_DONG, row.SO_DA_RD, row.LAO_DONG_CHAT_LUONG_CAO)) for
+        index, row in thongkeChung.iterrows()]
+    response = [vars(ob) for ob in thongKeChungResult]
+    return render(request, 'indext.html',{"thongkechung": response[0]})
 
 
 def report(request):
@@ -65,7 +69,7 @@ def thongke(request):
         print(test)
         return render(request, 'thongke.html', {"thongkechung": response[0],
                                                 "thongkeDauTu": thongkeDauTuresponse,
-                                                "tylechiRd": test})
+                                                "tylechiRd": test  })
     except Exception as e:
         print(e)
         pass
