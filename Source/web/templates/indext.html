@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thống kê</title>
+    <title>Tổng kết</title>
     {% load static %}
      {% block content %}
         <!-- Google Font: Source Sans Pro -->
@@ -12,7 +12,6 @@
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'dist/js/main.js' %}">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Tempusdominus Bootstrap 4 -->
@@ -45,7 +44,7 @@
 
 
 
-
+    {{thongke}}
 
 
 
@@ -193,7 +192,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="index3.html" class="brand-link">
+                <a href="indext.html" class="brand-link">
                     <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">Exploratory</span>
@@ -241,9 +240,9 @@
                                 </a>
                                 <ul class="nav nav-treeview" style="display: block;">
                                     <li class="nav-item">
-                  <a href="./index.html" class="nav-link active">
+                  <a href="/thongke" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard v1</p>
+                    <p>Thống kê</p>
                   </a>
                 </li>
                                     <li class="nav-item">
@@ -990,22 +989,22 @@
 
 
                                             <div class="modal-1" id="ahihi" style="display: flex; margin-top: 20px;">
-                                                <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
+                                                <ul class="list-group col-lg-3" style="border-radius:inherit !important;width: 248px;padding-right: unset;">
                                                     <li class="list-group-item" style="border-right: none !important;height:50px;"></li>
                                                     <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">SỐ LƯỢNG</li>
                                                     <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">Vốn đầu tư</li>
                                                 </ul>
-                                                <ul class="list-group" style="border-radius:inherit !important;width: 248px;">
+                                                <ul class="list-group col-lg-3" style="border-radius:inherit !important;width: 248px;padding-right: unset;">
                                                     <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">FDI</li>
                                                     <li class="list-group-item soloing"  style="border-right: none !important;height:50px;text-align: center;";></li>
                                                     <li class="list-group-item kongoni" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                 </ul>
-                                                <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
+                                                <ul class="list-group col-lg-3" style="border-radius: inherit !important;width: 248px;padding-right: unset;">
                                                     <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">VIỆT NAM</li>
                                                     <li class="list-group-item vaunt" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                     <li class="list-group-item tong" style="border-right: none !important;height:50px;text-align: center;"></li>
                                                 </ul>
-                                                <ul class="list-group" style="border-radius: inherit !important;width: 248px;">
+                                                <ul class="list-group col-lg-3" style="border-radius: inherit !important;width: 248px;padding-right: unset;">
                                                     <li class="list-group-item" style="height:50px;text-align: center;">TỔNG</li>
                                                     <li class="list-group-item tahini1" style="height:50px;text-align: center;"></li>
                                                     <li class="list-group-item Oahu" style="height:50px;text-align: center;"></li>
@@ -1615,7 +1614,6 @@
         <script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {
-
                 $('#example1').datepicker({
                     minViewMode: 'years',
                     autoclose: true,
@@ -1627,8 +1625,13 @@
                     autoclose: true,
                      format: 'yyyy'
                 });
-
             });
+
+
+
+
+
+
         </script>
         <script>
 
@@ -1654,17 +1657,8 @@
 
                 var arr = [];
 
-
-
             $(".add").click(function (e) {
                  e.preventDefault();
-
-
-
-
-
-
-
 
 
             var object = {

@@ -58,7 +58,7 @@ def thongke(request):
         test = testABC
         return render(request, 'thongke.html', {"thongkechung": response[0],
                                                 "thongkeDauTu": thongkeDauTuresponse,
-                                                "tylechiRd": test})
+                                                "tylechiRd": test  })
     except Exception as e:
         print(e)
         pass
