@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tổng kết</title>
     {% load static %}
-    {% block content %}
+    {% autoescape off %}
     <!-- Google Font: Source Sans Pro -->
     <!--<link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -23,6 +23,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
+        <p id="console1" style="display: none"> {{tylechiRd}} </p>
 
 <div class="container">
                                         <table id="table" data-height="460">
@@ -40,429 +41,55 @@
                                     </div>
 
 <script>
-    console.log("ahihi");
+
+
+    var aheui1 = {{tylechiRd}}
+    console.log("2",aheui1);
+
+
+    var array1 ='[{"TY_LE_CHI_PHI_RD":0,"TEN_DN":"Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":55.56,"KINHPHI":19433777},{"TY_LE_CHI_PHI_RD":16.97,"TEN_DN":"Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":20,"KINHPHI":24630542},{"TY_LE_CHI_PHI_RD":1.46,"TEN_DN":"Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":20.24,"KINHPHI":24630542},{"TY_LE_CHI_PHI_RD":6.07,"TEN_DN":"Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":21.3,"KINHPHI":24630542},{"TY_LE_CHI_PHI_RD":0,"TEN_DN":"Công Ty Cổ Phần Sanofi Việt Nam","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":13.79,"KINHPHI":75000000},{"TY_LE_CHI_PHI_RD":8.89,"TEN_DN":"Công Ty Cổ Phần Sanofi Việt Nam","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":19.44,"KINHPHI":75000000},{"TY_LE_CHI_PHI_RD":4.48,"TEN_DN":"Công Ty Cổ Phần Sanofi Việt Nam","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":8.5,"KINHPHI":75000000},{"TY_LE_CHI_PHI_RD":3.26,"TEN_DN":"Công Ty Cổ Phần Sanofi Việt Nam","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":6.63,"KINHPHI":75000000},{"TY_LE_CHI_PHI_RD":3.89,"TEN_DN":"Công Ty Cổ Phần Sanofi Việt Nam","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":8.05,"KINHPHI":75000000},{"TY_LE_CHI_PHI_RD":4.6,"TEN_DN":"Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":10.29,"KINHPHI":3008471},{"TY_LE_CHI_PHI_RD":6.53,"TEN_DN":"Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":10.14,"KINHPHI":3008471},{"TY_LE_CHI_PHI_RD":7.04,"TEN_DN":"Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":10.45,"KINHPHI":3008471},{"TY_LE_CHI_PHI_RD":6.29,"TEN_DN":"Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":10.61,"KINHPHI":3008471},{"TY_LE_CHI_PHI_RD":29.72,"TEN_DN":"Công Ty TNHH Điện Tử D.G.S","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":36,"KINHPHI":2156250},{"TY_LE_CHI_PHI_RD":31.4,"TEN_DN":"Công Ty TNHH Điện Tử D.G.S","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":35.71,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":29.55,"TEN_DN":"Công Ty TNHH Điện Tử D.G.S","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":21.62,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":32.57,"TEN_DN":"Công Ty TNHH Điện Tử D.G.S","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":28.57,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":33.86,"TEN_DN":"Công Ty TNHH Điện Tử D.G.S","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":33.33,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":1.43,"TEN_DN":"Công Ty TNHH Điện Tử Samsung HCMC CE Complex","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.46,"KINHPHI":2000000000},{"TY_LE_CHI_PHI_RD":1.16,"TEN_DN":"Công Ty TNHH Điện Tử Samsung HCMC CE Complex","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":4.36,"KINHPHI":2000000000},{"TY_LE_CHI_PHI_RD":1.24,"TEN_DN":"Công Ty TNHH Điện Tử Samsung HCMC CE Complex","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.8,"KINHPHI":2000000000},{"TY_LE_CHI_PHI_RD":1.09,"TEN_DN":"Công Ty TNHH Điện Tử Samsung HCMC CE Complex","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":4.98,"KINHPHI":2000000000},{"TY_LE_CHI_PHI_RD":71.5,"TEN_DN":"Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":25.64,"KINHPHI":15000000},{"TY_LE_CHI_PHI_RD":4.64,"TEN_DN":"Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":4.65,"KINHPHI":15000000},{"TY_LE_CHI_PHI_RD":3.76,"TEN_DN":"Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.1,"KINHPHI":15000000},{"TY_LE_CHI_PHI_RD":3.99,"TEN_DN":"Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3,"KINHPHI":15000000},{"TY_LE_CHI_PHI_RD":4.9,"TEN_DN":"Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.33,"KINHPHI":15000000},{"TY_LE_CHI_PHI_RD":0,"TEN_DN":"Công Ty TNHH Jabil Việt Nam","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":12.66,"KINHPHI":150000000},{"TY_LE_CHI_PHI_RD":0.6,"TEN_DN":"Công Ty TNHH Jabil Việt Nam","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.07,"KINHPHI":200000000},{"TY_LE_CHI_PHI_RD":1.19,"TEN_DN":"Công Ty TNHH Jabil Việt Nam","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.6,"KINHPHI":200000000},{"TY_LE_CHI_PHI_RD":0.91,"TEN_DN":"Công Ty TNHH Jabil Việt Nam","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":4.27,"KINHPHI":200000000},{"TY_LE_CHI_PHI_RD":1.22,"TEN_DN":"Công Ty TNHH Jabil Việt Nam","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.34,"KINHPHI":200000000},{"TY_LE_CHI_PHI_RD":11.81,"TEN_DN":"Công Ty TNHH MTV Daeyoung Electronics Vina","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":0.26,"KINHPHI":63000000},{"TY_LE_CHI_PHI_RD":4.41,"TEN_DN":"Công Ty TNHH MTV Daeyoung Electronics Vina","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":0.85,"KINHPHI":63000000},{"TY_LE_CHI_PHI_RD":3.76,"TEN_DN":"Công Ty TNHH MTV Daeyoung Electronics Vina","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":1.57,"KINHPHI":63000000},{"TY_LE_CHI_PHI_RD":3.76,"TEN_DN":"Công Ty TNHH MTV Daeyoung Electronics Vina","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":1.55,"KINHPHI":63000000},{"TY_LE_CHI_PHI_RD":9.89,"TEN_DN":"Công Ty TNHH Nidec Sankyo Việt Nam","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":1.99,"KINHPHI":120000000},{"TY_LE_CHI_PHI_RD":5.69,"TEN_DN":"Công Ty TNHH Nidec Sankyo Việt Nam","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":2.47,"KINHPHI":120000000},{"TY_LE_CHI_PHI_RD":5.07,"TEN_DN":"Công Ty TNHH Nidec Sankyo Việt Nam","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":2.54,"KINHPHI":120000000},{"TY_LE_CHI_PHI_RD":7.37,"TEN_DN":"Công Ty TNHH Nidec Sankyo Việt Nam","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.09,"KINHPHI":120000000},{"TY_LE_CHI_PHI_RD":8.25,"TEN_DN":"Công Ty TNHH Nidec Sankyo Việt Nam","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":2.68,"KINHPHI":120000000},{"TY_LE_CHI_PHI_RD":0.09,"TEN_DN":"Công Ty TNHH Nidec Servo Việt Nam","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":35.71,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":2.07,"TEN_DN":"Công Ty TNHH Nidec Servo Việt Nam","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":0.6,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":0.34,"TEN_DN":"Công Ty TNHH Nidec Servo Việt Nam","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":1.03,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":1.33,"TEN_DN":"Công Ty TNHH Nidec Servo Việt Nam","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":1.37,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":2.08,"TEN_DN":"Công Ty TNHH Nidec Servo Việt Nam","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":1.32,"KINHPHI":51500000},{"TY_LE_CHI_PHI_RD":9.89,"TEN_DN":"Công Ty TNHH Sonion Việt Nam","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.46,"KINHPHI":50000000},{"TY_LE_CHI_PHI_RD":3.17,"TEN_DN":"Công Ty TNHH Sonion Việt Nam","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.32,"KINHPHI":90000000},{"TY_LE_CHI_PHI_RD":3.91,"TEN_DN":"Công Ty TNHH Sonion Việt Nam","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.32,"KINHPHI":90000000},{"TY_LE_CHI_PHI_RD":4.04,"TEN_DN":"Công Ty TNHH Sonion Việt Nam","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.07,"KINHPHI":90000000},{"TY_LE_CHI_PHI_RD":3.22,"TEN_DN":"Công Ty TNHH Sonion Việt Nam","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":3.44,"KINHPHI":90000000},{"TY_LE_CHI_PHI_RD":0,"TEN_DN":"Công Ty TNHH Thế Giới Gen","NAM":2015,"TY_LE_DH_TREN_DH_THAM_GIA_RD":13.89,"KINHPHI":11000000},{"TY_LE_CHI_PHI_RD":18.57,"TEN_DN":"Công Ty TNHH Thế Giới Gen","NAM":2016,"TY_LE_DH_TREN_DH_THAM_GIA_RD":23.68,"KINHPHI":11000000},{"TY_LE_CHI_PHI_RD":11.1,"TEN_DN":"Công Ty TNHH Thế Giới Gen","NAM":2017,"TY_LE_DH_TREN_DH_THAM_GIA_RD":27.5,"KINHPHI":11000000},{"TY_LE_CHI_PHI_RD":12.49,"TEN_DN":"Công Ty TNHH Thế Giới Gen","NAM":2018,"TY_LE_DH_TREN_DH_THAM_GIA_RD":30.23,"KINHPHI":11000000},{"TY_LE_CHI_PHI_RD":14.51,"TEN_DN":"Công Ty TNHH Thế Giới Gen","NAM":2019,"TY_LE_DH_TREN_DH_THAM_GIA_RD":51.16,"KINHPHI":11000000}]'
+    //console.log("1",array1)
+    //console.log("1",JSON.stringify(array1));
+    //console.log( JSON.parse(array1));
+
+
+
+
+
+
+
+        //console.log("2",aheui1);
+        //console.log("2",JSON.stringify(aheui1));
+        //console.log( JSON.parse(aheui1.toString()));
+
+
+
+
+
     var $table = $('#table');
-    var mydata
-      =
-      [
-        {
-          "TEN_DN": "Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 0.0,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 55.56,
-          "KINHPHI": 19433777.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 16.97,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 20.0,
-          "KINHPHI": 24630542.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 1.46,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 20.24,
-          "KINHPHI": 24630542.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Nhà máy Trang thiết bị y tế USM Healthcare",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 6.07,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 21.3,
-          "KINHPHI": 24630542.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Sanofi Việt Nam",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 0.0,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 13.79,
-          "KINHPHI": 75000000.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Sanofi Việt Nam",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 8.89,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 19.44,
-          "KINHPHI": 75000000.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Sanofi Việt Nam",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 4.48,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 8.5,
-          "KINHPHI": 75000000.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Sanofi Việt Nam",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 3.26,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 6.63,
-          "KINHPHI": 75000000.0
-        },
-        {
-          "TEN_DN": "Công Ty Cổ Phần Sanofi Việt Nam",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 3.89,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 8.05,
-          "KINHPHI": 75000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 4.6,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 10.29,
-          "KINHPHI": 3008471.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 6.53,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 10.14,
-          "KINHPHI": 3008471.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 7.04,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 10.45,
-          "KINHPHI": 3008471.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Thông Minh",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 6.29,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 10.61,
-          "KINHPHI": 3008471.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử D.G.S",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 29.72,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 36.0,
-          "KINHPHI": 2156250.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử D.G.S",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 31.4,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 35.71,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử D.G.S",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 29.55,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 21.62,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử D.G.S",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 32.57,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 28.57,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử D.G.S",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 33.86,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 33.33,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử Samsung HCMC CE Complex",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 1.43,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.46,
-          "KINHPHI": 2000000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử Samsung HCMC CE Complex",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 1.16,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 4.36,
-          "KINHPHI": 2000000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử Samsung HCMC CE Complex",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 1.24,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.8,
-          "KINHPHI": 2000000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Điện Tử Samsung HCMC CE Complex",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 1.09,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 4.98,
-          "KINHPHI": 2000000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 71.5,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 25.64,
-          "KINHPHI": 15000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 4.64,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 4.65,
-          "KINHPHI": 15000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 3.76,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.1,
-          "KINHPHI": 15000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 3.99,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.0,
-          "KINHPHI": 15000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Giải Pháp Điện Tử T.C Việt Nam",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 4.9,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.33,
-          "KINHPHI": 15000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Jabil Việt Nam",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 0.0,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 12.66,
-          "KINHPHI": 150000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Jabil Việt Nam",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 0.6,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.07,
-          "KINHPHI": 200000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Jabil Việt Nam",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 1.19,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.6,
-          "KINHPHI": 200000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Jabil Việt Nam",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 0.91,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 4.27,
-          "KINHPHI": 200000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Jabil Việt Nam",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 1.22,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.34,
-          "KINHPHI": 200000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH MTV Daeyoung Electronics Vina",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 11.81,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 0.26,
-          "KINHPHI": 63000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH MTV Daeyoung Electronics Vina",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 4.41,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 0.85,
-          "KINHPHI": 63000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH MTV Daeyoung Electronics Vina",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 3.76,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 1.57,
-          "KINHPHI": 63000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH MTV Daeyoung Electronics Vina",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 3.76,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 1.55,
-          "KINHPHI": 63000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Sankyo Việt Nam",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 9.89,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 1.99,
-          "KINHPHI": 120000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Sankyo Việt Nam",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 5.69,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 2.47,
-          "KINHPHI": 120000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Sankyo Việt Nam",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 5.07,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 2.54,
-          "KINHPHI": 120000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Sankyo Việt Nam",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 7.37,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.09,
-          "KINHPHI": 120000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Sankyo Việt Nam",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 8.25,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 2.68,
-          "KINHPHI": 120000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Servo Việt Nam",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 0.09,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 35.71,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Servo Việt Nam",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 2.07,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 0.6,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Servo Việt Nam",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 0.34,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 1.03,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Servo Việt Nam",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 1.33,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 1.37,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Nidec Servo Việt Nam",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 2.08,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 1.32,
-          "KINHPHI": 51500000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Sonion Việt Nam",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": 9.89,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.46,
-          "KINHPHI": 50000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Sonion Việt Nam",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 3.17,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.32,
-          "KINHPHI": 90000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Sonion Việt Nam",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 3.91,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.32,
-          "KINHPHI": 90000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Sonion Việt Nam",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 4.04,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.07,
-          "KINHPHI": 90000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Sonion Việt Nam",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 3.22,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 3.44,
-          "KINHPHI": 90000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Thế Giới Gen",
-          "NAM": 2015,
-          "TY_LE_CHI_PHI_RD": "nan",
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 13.89,
-          "KINHPHI": 11000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Thế Giới Gen",
-          "NAM": 2016,
-          "TY_LE_CHI_PHI_RD": 18.57,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 23.68,
-          "KINHPHI": 11000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Thế Giới Gen",
-          "NAM": 2017,
-          "TY_LE_CHI_PHI_RD": 11.1,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 27.5,
-          "KINHPHI": 11000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Thế Giới Gen",
-          "NAM": 2018,
-          "TY_LE_CHI_PHI_RD": 12.49,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 30.23,
-          "KINHPHI": 11000000.0
-        },
-        {
-          "TEN_DN": "Công Ty TNHH Thế Giới Gen",
-          "NAM": 2019,
-          "TY_LE_CHI_PHI_RD": 14.51,
-          "TY_LE_DH_TREN_DH_THAM_GIA_RD": 51.16,
-          "KINHPHI": 11000000.0
-        }
-      ];
-
-    console.log(mydata[0].TEN_DN);
-    console.log(mydata[8].TEN_DN);
-
     var arrYears = [];
     var arrTenDN = [];
 
-    $.each(mydata, function (index, value) {
-      arrYears[index] = mydata[index].NAM;
+    //$.each(aheui1, function (index, value) {
+     // arrYears[index] = aheui1[index].NAM;
+    //  arrTenDN[index] = aheui1[index].TEN_DN;
+   // });
 
-      arrTenDN[index] = mydata[index].TEN_DN;
-    });
+    //console.log( aheui1[0]);
+    //console.log( aheui1.length);
+    for (var index = 0; index < aheui1.length; index++) {
+      arrYears[index] = aheui1[index].NAM;
+      arrTenDN[index] = aheui1[index].TEN_DN;
 
-
+    }
+     //console.log(arrYears);
+     //console.log(arrTenDN);
 
     var arrYearsFilter = arrYears.filter((item, index) => arrYears.indexOf(item) === index);
     var arrDN = arrTenDN.filter((item, index) => arrTenDN.indexOf(item) === index);
 
     arrYearsFilter.sort();
-    console.log(mydata);
-    // console.log(arrYearsFilter);
-    // console.log(arrDN.length);
-    console.log(arrDN[0]);
     var dataTable = [];
-
     var k;
     var objectrowTable;
 
@@ -470,21 +97,21 @@
       k = 0;
       objectrowTable = {};
       objectrowTable['col' + (k + 1)] = arrDN[i];
-      console.log(arrDN[i]);
+      //console.log(arrDN[i]);
       k++;
       for (var j = 0; j < arrYearsFilter.length; j++) {
-        $.each(mydata, function (index, value) {
-          if (mydata[index].TEN_DN === arrDN[i] && mydata[index].NAM === arrYearsFilter[j]) {
-            if (isNaN(mydata[index].TY_LE_CHI_PHI_RD)) {
+        for (var index = 0; index < aheui1.length; index++) {
+          if (aheui1[index].TEN_DN === arrDN[i] && aheui1[index].NAM === arrYearsFilter[j]) {
+            if (isNaN(aheui1[index].TY_LE_CHI_PHI_RD)) {
               objectrowTable['col' + (
                 k + 1)] = "-";
             }
             else {
-              objectrowTable['col' + (k + 1)] = mydata[index].TY_LE_CHI_PHI_RD;
+              objectrowTable['col' + (k + 1)] = aheui1[index].TY_LE_CHI_PHI_RD;
             }
             k++;
           }
-        });
+        };
       }
       dataTable[i] = objectrowTable;
 
@@ -496,8 +123,8 @@
       $(content).appendTo
         ("#body-table");
     }
-    console.log("1", arrYearsFilter.length);
-    console.log("datatable", dataTable);
+    //console.log("1", arrYearsFilter.length);
+    //console.log("datatable", dataTable);
 
     $(function () {
       $('#table').bootstrapTable({
@@ -510,5 +137,5 @@
 
 
 </body>
-{% endblock %}
+{% endautoescape  %}
 </html>
