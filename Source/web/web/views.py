@@ -1,13 +1,25 @@
 import pyodbc as pyodbc
 from django.shortcuts import render
 import pandas as pd
-from django.views import View
-from pyodbc import DatabaseError
 
-from web.model.Company import Company
-from web.model.RD_ViewModel import RD_ViewModel
+from web.contrains.base_url import base_url_model
 from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
+from web.view.phantich import du_doan_tinh_hinh
+from web.view.thongke import thongketylechiRD
+import pickle
+
+import pandas as pd
+import pyodbc
+from fbprophet import Prophet
+
+import pystan
+
+import matplotlib.pyplot as plt
+import base64
+import io
+import urllib
+import json
 
 conn = pyodbc.connect('Driver={SQL Server};'  # connect with SQL server
                       'Server=DESKTOP-RRUVR94;'
@@ -36,8 +48,6 @@ def thongke(request):
         index, row in thongkeChung.iterrows()]
     response = [vars(ob) for ob in thongKeChungResult]
 
-    # thong ke tinh hinh dau tu
-
     # Cai nay dung roi
     val1 = request.GET.get("a")
     val2 = request.GET.get("b")
@@ -55,7 +65,8 @@ def thongke(request):
             index, row in thongkeDauTu.iterrows()]
         thongkeDauTuresponse = [vars(ob) for ob in thongkegDauTuResult]
 
-        test = testABC
+        test = thongketylechiRD
+        print(test)
         return render(request, 'thongke.html', {"thongkechung": response[0],
                                                 "thongkeDauTu": thongkeDauTuresponse,
                                                 "tylechiRd": test  })
@@ -65,6 +76,57 @@ def thongke(request):
     # Khi mà viết một trang muốn sử dụng nhiều request thì nên dùng class-based view
     # Trong đố sẽ như sau
     return render(request, 'thongke.html')
+
+
+def phantich(request):
+    # dataVonDauTuVND = pd.read_sql_query('SELECT NGAY_DANG_KY, VON_DAU_TU_VND FROM dbo.GIAY_CNDT',
+    #                                     conn)  # get data from db
+    # dataVonDauTuVND = dataVonDauTuVND.rename(columns={'NGAY_DANG_KY': 'ds', 'VON_DAU_TU_VND': 'y'})  # rename
+    # dataVonDauTuVND.head()
+    # print(dataVonDauTuVND)
+    #
+    # model_code = 'parameters {real y;} model {y ~ normal(0,1);}'
+    # model = pystan.StanModel(model_code=model_code)  # this will take a minute
+    # y = model.sampling(n_jobs=1).extract()['y']
+    # y.mean()  # should be close to 0
+    # m = Prophet(daily_seasonality=True)
+    # m.fit(dataVonDauTuVND)
+    # future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    # future.tail()
+    # forecast = m.predict(future)
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    m = pickle.load(open(base_url_model + '/VonDauTuVND.pickle', 'rb'))
+    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    future.tail()
+    forecast = m.predict(future)
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư')
+    ax = fig1.gca()
+    ax.set_title("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư", size=28)
+    # fig1.show()
+
+    buf = io.BytesIO()
+    fig1.savefig(buf, format='png')
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    buf2 = io.BytesIO()
+    fig2 = m.plot_components(forecast)
+    fig2.savefig(buf2, format='png')
+    buf2.seek(0)
+    string2 = base64.b64encode(buf2.read())
+    uri2 = 'data:image/png;base64,' + urllib.parse.quote(string2)
+    # fig = plt.gcf()
+    # buf = io.BytesIO()
+    # fig.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    #
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    #
+    args = {'image': uri, 'image2': uri2}
+    return render(request, 'phantich.html', args)
 
 
 # class ThongKe(View):
@@ -83,14 +145,3 @@ def testData(request):
         index, row in thongkeChung.iterrows()]
     response = [vars(ob) for ob in thongKeChungResult]
     return render(request, "testdata.html", {'thongkechung': response[0]})
-
-
-# funtion :
-def testABC():
-    sp = "SELECT* FROM V_RD"
-    thongKeTyLeChiRD = pd.read_sql_query(sp, conn)
-    thongKeTyLeChiRDResult = [
-        (RD_ViewModel(row.TEN_DN, row.NAM, row.TY_LE_CHI_PHI_RD, row.TY_LE_DH_TREN_DH_THAM_GIA_RD, row.KINH_PHI)) for
-        index, row in thongKeTyLeChiRD.iterrows()]
-    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
-    return thongKeTyLeChiRDResponse;
