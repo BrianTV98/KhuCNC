@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tổng kết</title>
     {% load static %}
-     {% block content %}
+    {% block content %}
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -34,13 +34,16 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
         <!-- Year-->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
+              rel="stylesheet">
 
         </head>
 
         <body class="hold-transition sidebar-mini layout-fixed">
-
+        {{ year_from_to }}
         <div class="wrapper">
             <!-- Navbar -->
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -182,7 +185,8 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="indext.html" class="brand-link">
-                    <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
+                         class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">Exploratory</span>
                 </a>
@@ -227,29 +231,40 @@
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
+                            </li>
+
+                            <li class="nav-item menu-open">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Thống kê
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
                                 <ul class="nav nav-treeview" style="display: block;">
                                     <li class="nav-item">
-                  <a href="/thongke" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Thống kê</p>
-                  </a>
-                </li>
+                                        <a href="/thongke" class="nav-link active">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Thống kê</p>
+                                        </a>
+                                    </li>
                                     <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard v2</p>
-                  </a>
-                </li>
+                                        <a href="./index2.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard v2</p>
+                                        </a>
+                                    </li>
                                     <li class="nav-item">
-                  <a href="./index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard v3</p>
-                  </a>
-                </li>
+                                        <a href="./index3.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard v3</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
+
                             <li class="nav-item">
-                                <a href="pages/widgets.html" class="nav-link">
+                                <a href="phantich" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
                                     <p>
                                         Phân tích
@@ -317,530 +332,10 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-chart-pie"></i>
-                                    <p>
-                                        Charts
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/charts/chartjs.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ChartJS</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/charts/flot.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Flot</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/charts/inline.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Inline</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        UI Elements
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/UI/general.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>General</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/icons.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Icons</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/buttons.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Buttons</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/sliders.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Sliders</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/modals.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Modals & Alerts</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/navbar.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Navbar & Tabs</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/timeline.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Timeline</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/ribbons.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Ribbons</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        Forms
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/forms/general.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>General Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/advanced.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Advanced Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/editors.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Editors</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/validation.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Validation</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-table"></i>
-                                    <p>
-                                        Tables
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/tables/simple.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Simple Tables</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/tables/data.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>DataTables</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/tables/jsgrid.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>jsGrid</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-header">EXAMPLES</li>
-                            <li class="nav-item">
-                                <a href="pages/calendar.html" class="nav-link">
-                                    <i class="nav-icon far fa-calendar-alt"></i>
-                                    <p>
-                                        Calendar
-                                        <span class="badge badge-info right">2</span>
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/gallery.html" class="nav-link">
-                                    <i class="nav-icon far fa-image"></i>
-                                    <p>
-                                        Gallery
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/kanban.html" class="nav-link">
-                                    <i class="nav-icon fas fa-columns"></i>
-                                    <p>
-                                        Kanban Board
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-envelope"></i>
-                                    <p>
-                                        Mailbox
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Inbox</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/mailbox/compose.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Compose</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Read</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-book"></i>
-                                    <p>
-                                        Pages
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/examples/invoice.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Invoice</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/profile.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Profile</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/e-commerce.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>E-commerce</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/projects.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Projects</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/project-add.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Project Add</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/project-edit.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Project Edit</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/project-detail.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Project Detail</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/contacts.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Contacts</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/faq.html" class="nav-link active">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>FAQ</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/contact-us.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Contact us</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-plus-square"></i>
-                                    <p>
-                                        Extras
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>
-                                                Login & Register v1
-                                                <i class="fas fa-angle-left right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="pages/examples/login.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Login v1</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="pages/examples/register.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Register v1</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="pages/examples/forgot-password.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Forgot Password v1</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="pages/examples/recover-password.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Recover Password v1</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>
-                                                Login & Register v2
-                                                <i class="fas fa-angle-left right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="pages/examples/login-v2.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Login v2</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="pages/examples/register-v2.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Register v2</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="pages/examples/forgot-password-v2.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Forgot Password v2</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="pages/examples/recover-password-v2.html" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Recover Password v2</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/lockscreen.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Lockscreen</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Legacy User Menu</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/language-menu.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Language Menu</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/404.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Error 404</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/500.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Error 500</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/pace.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Pace</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/blank.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Blank Page</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="starter.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Starter Page</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-search"></i>
-                                    <p>
-                                        Search
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/search/simple.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Simple Search</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/search/enhanced.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Enhanced</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-header">MISCELLANEOUS</li>
-                            <li class="nav-item">
-                                <a href="https://adminlte.io/docs/3.0/" class="nav-link">
-                                    <i class="nav-icon fas fa-file"></i>
-                                    <p>Documentation</p>
-                                </a>
-                            </li>
-                            <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="fas fa-circle nav-icon"></i>
-                                    <p>Level 1</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-circle"></i>
-                                    <p>
-                                        Level 1
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Level 2</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>
-                                                Level 2
-                                                <i class="right fas fa-angle-left"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="far fa-dot-circle nav-icon"></i>
-                                                    <p>Level 3</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="far fa-dot-circle nav-icon"></i>
-                                                    <p>Level 3</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="far fa-dot-circle nav-icon"></i>
-                                                    <p>Level 3</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Level 2</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="fas fa-circle nav-icon"></i>
-                                    <p>Level 1</p>
-                                </a>
-                            </li>
-                            <li class="nav-header">LABELS</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-danger"></i>
-                                    <p class="text">Important</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-warning"></i>
-                                    <p>Warning</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-info"></i>
-                                    <p>Informational</p>
-                                </a>
-                            </li>
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
+
                 </div>
                 <!-- /.sidebar -->
             </aside>
@@ -852,7 +347,7 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0">Dashboard</h1>
+                                <h1 class="m-0">Trang Chủ</h1>
                             </div><!-- /.col -->
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
@@ -872,32 +367,34 @@
                         <div class="row">
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-info tablinks" class="tablinks" onclick="openCity(event, 'London')">
+                                <div class="small-box bg-info tablinks" class="tablinks"
+                                     onclick="openCity(event, 'London')">
                                     <div class="inner">
-                                        <h3 class="inner-1">150</h3>
+                                        <h3 class="inner-1"></h3>
 
                                         <p style="text-transform: uppercase;">DỰ ÁN ĐẦU TƯ</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fas fa-table"></i>
                                     </div>
-                                    <div class="small-box-footer " >More info
+                                    <div class="small-box-footer ">More info
                                         <i class="fas fa-arrow-circle-right"></i></div>
                                 </div>
                             </div>
                             <!-- ./col -->
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-success tablinks" class="tablinks" onclick="openCity(event, 'Paris')">
+                                <div class="small-box bg-success tablinks" class="tablinks"
+                                     onclick="openCity(event, 'Paris')">
                                     <div class="inner">
-                                        <h3 class="inner-2"> 53<sup style="font-size: 20px">%</sup></h3>
+                                        <h3 class="inner-2"><sup style="font-size: 20px">%</sup></h3>
 
                                         <p style="text-transform: uppercase;">Doanh nghiệp hoạt động</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
                                     </div>
-                                    <div href="#" class="small-box-footer "  >
+                                    <div href="#" class="small-box-footer ">
                                         More info <i
                                             class="fas fa-arrow-circle-right"></i>
                                     </div>
@@ -908,14 +405,14 @@
                                 <!-- small box -->
                                 <div class="small-box bg-warning " class="tablinks" onclick="openCity(event, 'Tokyo')">
                                     <div class="inner">
-                                        <h3 class="inner-3">44</h3>
+                                        <h3 class="inner-3"></h3>
 
                                         <p style="text-transform: uppercase;">Dự án R&D</p>
                                     </div>
                                     <div class="icon">
                                         <i class="far fa-chart-bar"></i>
                                     </div>
-                                    <div href="#" class="small-box-footer " >
+                                    <div href="#" class="small-box-footer ">
                                         More info <i
                                             class="fas fa-arrow-circle-right"></i></div>
                                 </div>
@@ -923,9 +420,10 @@
                             <!-- ./col -->
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-danger tablinks" class="tablinks" onclick="openCity(event, 'Analytics')">
+                                <div class="small-box bg-danger tablinks" class="tablinks"
+                                     onclick="openCity(event, 'Analytics')">
                                     <div class="inner">
-                                        <h3 class="inner-3">65</h3>
+                                        <h3 class="inner-3"></h3>
 
                                         <p style="text-transform: uppercase;">Lao động chất lượng cao</p>
                                     </div>
@@ -933,7 +431,7 @@
                                         <i class="far fa-lightbulb"></i>
                                     </div>
                                     <div href="#" class="small-box-footer "
-                                         >More info <i
+                                    >More info <i
                                             class="fas fa-arrow-circle-right"></i></div>
                                 </div>
                             </div>
@@ -949,7 +447,7 @@
                                     <div class="card-header">
                                         <h3 class="card-title">
                                             <i class="fas fa-chart-pie mr-1"></i>
-                                            Sales
+                                            Thống Kê Vốn Đầu tư dự án ở khu Công Nghệ Cao
                                         </h3>
                                         <div class="card-tools">
                                             <ul class="nav nav-pills ml-auto">
@@ -962,45 +460,74 @@
                                             </ul>
                                         </div>
                                     </div><!-- /.card-header -->
-                                    <div class="card-body" style="height: 412px;" >
+                                    <div class="card-body" style="height: 412px;">
                                         <div class="tab-content p-0">
                                             <!-- Morris chart - Sales -->
                                             <div class="tabcontent" id="London"
                                                  style="position: relative; height: 300px;">
-                                                <!-- <canvas  height="300"
-                                                        style="height: 300px;"> -->
-                                                <strong>Year Picker :</strong> <input  class="form-control" type="text" placeholder="click to show datepicker"  id="example1">
-                                                <strong>Year Picker :</strong> <input  class="form-control" type="text" placeholder="click to show datepicker"  id="example2">
+                                                {#                                                <canvas  height="300"#}
+                                                {#                                                        style="height: 300px;"> #}
+                                                <strong>Từ ngày :</strong> <input class="form-control" type="text"
+                                                                                  placeholder="click to show datepicker"
+                                                                                  id="example1">
+                                                <strong>Đến ngày :</strong> <input class="form-control" type="text"
+                                                                                   placeholder="click to show datepicker"
+                                                                                   id="example2">
 
-                                            <button type="button" class="btn btn-dark add" style="margin-top: 20px;
-    width: 80px;">Add</button>
-
-
-
-                                            <div class="modal-1" id="ahihi" style="display: flex; margin-top: 20px;">
-                                                <ul class="list-group col-lg-3" style="border-radius:inherit !important;width: 248px;padding-right: unset;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;"></li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">SỐ LƯỢNG</li>
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">Vốn đầu tư</li>
-                                                </ul>
-                                                <ul class="list-group col-lg-3" style="border-radius:inherit !important;width: 248px;padding-right: unset;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">FDI</li>
-                                                    <li class="list-group-item soloing"  style="border-right: none !important;height:50px;text-align: center;";></li>
-                                                    <li class="list-group-item kongoni" style="border-right: none !important;height:50px;text-align: center;"></li>
-                                                </ul>
-                                                <ul class="list-group col-lg-3" style="border-radius: inherit !important;width: 248px;padding-right: unset;">
-                                                    <li class="list-group-item" style="border-right: none !important;height:50px;text-align: center;">VIỆT NAM</li>
-                                                    <li class="list-group-item vaunt" style="border-right: none !important;height:50px;text-align: center;"></li>
-                                                    <li class="list-group-item tong" style="border-right: none !important;height:50px;text-align: center;"></li>
-                                                </ul>
-                                                <ul class="list-group col-lg-3" style="border-radius: inherit !important;width: 248px;padding-right: unset;">
-                                                    <li class="list-group-item" style="height:50px;text-align: center;">TỔNG</li>
-                                                    <li class="list-group-item tahini1" style="height:50px;text-align: center;"></li>
-                                                    <li class="list-group-item Oahu" style="height:50px;text-align: center;"></li>
-                                                </ul>
-                                            </div>
+                                                <button type="button" class="btn btn-dark add" style="margin-top: 20px;
+    width: 80px;">Add
+                                                </button>
 
 
+                                                <div class="modal-1" id="ahihi"
+                                                     style="display: flex; margin-top: 20px;">
+                                                    <ul class="list-group col-lg-3"
+                                                        style="border-radius:inherit !important;width: 248px;padding-right: unset;">
+                                                        <li class="list-group-item"
+                                                            style="border-right: none !important;height:50px;"></li>
+                                                        <li class="list-group-item"
+                                                            style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">
+                                                            SỐ LƯỢNG
+                                                        </li>
+                                                        <li class="list-group-item"
+                                                            style="border-right: none !important;height:50px;text-transform: uppercase;text-align: center;">
+                                                            Vốn đầu tư
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-group col-lg-3"
+                                                        style="border-radius:inherit !important;width: 248px;padding-right: unset;">
+                                                        <li class="list-group-item"
+                                                            style="border-right: none !important;height:50px;text-align: center;">
+                                                            FDI
+                                                        </li>
+                                                        <li class="list-group-item soloing"
+                                                            style="border-right: none !important;height:50px;text-align: center;"
+                                                            ;></li>
+                                                        <li class="list-group-item kongoni"
+                                                            style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                    </ul>
+                                                    <ul class="list-group col-lg-3"
+                                                        style="border-radius: inherit !important;width: 248px;padding-right: unset;">
+                                                        <li class="list-group-item"
+                                                            style="border-right: none !important;height:50px;text-align: center;">
+                                                            VIỆT NAM
+                                                        </li>
+                                                        <li class="list-group-item vaunt"
+                                                            style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                        <li class="list-group-item tong"
+                                                            style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                    </ul>
+                                                    <ul class="list-group col-lg-3"
+                                                        style="border-radius: inherit !important;width: 248px;padding-right: unset;">
+                                                        <li class="list-group-item"
+                                                            style="height:50px;text-align: center;">TỔNG
+                                                        </li>
+                                                        <li class="list-group-item tahini1"
+                                                            style="height:50px;text-align: center;"></li>
+                                                        <li class="list-group-item Oahu"
+                                                            style="height:50px;text-align: center;"></li>
+                                                    </ul>
+                                                </div>
 
 
                                                 <!-- </canvas> -->
@@ -1009,17 +536,17 @@
                                             <div class="tabcontent" id="Paris"
                                                  style="position: relative; height: 300px;">
                                                 <canvas id="revenue-chart-canvas" height="300"
-                                                        style="height: 300px;"><a href=""> hihi</a> </canvas>
+                                                        style="height: 300px;"><a href=""> hihi</a></canvas>
                                             </div>
                                             <div class="tabcontent" id="Tokyo"
                                                  style="position: relative; height: 300px;">
-                                                <canvas  height="300"
-                                                        style="height: 300px;"><a href="">ahuhu</a> </canvas>
+                                                <canvas height="300"
+                                                        style="height: 300px;"><a href="">ahuhu</a></canvas>
                                             </div>
                                             <div class="tabcontent" id="Analytics"
                                                  style="position: relative; height: 300px;">
-                                                <canvas  height="300"
-                                                        style="height: 300px;"><a href="">hoho</a> </canvas>
+                                                <canvas height="300"
+                                                        style="height: 300px;"><a href="">hoho</a></canvas>
                                             </div>
 
                                         </div>
@@ -1172,144 +699,6 @@
                                 </div>
                                 <!--/.direct-chat -->
 
-                                <!-- TO DO List -->
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">
-                                            <i class="ion ion-clipboard mr-1"></i>
-                                            To Do List
-                                        </h3>
-
-                                        <div class="card-tools">
-                                            <ul class="pagination pagination-sm">
-                                                <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-                                                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                                <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <div class="card-body">
-                                        <ul class="todo-list" data-widget="todo-list">
-                                            <li>
-                                                <!-- drag handle -->
-                                                <span class="handle">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                      </span>
-                                                <!-- checkbox -->
-                                                <div class="icheck-primary d-inline ml-2">
-                                                    <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                                                    <label for="todoCheck1"></label>
-                                                </div>
-                                                <!-- todo text -->
-                                                <span class="text">Design a nice theme</span>
-                                                <!-- Emphasis label -->
-                                                <small class="badge badge-danger"><i class="far fa-clock"></i> 2
-                                                    mins</small>
-                                                <!-- General tools such as edit or delete-->
-                                                <div class="tools">
-                                                    <i class="fas fa-edit"></i>
-                                                    <i class="fas fa-trash-o"></i>
-                                                </div>
-                                            </li>
-                                            <li>
-                      <span class="handle">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                      </span>
-                                                <div class="icheck-primary d-inline ml-2">
-                                                    <input type="checkbox" value="" name="todo2" id="todoCheck2"
-                                                           checked>
-                                                    <label for="todoCheck2"></label>
-                                                </div>
-                                                <span class="text">Make the theme responsive</span>
-                                                <small class="badge badge-info"><i class="far fa-clock"></i> 4
-                                                    hours</small>
-                                                <div class="tools">
-                                                    <i class="fas fa-edit"></i>
-                                                    <i class="fas fa-trash-o"></i>
-                                                </div>
-                                            </li>
-                                            <li>
-                      <span class="handle">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                      </span>
-                                                <div class="icheck-primary d-inline ml-2">
-                                                    <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                                                    <label for="todoCheck3"></label>
-                                                </div>
-                                                <span class="text">Let theme shine like a star</span>
-                                                <small class="badge badge-warning"><i class="far fa-clock"></i> 1
-                                                    day</small>
-                                                <div class="tools">
-                                                    <i class="fas fa-edit"></i>
-                                                    <i class="fas fa-trash-o"></i>
-                                                </div>
-                                            </li>
-                                            <li>
-                      <span class="handle">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                      </span>
-                                                <div class="icheck-primary d-inline ml-2">
-                                                    <input type="checkbox" value="" name="todo4" id="todoCheck4">
-                                                    <label for="todoCheck4"></label>
-                                                </div>
-                                                <span class="text">Let theme shine like a star</span>
-                                                <small class="badge badge-success"><i class="far fa-clock"></i> 3
-                                                    days</small>
-                                                <div class="tools">
-                                                    <i class="fas fa-edit"></i>
-                                                    <i class="fas fa-trash-o"></i>
-                                                </div>
-                                            </li>
-                                            <li>
-                      <span class="handle">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                      </span>
-                                                <div class="icheck-primary d-inline ml-2">
-                                                    <input type="checkbox" value="" name="todo5" id="todoCheck5">
-                                                    <label for="todoCheck5"></label>
-                                                </div>
-                                                <span class="text">Check your messages and notifications</span>
-                                                <small class="badge badge-primary"><i class="far fa-clock"></i> 1
-                                                    week</small>
-                                                <div class="tools">
-                                                    <i class="fas fa-edit"></i>
-                                                    <i class="fas fa-trash-o"></i>
-                                                </div>
-                                            </li>
-                                            <li>
-                      <span class="handle">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                      </span>
-                                                <div class="icheck-primary d-inline ml-2">
-                                                    <input type="checkbox" value="" name="todo6" id="todoCheck6">
-                                                    <label for="todoCheck6"></label>
-                                                </div>
-                                                <span class="text">Let theme shine like a star</span>
-                                                <small class="badge badge-secondary"><i class="far fa-clock"></i> 1
-                                                    month</small>
-                                                <div class="tools">
-                                                    <i class="fas fa-edit"></i>
-                                                    <i class="fas fa-trash-o"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.card-body -->
-                                    <div class="card-footer clearfix">
-                                        <button type="button" class="btn btn-info float-right"><i
-                                                class="fas fa-plus"></i> Add item
-                                        </button>
-                                    </div>
-                                </div>
                                 <!-- /.card -->
                             </section>
                             <!-- /.Left col -->
@@ -1472,11 +861,7 @@
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-                <strong>Copyright &copy; 2014-2020 <a href="">AdminLTE.io</a>.</strong>
-                All rights reserved.
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 3.1.0-pre
-                </div>
+                <strong>Develop by <a href="https://www.facebook.com/haylachinhminh1998">Trần Văn Hiếu</a>.</strong>
             </footer>
 
             <!-- Control Sidebar -->
@@ -1523,33 +908,38 @@
         <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script> </head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+        </head>
 
         <!--Year picker -->
         <script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {
+
+
                 $('#example1').datepicker({
-                    minViewMode: 'years',
-                    autoclose: true,
-                     format: 'yyyy'
+                    changeMonth: true,
+                    minDate: new Date('2014-07-23'),
                 });
+
 
                 $('#example2').datepicker({
                     minViewMode: 'years',
                     autoclose: true,
-                     format: 'yyyy'
+                    format: 'yyyy'
                 });
             });
-
-
-
-
 
 
         </script>
@@ -1570,51 +960,51 @@
             }
 
 
-                $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
-                $(".inner-2").text({{thongkechung.DOANH_NGHIEP_HOAT_DONG}});
-                $(".inner-3").text({{thongkechung.SO_DA_RD}});
-                $(".inner-4").text({{thongkechung.LAO_DONG_CHAT_LUONG_CAO}});
+            $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
+            $(".inner-2").text({{thongkechung.DOANH_NGHIEP_HOAT_DONG}});
+            $(".inner-3").text({{thongkechung.SO_DA_RD}});
+            $(".inner-4").text({{thongkechung.LAO_DONG_CHAT_LUONG_CAO}});
 
-                var arr = [];
+            var arr = [];
 
             $(".add").click(function (e) {
-                 e.preventDefault();
+                e.preventDefault();
 
 
-            var object = {
-            from: parseInt($("#example1").val()),
-            to: parseInt($("#example2").val())
-        };
-        var objectStringify = JSON.stringify(object);
+                var object = {
+                    from: parseInt($("#example1").val()),
+                    to: parseInt($("#example2").val())
+                };
+                var objectStringify = JSON.stringify(object);
 
-            console.log("3",object);
-            console.log("4",objectStringify);
+                console.log("3", object);
+                console.log("4", objectStringify);
 
                 $.ajax({
                     method: "POST",
                     url: "http://192.168.1.26:8000/api/khucnc/thongkedautu",
                     headers: {
-                    'Content-Type': 'application/json; charset=utf8'
-                },
-                data: objectStringify,
-                success: function (data) {
-                    var i = 0;
-                    $.each(data, function (key, value) {
-                        arr[i++] = value;
-                    });
+                        'Content-Type': 'application/json; charset=utf8'
+                    },
+                    data: objectStringify,
+                    success: function (data) {
+                        var i = 0;
+                        $.each(data, function (key, value) {
+                            arr[i++] = value;
+                        });
 
-                    $(".soloing").text(  arr[2]);
-                    $(".vaunt").text(arr[3]);
-                    $(".kongoni").text(arr[0]);
-                    $(".tong").text(arr[1]);
+                        $(".soloing").text(arr[2]);
+                        $(".vaunt").text(arr[3]);
+                        $(".kongoni").text(arr[0]);
+                        $(".tong").text(arr[1]);
 
-                    var tong1 = arr[2] + arr[3];
-                    var tong2 = arr[0] + arr[1];
-                    $(".tahini1").text(tong1);
-                    $(".Oahu").text(tong2);
-                }
+                        var tong1 = arr[2] + arr[3];
+                        var tong2 = arr[0] + arr[1];
+                        $(".tahini1").text(tong1);
+                        $(".Oahu").text(tong2);
+                    }
+                });
             });
-        });
         </script>
 
         </body>

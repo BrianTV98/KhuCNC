@@ -2,15 +2,16 @@ import pyodbc as pyodbc
 from django.shortcuts import render
 import pandas as pd
 
-from web.contrains.base_url import base_url_model
+from web.contrains.base_url import base_url_model, conn
 from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
+from web.view.indext import getYearFromTo
 from web.view.phantich import du_doan_tinh_hinh
-from web.view.thongke import thongketylechiRD
+from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu
 import pickle
 
 import pandas as pd
-import pyodbc
+
 from fbprophet import Prophet
 
 import pystan
@@ -21,19 +22,19 @@ import io
 import urllib
 import json
 
-conn = pyodbc.connect('Driver={SQL Server};'  # connect with SQL server
-                      'Server=DESKTOP-RRUVR94;'
-                      'Database=DUAN_KHUCNC;'
-                      'Trusted_Connection=yes;')
-
 
 def index(request):
+    # thong ke chung
     thongkeChung = pd.read_sql_query('EXEC [dbo].[SP_DASHBOARD_THONGKECHUNG]', conn)
     thongKeChungResult = [
         (ThongKeChung(row.SO_DU_AN_DT, row.DOANH_NGHIEP_HOAT_DONG, row.SO_DA_RD, row.LAO_DONG_CHAT_LUONG_CAO)) for
         index, row in thongkeChung.iterrows()]
     response = [vars(ob) for ob in thongKeChungResult]
-    return render(request, 'indext.html',{"thongkechung": response[0]})
+
+    # thong ke vong dau tu
+    from_to = getYearFromTo()
+
+    return render(request, 'indext.html', {"thongkechung": response[0], "year_from_to":from_to})
 
 
 def report(request):
@@ -66,10 +67,14 @@ def thongke(request):
         thongkeDauTuresponse = [vars(ob) for ob in thongkegDauTuResult]
 
         test = thongketylechiRD
-        print(test)
+
+        a = thongKeTyLeLoaiHinhDauTu(conn)
+
         return render(request, 'thongke.html', {"thongkechung": response[0],
                                                 "thongkeDauTu": thongkeDauTuresponse,
-                                                "tylechiRd": test  })
+                                                "tylechiRd": test,
+                                                "tyleloaihinhdautu": a})
+
     except Exception as e:
         print(e)
         pass
@@ -79,22 +84,6 @@ def thongke(request):
 
 
 def phantich(request):
-    # dataVonDauTuVND = pd.read_sql_query('SELECT NGAY_DANG_KY, VON_DAU_TU_VND FROM dbo.GIAY_CNDT',
-    #                                     conn)  # get data from db
-    # dataVonDauTuVND = dataVonDauTuVND.rename(columns={'NGAY_DANG_KY': 'ds', 'VON_DAU_TU_VND': 'y'})  # rename
-    # dataVonDauTuVND.head()
-    # print(dataVonDauTuVND)
-    #
-    # model_code = 'parameters {real y;} model {y ~ normal(0,1);}'
-    # model = pystan.StanModel(model_code=model_code)  # this will take a minute
-    # y = model.sampling(n_jobs=1).extract()['y']
-    # y.mean()  # should be close to 0
-    # m = Prophet(daily_seasonality=True)
-    # m.fit(dataVonDauTuVND)
-    # future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
-    # future.tail()
-    # forecast = m.predict(future)
-    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
     m = pickle.load(open(base_url_model + '/VonDauTuVND.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
@@ -117,15 +106,27 @@ def phantich(request):
     buf2.seek(0)
     string2 = base64.b64encode(buf2.read())
     uri2 = 'data:image/png;base64,' + urllib.parse.quote(string2)
-    # fig = plt.gcf()
-    # buf = io.BytesIO()
-    # fig.savefig(buf, format='png')
-    # buf.seek(0)
-    # string = base64.b64encode(buf.read())
-    #
-    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    #
-    args = {'image': uri, 'image2': uri2}
+
+    labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+    sizes = [15, 30, 45, 10]
+    explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+    tyleloaihinhdautu = thongKeTyLeLoaiHinhDauTu(conn)
+
+    # test
+    query = 'Exec SP_THONGKE_TY_LE_DAU_TU'
+
+    data = pd.read_sql_query(query, conn)
+
+    lable = [desc.strip() for desc in data['MA_HTDT']]
+    value = [desc for desc in data['SO_LUONG']]
+
+    args = {'image': uri, 'image2': uri2, "lable": lable, "value": value}
     return render(request, 'phantich.html', args)
 
 
