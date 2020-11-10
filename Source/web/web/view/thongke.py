@@ -5,7 +5,7 @@ from web.model.RD_ViewModel import RD_ViewModel
 from web.model.TyLeLoaiHinhDauTu import TyLeLoaiHinhDauTu
 
 conn = pyodbc.connect('Driver={SQL Server};'  # connect with SQL server
-                      'Server=DESKTOP-05ICLAS\\SERVER2;'
+                      'Server=DESKTOP-RRUVR94;'
                       'Database=DUAN_KHUCNC;'
                       'User Id=sa;Password=123')
 

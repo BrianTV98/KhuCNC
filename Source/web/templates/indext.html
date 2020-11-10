@@ -43,7 +43,7 @@
         </head>
 
         <body class="hold-transition sidebar-mini layout-fixed">
-        {{ year_from_to }}
+
         <div class="wrapper">
             <!-- Navbar -->
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -249,9 +249,9 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./index2.html" class="nav-link">
+                                        <a href="/phantich" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard v2</p>
+                                            <p>Phân tích</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -555,7 +555,7 @@
                                 <!-- /.card -->
 
                                 <!-- DIRECT CHAT -->
-                                <div class="card direct-chat direct-chat-primary">
+                                <div class="card direct-chat direct-chat-primary" style="display: none">
                                     <div class="card-header">
                                         <h3 class="card-title">Direct Chat</h3>
 
@@ -920,7 +920,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-        </head>
+
 
         <!--Year picker -->
         <script type="text/javascript">
@@ -958,6 +958,7 @@
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
             }
+
 
 
             $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
