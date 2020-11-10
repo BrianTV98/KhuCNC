@@ -67,16 +67,16 @@ def thongke(request):
             index, row in thongkeDauTu.iterrows()]
         thongkeDauTuresponse = [vars(ob) for ob in thongkegDauTuResult]
 
-        test = thongketylechiRD
 
-        a = thongKeTyLeLoaiHinhDauTu(conn)
+        a = thongKeTyLeLoaiHinhDauTu()
 
         return render(request, 'thongke.html', {"thongkechung": response[0],
                                                 "thongkeDauTu": thongkeDauTuresponse,
-                                                "tylechiRd": test,
+                                                "tylechiRd": thongketylechiRD(),
                                                 "tyleloaihinhdautu": a})
 
     except Exception as e:
+        print("Hieu tesst nef")
         print(e)
         pass
     # Khi mà viết một trang muốn sử dụng nhiều request thì nên dùng class-based view
@@ -112,7 +112,7 @@ def phantich(request):
 
     data = pd.read_sql_query(query, conn)
 
-    lable = [desc.strip() for desc in data['MA_HTDT']]
+    lable = [desc.strip() for desc in data['HINH_THUC_DAU_TU']]
     value = [desc for desc in data['SO_LUONG']]
 
     args = {'image_dau_tu_VND': duDoanDauTuVND_uri,
@@ -121,7 +121,7 @@ def phantich(request):
             'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
             'image_dau_tu_DV': DuDoanDauTu_DV(),
             'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
-            'image_dau_tu_DT': DuDoanDauTu_DT(),
+            # 'image_dau_tu_DT': DuDoanDauTu_DT(),
             # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
             'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
 

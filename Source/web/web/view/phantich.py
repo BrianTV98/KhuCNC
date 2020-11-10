@@ -59,7 +59,7 @@ dataVonDauTuUSD.head()
 
 
 def DuDoanDauTuVND():
-    m = pickle.load(open(base_url.base_url_model + '/VonDauTuVND.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\VonDauTuVND.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -75,7 +75,7 @@ def DuDoanDauTuVND():
 
 
 def DuDoanDauTuUSD():
-    m = pickle.load(open(base_url.base_url_model + '/VonDauTuUSD.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\VonDauTuUSD.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -90,7 +90,7 @@ def DuDoanDauTuUSD():
     return uri
 
 def DuDoanDauTu_SX():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_SX.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_SX.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -106,7 +106,7 @@ def DuDoanDauTu_SX():
 
 
 def DuDoanDauTu_DT_UT():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_DT_UT.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DT_UT.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -121,7 +121,7 @@ def DuDoanDauTu_DT_UT():
     return uri
 
 def DuDoanDauTu_DT_UT():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_DT_UT.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DT_UT.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -136,7 +136,7 @@ def DuDoanDauTu_DT_UT():
     return uri
 
 def DuDoanDauTu_DV():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_DV.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DV.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -151,7 +151,7 @@ def DuDoanDauTu_DV():
     return uri
 
 def DuDoanDauTu_PTHT():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_PTHT.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_PTHT.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -167,7 +167,7 @@ def DuDoanDauTu_PTHT():
 
 
 def DuDoanDauTu_DT():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_DT.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DT.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -182,7 +182,7 @@ def DuDoanDauTu_DT():
     return uri
 
 def DuDoanDauTu_DVCNC():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_DT.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DT.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
@@ -199,7 +199,7 @@ def DuDoanDauTu_DVCNC():
 
 
 def DuDoanDauTu_KHAC():
-    m = pickle.load(open(base_url.base_url_model + '/linhVucDauTu_KHAC.pickle', 'rb'))
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_KHAC.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)

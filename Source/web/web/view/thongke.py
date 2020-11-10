@@ -4,13 +4,15 @@ import web.contrains.base_url as base_url
 
 from web.model.RD_ViewModel import RD_ViewModel
 from web.model.TyLeLoaiHinhDauTu import TyLeLoaiHinhDauTu
+
 def thongketylechiRD():
-    sp = "SELECT* FROM V_RD"
+    sp = "SELECT * FROM V_RD"
     thongKeTyLeChiRD = pd.read_sql_query(sp, base_url.conn)
     thongKeTyLeChiRDResult = [
         (RD_ViewModel(row.TEN_DN, row.NAM, row.TY_LE_CHI_PHI_RD, row.TY_LE_DH_TREN_DH_THAM_GIA_RD, row.KINH_PHI)) for
         index, row in thongKeTyLeChiRD.iterrows()]
     thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+
     return thongKeTyLeChiRDResponse
 
 
