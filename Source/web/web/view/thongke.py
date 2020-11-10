@@ -4,7 +4,6 @@ import web.contrains.base_url as base_url
 
 from web.model.RD_ViewModel import RD_ViewModel
 from web.model.TyLeLoaiHinhDauTu import TyLeLoaiHinhDauTu
-
 def thongketylechiRD():
     sp = "SELECT* FROM V_RD"
     thongKeTyLeChiRD = pd.read_sql_query(sp, base_url.conn)

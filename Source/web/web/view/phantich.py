@@ -13,6 +13,7 @@ import base64
 import io
 import urllib
 
+
 # read data
 # VonDauTuVND
 dataVonDauTuVND = pd.read_sql_query('SELECT NGAY_DANG_KY, VON_DAU_TU_VND FROM dbo.GIAY_CNDT',
