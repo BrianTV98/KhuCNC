@@ -9,7 +9,7 @@
     {% block content %}
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">bower install [<options>]
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
         <!-- Ionicons -->
@@ -30,6 +30,8 @@
         <!-- summernote -->
         <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
         <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
+        <link rel="stylesheet" href="{% static 'dist/js/demo.js' %}">
+        <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
@@ -223,15 +225,7 @@
                             data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                                with font-awesome or any other icon font library -->
-                            <li class="nav-item menu-open">
-                                <a href="#" class="nav-link active">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>
-                                        Dashboard
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                            </li>
+
 
                             <li class="nav-item menu-open">
                                 <a href="#" class="nav-link active">
@@ -257,7 +251,7 @@
                                     <li class="nav-item">
                                         <a href="./index3.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard v3</p>
+                                            <p>Dashboard </p>
                                         </a>
                                     </li>
                                 </ul>
@@ -929,15 +923,23 @@
 
 
                 $('#example1').datepicker({
-                    changeMonth: true,
-                    minDate: new Date('2014-07-23'),
+                    format: "yyyy",
+                    viewMode: "years",
+                    minViewMode: "years",
+                    startDate: new Date('2003'),
+                    endDate: new Date('2020')
                 });
 
 
                 $('#example2').datepicker({
                     minViewMode: 'years',
                     autoclose: true,
-                    format: 'yyyy'
+                    format: 'yyyy',
+                    format: "yyyy",
+                    viewMode: "years",
+                    minViewMode: "years",
+                    startDate: new Date('2003'),
+                    endDate: new Date('2020')
                 });
             });
 

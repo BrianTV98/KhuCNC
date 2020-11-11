@@ -8,6 +8,8 @@
     {% load static %}
 
     {% autoescape off %}
+    <link rel="stylesheet" href="{% static 'dist/js/demo.js' %}">
+        <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -354,79 +356,7 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
-                <div class="row">
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info tablinks" class="tablinks"
-                             onclick="openCity(event, 'London')">
-                            <div class="inner">
-                                <h3 class="inner-1"></h3>
 
-                                <p style="text-transform: uppercase;">DỰ ÁN ĐẦU TƯ</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-table"></i>
-                            </div>
-                            <div class="small-box-footer ">More info
-                                <i class="fas fa-arrow-circle-right"></i></div>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success tablinks" class="tablinks"
-                             onclick="openCity(event, 'Paris')">
-                            <div class="inner">
-                                <h3 class="inner-2"><sup style="font-size: 20px">%</sup></h3>
-
-                                <p style="text-transform: uppercase;">Doanh nghiệp hoạt động</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
-                            </div>
-                            <div href="#" class="small-box-footer ">
-                                More info <i
-                                    class="fas fa-arrow-circle-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning " class="tablinks" onclick="openCity(event, 'Tokyo')">
-                            <div class="inner">
-                                <h3 class="inner-3"></h3>
-
-                                <p style="text-transform: uppercase;">Dự án R&D</p>
-                            </div>
-                            <div class="icon">
-                                <i class="far fa-chart-bar"></i>
-                            </div>
-                            <div href="#" class="small-box-footer ">
-                                More info <i
-                                    class="fas fa-arrow-circle-right"></i></div>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-danger tablinks" class="tablinks"
-                             onclick="openCity(event, 'Analytics')">
-                            <div class="inner">
-                                <h3 class="inner-3"></h3>
-
-                                <p style="text-transform: uppercase;">Lao động chất lượng cao</p>
-                            </div>
-                            <div class="icon">
-                                <i class="far fa-lightbulb"></i>
-                            </div>
-                            <div href="#" class="small-box-footer "
-                            >More info <i
-                                    class="fas fa-arrow-circle-right"></i></div>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                </div>
                 <!-- /.row -->
                 <!-- Main row -->
                 <div class="row">

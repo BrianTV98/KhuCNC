@@ -84,41 +84,42 @@ def thongke(request):
 
 
 def phantich(request):
-    m = pickle.load(open(base_url_model + '/VonDauTuVND.pickle', 'rb'))
-    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
-    future.tail()
-    forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư')
-    ax = fig1.gca()
-    ax.set_title("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư", size=28)
-    # fig1.show()
+    # m = pickle.load(open(base_url_model + '/VonDauTuVND.pickle', 'rb'))
+    # future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    # future.tail()
+    # forecast = m.predict(future)
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư')
+    # ax = fig1.gca()
+    # ax.set_title("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư", size=28)
+    # # fig1.show()
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    #
+    # buf2 = io.BytesIO()
+    # fig2 = m.plot_components(forecast)
+    # fig2.savefig(buf2, format='png')
+    # buf2.seek(0)
+    # string2 = base64.b64encode(buf2.read())
+    # uri2 = 'data:image/png;base64,' + urllib.parse.quote(string2)
+    #
+    # labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+    # sizes = [15, 30, 45, 10]
+    # explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+    #
+    # fig1, ax1 = plt.subplots()
+    # ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+    #         shadow=True, startangle=90)
+    # ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    #
+    # tyleloaihinhdautu = thongKeTyLeLoaiHinhDauTu(conn)
+    #
+    # # test
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-
-    buf2 = io.BytesIO()
-    fig2 = m.plot_components(forecast)
-    fig2.savefig(buf2, format='png')
-    buf2.seek(0)
-    string2 = base64.b64encode(buf2.read())
-    uri2 = 'data:image/png;base64,' + urllib.parse.quote(string2)
-
-    labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-    sizes = [15, 30, 45, 10]
-    explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
-
-    fig1, ax1 = plt.subplots()
-    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-            shadow=True, startangle=90)
-    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-
-    tyleloaihinhdautu = thongKeTyLeLoaiHinhDauTu(conn)
-
-    # test
     query = 'Exec SP_THONGKE_TY_LE_DAU_TU'
 
     data = pd.read_sql_query(query, conn)
@@ -126,8 +127,11 @@ def phantich(request):
     lable = [desc.strip() for desc in data['MA_HTDT']]
     value = [desc for desc in data['SO_LUONG']]
 
-    args = {'image': uri, 'image2': uri2, "lable": lable, "value": value}
-    return render(request, 'phantich.html', args)
+    args = {
+         # 'image': uri, 'image2': uri2,
+
+         "lable": lable, "value": value}
+    return render(request, 'phantich.html' , args)
 
 
 # class ThongKe(View):
