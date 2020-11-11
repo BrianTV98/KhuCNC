@@ -42,7 +42,17 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-{{thongkechung}}
+
+<div class="images1">
+    <img src="{{ image_dau_tu_VND }} ">
+</div>
+
+<div class="images2">
+    <img src="{{ image_dau_tu_USD }} ">
+</div>
+<div class="images3">
+    <img src="{{ image_dau_tu_SX }} ">
+</div>
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -195,6 +205,7 @@
                     <a href="https://www.facebook.com/haylachinhminh1998/" class="d-block">Trần Văn Hiếu</a>
                 </div>
             </div>
+            >>>>>>> c36b7d1e8c7bf92b048def6bc61e182351919008
 
             <!-- SidebarSearch Form -->
             <div class="form-inline">
@@ -375,38 +386,36 @@
                             <div class="card-body row ">
 
                                 <div class="ahihi col-12" style="position: relative">
-                                     <div class="images1 col" style="transform: scale(0.5);position: absolute;
+                                    <div class="images1 col" style="transform: scale(0.5);position: absolute;
     top: -140px;
-    left: -277px;"> <img src="{{ image }} "> </div>
-                                     <div class="col" style="transform: scale(0.5);transform: scale(0.5);
+    left: -277px;"><img src="{{ image }} "></div>
+                                    <div class="col" style="transform: scale(0.5);transform: scale(0.5);
 
     position: relative;
     top: -216px;
-    right: -336px;"> <img src="{{ image2 }} "></div>
+    right: -336px;"><img src="{{ image2 }} "></div>
                                     <div class="ahuhu col-12" style="position: absolute;
     top: 352px;
     left: 40px;">
-                                    <div class="col" id="canvas-holder" style="width:40%">
-                                    <div class="chartjs-size-monitor">
-                                        <div class="chartjs-size-monitor-expand">
-                                            <div class=""></div>
+                                        <div class="col" id="canvas-holder" style="width:40%">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas id="chart-area" style="display: block; height: 60px; width: 120px;"
+                                                    width="150" height="75"
+                                                    class="chartjs-render-monitor"></canvas>
                                         </div>
-                                        <div class="chartjs-size-monitor-shrink">
-                                            <div class=""></div>
+                                        <div class="col" id="randomizeData" style="transform: translateX(90px);
+    margin-top: 20px;">Biểu đồ tỷ lệ đầu tư vào các loại hình dự án
                                         </div>
                                     </div>
-                                    <canvas id="chart-area" style="display: block; height: 60px; width: 120px;"
-                                            width="150" height="75"
-                                            class="chartjs-render-monitor"></canvas>
-                                </div>
-                                    <div class="col" id="randomizeData" style="transform: translateX(90px);
-    margin-top: 20px;">Biểu đồ tỷ lệ đầu tư vào các loại hình dự án</div>
-                                </div>
 
                                 </div>
-
-
-
 
 
                             </div><!-- /.card-body -->
@@ -593,6 +602,7 @@
 <script>
             $.widget.bridge('uibutton', $.ui.button)
 
+
 </script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -696,6 +706,7 @@
                     }
                 });
             });
+
 
 
 </script>
@@ -900,6 +911,7 @@
                 var ctx = document.getElementById('chart-area').getContext('2d');
                 window.myPie = new Chart(ctx, config);
             };
+
 
 
 
