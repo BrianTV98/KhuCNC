@@ -9,7 +9,7 @@
     {% block content %}
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">bower install [<options>]
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
         <!-- Ionicons -->
@@ -231,27 +231,27 @@
                                 <a href="#" class="nav-link active">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
-                                        Thống kê
+                                        Dashboard
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview" style="display: block;">
                                     <li class="nav-item">
-                                        <a href="/thongke" class="nav-link active">
+                                        <a href="/" class="nav-link active">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Thống kê</p>
+                                            <p> Tổng kết</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="/thongke" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Thống kê </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" style="border-bottom: 1px solid #4b545c;">
                                         <a href="/phantich" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Phân tích</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./index3.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard </p>
+                                            <p> Phân tích</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -525,7 +525,7 @@
 
 
                                                 <!-- </canvas> -->
-                                            </div>
+
 
                                             <div class="tabcontent" id="Paris"
                                                  style="position: relative; height: 300px;">
@@ -859,9 +859,7 @@
             </footer>
 
             <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
+
             <!-- /.control-sidebar -->
         </div>
         <!-- ./wrapper -->

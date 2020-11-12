@@ -85,7 +85,7 @@ def thongke(request):
 
 
 def phantich(request):
-<<<<<<< HEAD
+
     # m = pickle.load(open(base_url_model + '/VonDauTuVND.pickle', 'rb'))
     # future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     # future.tail()
@@ -101,13 +101,12 @@ def phantich(request):
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    #
-=======
+
     duDoanDauTuVND_uri = DuDoanDauTuVND()
     duDoanDauTuUSD_uri = DuDoanDauTuUSD()
     DuDoanDauTu_SX_uri = DuDoanDauTu_SX()
     duDoanDauTu_DT_UT_uri = DuDoanDauTu_DT_UT()
->>>>>>> c8fe701b32ef38b1ac6f93c6816c59319c3d6afc
+
     # buf2 = io.BytesIO()
     # fig2 = m.plot_components(forecast)
     # fig2.savefig(buf2, format='png')
@@ -125,14 +124,14 @@ def phantich(request):
     # ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     #
     # tyleloaihinhdautu = thongKeTyLeLoaiHinhDauTu(conn)
-<<<<<<< HEAD
+
     #
     # # test
 
-=======
+
 
     # test
->>>>>>> c8fe701b32ef38b1ac6f93c6816c59319c3d6afc
+
     query = 'Exec SP_THONGKE_TY_LE_DAU_TU'
 
     data = pd.read_sql_query(query, conn)
@@ -140,13 +139,12 @@ def phantich(request):
     lable = [desc.strip() for desc in data['HINH_THUC_DAU_TU']]
     value = [desc for desc in data['SO_LUONG']]
 
-<<<<<<< HEAD
     args = {
          # 'image': uri, 'image2': uri2,
 
          "lable": lable, "value": value}
     return render(request, 'phantich.html' , args)
-=======
+
     args = {'image_dau_tu_VND': duDoanDauTuVND_uri,
             'image_dau_tu_USD': duDoanDauTuUSD_uri,
             'image_dau_tu_SX': DuDoanDauTu_SX_uri,
@@ -160,7 +158,7 @@ def phantich(request):
             "lable": lable,
             "value": value}
     return render(request, 'phantich.html', args)
->>>>>>> c8fe701b32ef38b1ac6f93c6816c59319c3d6afc
+
 
 
 # class ThongKe(View):
