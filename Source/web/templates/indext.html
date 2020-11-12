@@ -42,6 +42,10 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
               rel="stylesheet">
 
+  <!-- Datetime Year Picker-->
+
+
+
         </head>
 
         <body class="hold-transition sidebar-mini layout-fixed">
@@ -56,7 +60,7 @@
                                 class="fas fa-bars"></i></a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="index3.html" class="nav-link">Home</a>
+                        <a href="" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="#" class="nav-link">Contact</a>
@@ -186,7 +190,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="indext.html" class="brand-link">
+                <a href="" class="brand-link">
                     <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
                          class="brand-image img-circle elevation-3"
                          style="opacity: .8">
@@ -444,14 +448,7 @@
                                             Thống Kê Vốn Đầu tư dự án ở khu Công Nghệ Cao
                                         </h3>
                                         <div class="card-tools">
-                                            <ul class="nav nav-pills ml-auto">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                                </li>
-                                            </ul>
+
                                         </div>
                                     </div><!-- /.card-header -->
                                     <div class="card-body" style="height: 412px;">
@@ -461,12 +458,18 @@
                                                  style="position: relative; height: 300px;">
                                                 {#                                                <canvas  height="300"#}
                                                 {#                                                        style="height: 300px;"> #}
-                                                <strong>Từ ngày :</strong> <input class="form-control" type="text"
-                                                                                  placeholder="click to show datepicker"
-                                                                                  id="example1">
+                                                <strong>Từ ngày :</strong>
+
+                                                <input class="form-control" type="text" placeholder="Click to show datepicker" id="example1">
+
+
                                                 <strong>Đến ngày :</strong> <input class="form-control" type="text"
-                                                                                   placeholder="click to show datepicker"
+                                                                                   placeholder="Click to show datepicker"
                                                                                    id="example2">
+
+
+
+
 
                                                 <button type="button" class="btn btn-dark add" style="margin-top: 20px;
     width: 80px;">Add
@@ -527,23 +530,10 @@
                                                 <!-- </canvas> -->
 
 
-                                            <div class="tabcontent" id="Paris"
-                                                 style="position: relative; height: 300px;">
-                                                <canvas id="revenue-chart-canvas" height="300"
-                                                        style="height: 300px;"><a href=""> hihi</a></canvas>
-                                            </div>
-                                            <div class="tabcontent" id="Tokyo"
-                                                 style="position: relative; height: 300px;">
-                                                <canvas height="300"
-                                                        style="height: 300px;"><a href="">ahuhu</a></canvas>
-                                            </div>
-                                            <div class="tabcontent" id="Analytics"
-                                                 style="position: relative; height: 300px;">
-                                                <canvas height="300"
-                                                        style="height: 300px;"><a href="">hoho</a></canvas>
-                                            </div>
+
 
                                         </div>
+
                                     </div><!-- /.card-body -->
                                 </div>
                                 <!-- /.card -->
@@ -853,16 +843,20 @@
                 </section>
                 <!-- /.content -->
             </div>
-            <!-- /.content-wrapper -->
+
+
             <footer class="main-footer">
                 <strong>Develop by <a href="https://www.facebook.com/haylachinhminh1998">Trần Văn Hiếu</a>.</strong>
             </footer>
 
             <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
 
-            <!-- /.control-sidebar -->
         </div>
-        <!-- ./wrapper -->
+
+
 
         <!-- jQuery -->
         <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
@@ -898,7 +892,7 @@
         <script src="{% static 'dist/js/demo.js' %}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
                 integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -913,11 +907,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
-
         <!--Year picker -->
+
+        <script >
+
+        </script>
+
         <script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {
+
 
 
                 $('#example1').datepicker({
@@ -925,7 +924,9 @@
                     viewMode: "years",
                     minViewMode: "years",
                     startDate: new Date('2003'),
-                    endDate: new Date('2020')
+                    endDate: new Date('2020'),
+                    autoclose: true,
+                     todayHighlight: true,
                 });
 
 
@@ -943,7 +944,12 @@
 
 
         </script>
+
         <script>
+
+
+
+
 
             function openCity(evt, cityName) {
                 var i, tabcontent, tablinks;

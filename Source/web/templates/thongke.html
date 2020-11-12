@@ -46,6 +46,30 @@
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
 
+    <style>
+<!--    tr{-->
+<!--       text-align: center;-->
+<!--    }-->
+
+        .card-body{
+           cursor: pointer;
+        }
+        .th-inner {
+            background-color: #343a40;
+            color: #c2c7d0;
+        }
+        .fixed-table-header{
+            background-color: #343a40;
+            color: #c2c7d0;
+        }
+
+.bootstrap-table .table thead>tr>th{
+    border-top: unset;
+    border-bottom: unset;
+    text-align: center;
+}
+    </style>
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -60,7 +84,7 @@
                         class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -178,7 +202,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="indext.html" class="brand-link" style="height: 49px;position: relative;    text-align: center;">
+        <a href="" class="brand-link" style="height: 49px;position: relative;    text-align: center;">
             <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8;position: absolute;
@@ -338,7 +362,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Trang Chủ</h1>
+                        <h1 class="m-0">Thống kê</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -369,23 +393,17 @@
                                     Thống Kê tỉ lệ nhà máy qua từng năm
                                 </h3>
                                 <div class="card-tools">
-                                    <ul class="nav nav-pills ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                        </li>
-                                    </ul>
+
                                 </div>
                             </div><!-- /.card-header -->
                             <div class="card-body" >
                                 <p id="console1" style="display: none"> {{tylechiRd}} </p>
                                 <div class="container">
-                                    <table id="table" data-height="460">
+                                    <table id="table" data-height="460" style="">
                                         <thead>
-                                        <tr id="body-table">
-                                            <th data-field="col1">Tên dự án</th>
+                                        <tr id="body-table" >
+                                            <th data-field="col1" scope="background-color: #343a40;
+color: #c2c7d0;">Tên dự án</th>
                                             <!-- <th data-field="row2">Năm 2015</th>
                                             <th data-field="row3">Năm 2016</th>
                                             <th data-field="row4">Năm 2017</th>
