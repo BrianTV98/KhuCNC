@@ -63,6 +63,7 @@ def DuDoanDauTuVND():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
+    print(forecast)
     forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
     fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư VND')
 
