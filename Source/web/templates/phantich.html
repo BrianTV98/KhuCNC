@@ -9,7 +9,7 @@
 
     {% autoescape off %}
     <link rel="stylesheet" href="{% static 'dist/js/demo.js' %}">
-        <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
+    <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -43,18 +43,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
-<!--<div class="images1">-->
-<!--    <img src="{{ image_dau_tu_VND }} ">-->
-<!--</div>-->
 
-<!--<div class="images2">-->
-<!--    <img src="{{ image_dau_tu_USD }} ">-->
-<!--</div>-->
-<!--<div class="images3">-->
-<!--    <img src="{{ image_dau_tu_SX }} ">-->
-
-<img src="C:\\Users\\Mylov\\Desktop\\abc.png">
-</div>
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -65,7 +54,7 @@
                         class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -207,7 +196,6 @@
                     <a href="https://www.facebook.com/haylachinhminh1998/" class="d-block">Trần Văn Hiếu</a>
                 </div>
             </div>
-            >>>>>>> c36b7d1e8c7bf92b048def6bc61e182351919008
 
             <!-- SidebarSearch Form -->
             <div class="form-inline">
@@ -234,27 +222,27 @@
                         <a href="#" class="nav-link active" style="backgroundColor: unset">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Thống kê
+                                Dashboard
                                 <i class="right fas fa-angle-left" style="margin-top: 7px"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview" style="display: block;">
                             <li class="nav-item">
-                                <a href="/thongke" class="nav-link active">
+                                <a href="/" class="nav-link ">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Thống kê</p>
+                                    <p>Tổng kết</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/thongke" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thống kê </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="border-bottom: 1px solid #4b545c;">
+                                <a href="/phantich" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Phân tích</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v3</p>
                                 </a>
                             </li>
                         </ul>
@@ -344,7 +332,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Trang Chủ</h1>
+                        <h1 class="m-0">Phân tích</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -375,14 +363,7 @@
                                     Thống Kê tỉ lệ nhà máy qua từng năm
                                 </h3>
                                 <div class="card-tools">
-                                    <ul class="nav nav-pills ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                        </li>
-                                    </ul>
+
                                 </div>
                             </div><!-- /.card-header -->
                             <div class="card-body row ">
@@ -396,202 +377,211 @@
     position: relative;
     top: -216px;
     right: -336px;"><img src="{{ image2 }} "></div>
-                                    <div class="ahuhu col-12" style="position: absolute;
-    top: 352px;
-    left: 40px;">
-                                        <div class="col" id="canvas-holder" style="width:40%">
-                                            <div class="chartjs-size-monitor">
-                                                <div class="chartjs-size-monitor-expand">
-                                                    <div class=""></div>
-                                                </div>
-                                                <div class="chartjs-size-monitor-shrink">
-                                                    <div class=""></div>
-                                                </div>
+
+                                    <div class="col" id="canvas-holder" style="width:40%">
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class=""></div>
                                             </div>
-                                            <canvas id="chart-area" style="display: block; height: 60px; width: 120px;"
-                                                    width="150" height="75"
-                                                    class="chartjs-render-monitor"></canvas>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class=""></div>
+                                            </div>
                                         </div>
-                                        <div class="col" id="randomizeData" style="transform: translateX(90px);
+                                        <canvas id="chart-area" style="display: block; height: 60px; width: 120px;"
+                                                width="150" height="75"
+                                                class="chartjs-render-monitor"></canvas>
+                                    </div>
+                                    <div class="col" id="randomizeData" style="transform: translateX(90px);
     margin-top: 20px;">Biểu đồ tỷ lệ đầu tư vào các loại hình dự án
-                                        </div>
                                     </div>
+                                </div>
+                                <div class="images1">
+                                    <img src="{{ image_dau_tu_VND }} ">
+                                </div>
 
+                                <div class="images2">
+                                    <img src="{{ image_dau_tu_USD }} ">
+                                </div>
+                                <div class="images3">
+                                    <img src="{{ image_dau_tu_SX }} ">
                                 </div>
 
 
-                            </div><!-- /.card-body -->
-                        </div>
-
-                    </section>
-                    <!-- /.Left col -->
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                    <section class="col-lg-2 connectedSortable" style="display:none">
-
-                        <!-- Map card -->
-                        <div class="card bg-gradient-primary">
-                            <div class="card-header border-0">
-                                <h3 class="card-title">
-                                    <i class="fas fa-map-marker-alt mr-1"></i>
-                                    Visitors
-                                </h3>
-                                <!-- card tools -->
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-primary btn-sm daterange"
-                                            title="Date range">
-                                        <i class="far fa-calendar-alt"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-primary btn-sm"
-                                            data-card-widget="collapse" title="Collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                </div>
-                                <!-- /.card-tools -->
                             </div>
-                            <div class="card-body">
-                                <div id="world-map" style="height: 250px; width: 100%;"></div>
-                            </div>
-                            <!-- /.card-body-->
-                            <div class="card-footer bg-transparent">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <div id="sparkline-1"></div>
-                                        <div class="text-white">Visitors</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <div id="sparkline-2"></div>
-                                        <div class="text-white">Online</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <div id="sparkline-3"></div>
-                                        <div class="text-white">Sales</div>
-                                    </div>
-                                    <!-- ./col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                        </div>
-                        <!-- /.card -->
 
-                        <!-- solid sales graph -->
-                        <div class="card bg-gradient-info">
-                            <div class="card-header border-0">
-                                <h3 class="card-title">
-                                    <i class="fas fa-th mr-1"></i>
-                                    Sales Graph
-                                </h3>
 
-                                <div class="card-tools">
-                                    <button type="button" class="btn bg-info btn-sm"
-                                            data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <canvas class="chart" id="line-chart"
-                                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer bg-transparent">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="20"
-                                               data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
+                        </div><!-- /.card-body -->
 
-                                        <div class="text-white">Mail-Orders</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="50"
-                                               data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
 
-                                        <div class="text-white">Online</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="30"
-                                               data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
-
-                                        <div class="text-white">In-Store</div>
-                                    </div>
-                                    <!-- ./col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.card-footer -->
-                        </div>
-                        <!-- /.card -->
-
-                        <!-- Calendar -->
-                        <div class="card bg-gradient-success">
-                            <div class="card-header border-0">
-
-                                <h3 class="card-title">
-                                    <i class="far fa-calendar-alt"></i>
-                                    Calendar
-                                </h3>
-                                <!-- tools card -->
-                                <div class="card-tools">
-                                    <!-- button with a dropdown -->
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
-                                                data-toggle="dropdown"
-                                                data-offset="-52">
-                                            <i class="fas fa-bars"></i>
-                                        </button>
-                                        <div class="dropdown-menu" role="menu">
-                                            <a href="#" class="dropdown-item">Add new event</a>
-                                            <a href="#" class="dropdown-item">Clear events</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="#" class="dropdown-item">View calendar</a>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-success btn-sm"
-                                            data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-sm"
-                                            data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                                <!-- /. tools -->
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body pt-0">
-                                <!--The calendar -->
-                                <div id="calendar" style="width: 100%"></div>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </section>
-                    <!-- right col -->
-                </div>
-                <!-- /.row (main row) -->
-            </div><!-- /.container-fluid -->
         </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Develop by <a href="https://www.facebook.com/haylachinhminh1998">Trần Văn Hiếu</a>.</strong>
-    </footer>
+        <!-- /.Left col -->
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-lg-2 connectedSortable" style="display:none">
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+            <!-- Map card -->
+            <div class="card bg-gradient-primary">
+                <div class="card-header border-0">
+                    <h3 class="card-title">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        Visitors
+                    </h3>
+                    <!-- card tools -->
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-primary btn-sm daterange"
+                                title="Date range">
+                            <i class="far fa-calendar-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm"
+                                data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                    <!-- /.card-tools -->
+                </div>
+                <div class="card-body">
+                    <div id="world-map" style="height: 250px; width: 100%;"></div>
+                </div>
+                <!-- /.card-body-->
+                <div class="card-footer bg-transparent">
+                    <div class="row">
+                        <div class="col-4 text-center">
+                            <div id="sparkline-1"></div>
+                            <div class="text-white">Visitors</div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-4 text-center">
+                            <div id="sparkline-2"></div>
+                            <div class="text-white">Online</div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-4 text-center">
+                            <div id="sparkline-3"></div>
+                            <div class="text-white">Sales</div>
+                        </div>
+                        <!-- ./col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+            <!-- /.card -->
+
+            <!-- solid sales graph -->
+            <div class="card bg-gradient-info">
+                <div class="card-header border-0">
+                    <h3 class="card-title">
+                        <i class="fas fa-th mr-1"></i>
+                        Sales Graph
+                    </h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn bg-info btn-sm"
+                                data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas class="chart" id="line-chart"
+                            style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer bg-transparent">
+                    <div class="row">
+                        <div class="col-4 text-center">
+                            <input type="text" class="knob" data-readonly="true" value="20"
+                                   data-width="60" data-height="60"
+                                   data-fgColor="#39CCCC">
+
+                            <div class="text-white">Mail-Orders</div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-4 text-center">
+                            <input type="text" class="knob" data-readonly="true" value="50"
+                                   data-width="60" data-height="60"
+                                   data-fgColor="#39CCCC">
+
+                            <div class="text-white">Online</div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-4 text-center">
+                            <input type="text" class="knob" data-readonly="true" value="30"
+                                   data-width="60" data-height="60"
+                                   data-fgColor="#39CCCC">
+
+                            <div class="text-white">In-Store</div>
+                        </div>
+                        <!-- ./col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+
+            <!-- Calendar -->
+            <div class="card bg-gradient-success">
+                <div class="card-header border-0">
+
+                    <h3 class="card-title">
+                        <i class="far fa-calendar-alt"></i>
+                        Calendar
+                    </h3>
+                    <!-- tools card -->
+                    <div class="card-tools">
+                        <!-- button with a dropdown -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    data-offset="-52">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <div class="dropdown-menu" role="menu">
+                                <a href="#" class="dropdown-item">Add new event</a>
+                                <a href="#" class="dropdown-item">Clear events</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">View calendar</a>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success btn-sm"
+                                data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-success btn-sm"
+                                data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <!-- /. tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body pt-0">
+                    <!--The calendar -->
+                    <div id="calendar" style="width: 100%"></div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </section>
+        <!-- right col -->
+    </div>
+    <!-- /.row (main row) -->
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>Develop by <a href="https://www.facebook.com/haylachinhminh1998">Trần Văn Hiếu</a>.</strong>
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 
 
@@ -603,6 +593,7 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
             $.widget.bridge('uibutton', $.ui.button)
+
 
 
 </script>
@@ -708,6 +699,7 @@
                     }
                 });
             });
+
 
 
 
@@ -913,6 +905,7 @@
                 var ctx = document.getElementById('chart-area').getContext('2d');
                 window.myPie = new Chart(ctx, config);
             };
+
 
 
 

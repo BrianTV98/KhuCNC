@@ -20,7 +20,8 @@
     <link rel="stylesheet"
           href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
     <!-- iCheck -->
-    <!-- <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}"> -->
+    <!-- test -->
+     <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
     <!-- Theme style -->
@@ -39,11 +40,35 @@
 
 
     <!-- DataTable -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+    <style>
+<!--    tr{-->
+<!--       text-align: center;-->
+<!--    }-->
+
+        .card-body{
+           cursor: pointer;
+        }
+        .th-inner {
+            background-color: #343a40;
+            color: #c2c7d0;
+        }
+        .fixed-table-header{
+            background-color: #343a40;
+            color: #c2c7d0;
+        }
+
+.bootstrap-table .table thead>tr>th{
+    border-top: unset;
+    border-bottom: unset;
+    text-align: center;
+}
+    </style>
 
 </head>
 
@@ -59,7 +84,7 @@
                         class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -177,7 +202,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="indext.html" class="brand-link" style="height: 49px;position: relative;    text-align: center;">
+        <a href="" class="brand-link" style="height: 49px;position: relative;    text-align: center;">
             <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8;position: absolute;
@@ -227,27 +252,27 @@
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Thống kê
+                                Dashboard
                                 <i class="right fas fa-angle-left" style="margin-top: 7px"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview" style="display: block;">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tổng kết</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="/thongke" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thống kê</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="border-bottom: 1px solid #4b545c;">
                                 <a href="/phantich" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Phân tích</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v3</p>
                                 </a>
                             </li>
                         </ul>
@@ -337,7 +362,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Trang Chủ</h1>
+                        <h1 class="m-0">Thống kê</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -368,23 +393,17 @@
                                     Thống Kê tỉ lệ nhà máy qua từng năm
                                 </h3>
                                 <div class="card-tools">
-                                    <ul class="nav nav-pills ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                        </li>
-                                    </ul>
+
                                 </div>
                             </div><!-- /.card-header -->
                             <div class="card-body" >
                                 <p id="console1" style="display: none"> {{tylechiRd}} </p>
                                 <div class="container">
-                                    <table id="table" data-height="460">
+                                    <table id="table" data-height="460" style="">
                                         <thead>
-                                        <tr id="body-table">
-                                            <th data-field="col1">Tên dự án</th>
+                                        <tr id="body-table" >
+                                            <th data-field="col1" scope="background-color: #343a40;
+color: #c2c7d0;">Tên dự án</th>
                                             <!-- <th data-field="row2">Năm 2015</th>
                                             <th data-field="row3">Năm 2016</th>
                                             <th data-field="row4">Năm 2017</th>
@@ -695,6 +714,42 @@
             });
 
 </script>
+ <!-- jQuery -->
+        <!--<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>-->
+
+        <!-- jQuery UI 1.11.4 -->
+        <script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge('uibutton', $.ui.button)
+        </script>
+        <!-- Bootstrap 4 -->
+        <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <!-- ChartJS -->
+        <script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+        <!-- Sparkline -->
+        <script src="{% static 'plugins/sparklines/sparkline.js' %}"></script>
+        <!-- JQVMap -->
+        <script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+        <script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+        <!-- daterangepicker -->
+        <script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+        <script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+        <!-- Summernote -->
+        <script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
+        <!-- overlayScrollbars -->
+        <script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+        <!-- AdminLTE App -->
+        <script src="{% static 'dist/js/adminlte.js' %}"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="{% static 'dist/js/demo.js' %}"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 
 </body>
 
