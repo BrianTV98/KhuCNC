@@ -96,7 +96,6 @@ def phantich(request):
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
     #
 
-    duDoanDauTuVND_uri = DuDoanDauTuVND()
     duDoanDauTuUSD_uri = DuDoanDauTuUSD()
     DuDoanDauTu_SX_uri = DuDoanDauTu_SX()
     duDoanDauTu_DT_UT_uri = DuDoanDauTu_DT_UT()
@@ -132,15 +131,15 @@ def phantich(request):
     value = [desc for desc in data['SO_LUONG']]
 
     args = {
-        'image_dau_tu_VND': duDoanDauTuVND_uri,
-        #     'image_dau_tu_USD': duDoanDauTuUSD_uri,
-        #     'image_dau_tu_SX': DuDoanDauTu_SX_uri,
-        #     'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
-        #     'image_dau_tu_DV': DuDoanDauTu_DV(),
-        #     'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
+        'image_dau_tu_VND': DuDoanDauTuVND(),
+            # 'image_dau_tu_USD': duDoanDauTuUSD_uri,
+            # 'image_dau_tu_SX': DuDoanDauTu_SX_uri,
+            # 'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
+            # 'image_dau_tu_DV': DuDoanDauTu_DV(),
+            # 'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
         # 'image_dau_tu_DT': DuDoanDauTu_DT(),
         # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
-        'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
+        # 'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
 
         "lable": lable,
         "value": value}

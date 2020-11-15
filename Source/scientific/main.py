@@ -28,7 +28,7 @@ conn = pyodbc.connect('Driver={SQL Server};'  # connect with SQL server
 # VonDauTuVND
 dataVonDauTuVND = pd.read_sql_query('SELECT NGAY_DANG_KY, VON_DAU_TU_VND FROM dbo.GIAY_CNDT', conn)  # get data from db
 dataVonDauTuVND = dataVonDauTuVND.rename(columns={'NGAY_DANG_KY': 'ds', 'VON_DAU_TU_VND': 'y'})  # rename
-dataVonDauTuVND['y'] = dataVonDauTuVND['y'] / 100000000
+dataVonDauTuVND['y'] = dataVonDauTuVND['y'] / 1000000000
 print(dataVonDauTuVND)
 dataVonDauTuVND.head()
 
@@ -86,7 +86,7 @@ dataVonDauTuVND.head()
 m = Prophet()
 # create model and save model
 m.fit(dataVonDauTuVND)
-# # pickle.dump(m, open(base_url_model + '/VonDauTuVND.pickle', 'wb'))
+pickle.dump(m, open(base_url_model + '/VonDauTuVND.pickle', 'wb'))
 # # #
 # m = Prophet()
 # m.fit(dataVonDauTuUSD)
@@ -150,7 +150,7 @@ fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư', figsize=(10, 1
 ax = fig1.gca()
 
 arr = np.array([datetime.datetime(i, 1, 1) for i in
-                range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year+2)])
+                range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
 fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
 years = mdates.YearLocator()  # every year
 months = mdates.MonthLocator()  # every month
@@ -166,21 +166,20 @@ ax.set_xticks(arr)
 fig1.show()
 plt.savefig('C:\\Users\\Mylov\\Desktop\\abc.png')
 
-
 # a = add_changepoints_to_plot(fig1.gca(), m, forecast)
 
 # t = np.arange(0.0, 2.0, 0.01)
 # s = 1 + np.sin(2 * np.pi * t)
 #
-# fig, ax = plt.subplots()
-# ax.plot(forecast.sort_values('ds', ascending=True))
-#
-# ax.set(xlabel='time (s)', ylabel='voltage (mV)',
-#        title='About as simple as it gets, folks')
-# ax.grid()
-#
-# fig.savefig("test.png")
-# plt.show()
+fig, ax = plt.subplots()
+ax.plot(forecast[["ds", "yhat"]].sort_values('ds', ascending=True))
+
+ax.set(xlabel='time (s)', ylabel='voltage (mV)',
+       title='About as simple as it gets, folks')
+ax.grid()
+
+fig.savefig("test.png")
+plt.show()
 #
 
 

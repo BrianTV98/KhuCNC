@@ -12,6 +12,10 @@ import pickle
 import base64
 import io
 import urllib
+import numpy as np
+import matplotlib.dates as mdates
+import datetime
+import matplotlib.pyplot as plt
 
 # read data
 # VonDauTuVND
@@ -62,24 +66,12 @@ def DuDoanDauTuVND():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    # print(forecast)
-    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư VND')
-
-    # buf = io.BytesIO()
-    # fig1.savefig(buf, format='png')
-    # buf.seek(0)
-    # string = base64.b64encode(buf.read())
-    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-
-    lable = [
-        (SoLieuThongKe(row.ds, row.yhat))
-        for index, row in forecast.iterrows()
-    ]
-
-    print(forecast.iterrows())
-
-    return lable
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    return thongKeTyLeChiRDResponse
 
 
 def DuDoanDauTuUSD():
@@ -95,6 +87,31 @@ def DuDoanDauTuUSD():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ USD)')
+
+    ax = fig1.gca()
+
+    arr = np.array([datetime.datetime(i, 1, 1) for i in
+                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+
+    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    years = mdates.YearLocator()  # every year
+    months = mdates.MonthLocator()  # every month
+
+    yearsFmt = mdates.DateFormatter('%Y')
+
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(yearsFmt)
+    ax.xaxis.set_minor_locator(months)
+
+    fig1.autofmt_xdate()
+
+    ax.set_xticks(arr)
+    plt.savefig('web\\images\\vondautuUSD.png')
+
     return forecast[["yhat"]].tail()
 
 
@@ -111,6 +128,27 @@ def DuDoanDauTu_SX():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+
+    ax = fig1.gca()
+
+    arr = np.array([datetime.datetime(i, 1, 1) for i in
+                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư cho sản xuất")
+    years = mdates.YearLocator()  # every year
+    months = mdates.MonthLocator()  # every month
+    yearsFmt = mdates.DateFormatter('%Y')
+
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(yearsFmt)
+    ax.xaxis.set_minor_locator(months)
+
+    fig1.autofmt_xdate()
+
+    ax.set_xticks(arr)
+    plt.savefig('web\\images\\vondautuSX.png')
     return forecast[["yhat"]].tail()
 
 
@@ -127,6 +165,29 @@ def DuDoanDauTu_DT_UT():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+
+
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+
+    ax = fig1.gca()
+
+    arr = np.array([datetime.datetime(i, 1, 1) for i in
+                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    years = mdates.YearLocator()  # every year
+    months = mdates.MonthLocator()  # every month
+    yearsFmt = mdates.DateFormatter('%Y')
+
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(yearsFmt)
+    ax.xaxis.set_minor_locator(months)
+
+    fig1.autofmt_xdate()
+
+    ax.set_xticks(arr)
+    plt.savefig('web\\images\\linhVucDauTu_DT_UT.png')
     return forecast[["yhat"]].tail()
 
 
@@ -143,6 +204,8 @@ def DuDoanDauTu_DT_UT():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+
     return forecast[["yhat"]].tail()
 
 
@@ -151,6 +214,26 @@ def DuDoanDauTu_DV():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+
+    ax = fig1.gca()
+
+    arr = np.array([datetime.datetime(i, 1, 1) for i in
+                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    years = mdates.YearLocator()  # every year
+    months = mdates.MonthLocator()  # every month
+    yearsFmt = mdates.DateFormatter('%Y')
+
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(yearsFmt)
+    ax.xaxis.set_minor_locator(months)
+
+    fig1.autofmt_xdate()
+
+    ax.set_xticks(arr)
+    plt.savefig('web\\images\\linhVucDauTu_DV.png')
     # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
     # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Dịch Vụ')
     #
@@ -175,6 +258,26 @@ def DuDoanDauTu_PTHT():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+
+    ax = fig1.gca()
+
+    arr = np.array([datetime.datetime(i, 1, 1) for i in
+                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    years = mdates.YearLocator()  # every year
+    months = mdates.MonthLocator()  # every month
+    yearsFmt = mdates.DateFormatter('%Y')
+
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(yearsFmt)
+    ax.xaxis.set_minor_locator(months)
+
+    fig1.autofmt_xdate()
+
+    ax.set_xticks(arr)
+    plt.savefig('web\\images\\linhVucDauTu_PTHT.png')
     return forecast[["yhat"]].tail()
 
 
@@ -224,6 +327,27 @@ def DuDoanDauTu_KHAC():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+
+    ax = fig1.gca()
+
+    arr = np.array([datetime.datetime(i, 1, 1) for i in
+                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    years = mdates.YearLocator()  # every year
+    months = mdates.MonthLocator()  # every month
+    yearsFmt = mdates.DateFormatter('%Y')
+
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(yearsFmt)
+    ax.xaxis.set_minor_locator(months)
+
+    fig1.autofmt_xdate()
+
+    ax.set_xticks(arr)
+    plt.savefig('web\\images\\linhVucDauTu_DV.png')
+
     return forecast[["yhat"]].tail()
 
 
