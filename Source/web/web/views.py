@@ -5,7 +5,7 @@ import pandas as pd
 from web.contrains.base_url import base_url_model, conn
 from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
-from web.view.indext import getYearFromTo
+from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
     DuDoanDauTu_PTHT, DuDoanDauTu_DT
 from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu
@@ -35,7 +35,9 @@ def index(request):
     # thong ke vong dau tu
     from_to = getYearFromTo()
 
-    return render(request, 'indext.html', {"thongkechung": response[0], "year_from_to": from_to})
+    return render(request, 'indext.html', {"thongkechung": response[0],
+                                           "thongkeDauTu": getThongDauTu("2013", "2020")[0],
+                                           "year_from_to": from_to})
 
 
 def report(request):
@@ -60,18 +62,10 @@ def thongke(request):
         val2 = "2020"
 
     try:
-        sp = 'EXEC [dbo].[SP_DASHBOARD_THONGKE_VON_DAU_TU]' + " '" + val1 + "','" + val2 + "'"
-        thongkeDauTu = pd.read_sql_query(sp, conn)
-        thongkegDauTuResult = [
-            (ThongKeDauTu(row.TONGVONDAUTU_FDI, row.TONGVONDAUTU_VN, row.SOLUONG_FDI, row.SOLUONG_VN)) for
-            index, row in thongkeDauTu.iterrows()]
-        thongkeDauTuresponse = [vars(ob) for ob in thongkegDauTuResult]
-
 
         a = thongKeTyLeLoaiHinhDauTu()
 
         return render(request, 'thongke.html', {"thongkechung": response[0],
-                                                "thongkeDauTu": thongkeDauTuresponse,
                                                 "tylechiRd": thongketylechiRD(),
                                                 "tyleloaihinhdautu": a})
 
@@ -85,7 +79,6 @@ def thongke(request):
 
 
 def phantich(request):
-<<<<<<< HEAD
     # m = pickle.load(open(base_url_model + '/VonDauTuVND.pickle', 'rb'))
     # future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     # future.tail()
@@ -102,12 +95,12 @@ def phantich(request):
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
     #
-=======
+
     duDoanDauTuVND_uri = DuDoanDauTuVND()
     duDoanDauTuUSD_uri = DuDoanDauTuUSD()
     DuDoanDauTu_SX_uri = DuDoanDauTu_SX()
     duDoanDauTu_DT_UT_uri = DuDoanDauTu_DT_UT()
->>>>>>> c8fe701b32ef38b1ac6f93c6816c59319c3d6afc
+
     # buf2 = io.BytesIO()
     # fig2 = m.plot_components(forecast)
     # fig2.savefig(buf2, format='png')
@@ -125,14 +118,12 @@ def phantich(request):
     # ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     #
     # tyleloaihinhdautu = thongKeTyLeLoaiHinhDauTu(conn)
-<<<<<<< HEAD
+
     #
     # # test
 
-=======
-
     # test
->>>>>>> c8fe701b32ef38b1ac6f93c6816c59319c3d6afc
+
     query = 'Exec SP_THONGKE_TY_LE_DAU_TU'
 
     data = pd.read_sql_query(query, conn)
@@ -140,27 +131,20 @@ def phantich(request):
     lable = [desc.strip() for desc in data['HINH_THUC_DAU_TU']]
     value = [desc for desc in data['SO_LUONG']]
 
-<<<<<<< HEAD
     args = {
-         # 'image': uri, 'image2': uri2,
+        'image_dau_tu_VND': duDoanDauTuVND_uri,
+        #     'image_dau_tu_USD': duDoanDauTuUSD_uri,
+        #     'image_dau_tu_SX': DuDoanDauTu_SX_uri,
+        #     'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
+        #     'image_dau_tu_DV': DuDoanDauTu_DV(),
+        #     'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
+        # 'image_dau_tu_DT': DuDoanDauTu_DT(),
+        # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
+        'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
 
-         "lable": lable, "value": value}
-    return render(request, 'phantich.html' , args)
-=======
-    args = {'image_dau_tu_VND': duDoanDauTuVND_uri,
-            'image_dau_tu_USD': duDoanDauTuUSD_uri,
-            'image_dau_tu_SX': DuDoanDauTu_SX_uri,
-            'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
-            'image_dau_tu_DV': DuDoanDauTu_DV(),
-            'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
-            # 'image_dau_tu_DT': DuDoanDauTu_DT(),
-            # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
-            'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
-
-            "lable": lable,
-            "value": value}
+        "lable": lable,
+        "value": value}
     return render(request, 'phantich.html', args)
->>>>>>> c8fe701b32ef38b1ac6f93c6816c59319c3d6afc
 
 
 # class ThongKe(View):

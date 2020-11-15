@@ -13,7 +13,6 @@ import base64
 import io
 import urllib
 
-
 # read data
 # VonDauTuVND
 dataVonDauTuVND = pd.read_sql_query('SELECT NGAY_DANG_KY, VON_DAU_TU_VND FROM dbo.GIAY_CNDT',
@@ -63,16 +62,24 @@ def DuDoanDauTuVND():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    print(forecast)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư VND')
+    # print(forecast)
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư VND')
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+
+    lable = [
+        (SoLieuThongKe(row.ds, row.yhat))
+        for index, row in forecast.iterrows()
+    ]
+
+    print(forecast.iterrows())
+
+    return lable
 
 
 def DuDoanDauTuUSD():
@@ -80,30 +87,47 @@ def DuDoanDauTuUSD():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư USD')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư USD')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
 
 def DuDoanDauTu_SX():
     m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_SX.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Sản Xuất')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Sản Xuất')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
+
+def DuDoanDauTu_DT_UT():
+    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DT_UT.pickle', 'rb'))
+    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    future.tail()
+    forecast = m.predict(future)
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo-Ương tạo')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
 
 def DuDoanDauTu_DT_UT():
@@ -111,60 +135,47 @@ def DuDoanDauTu_DT_UT():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo-Ương tạo')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo-Ương tạo')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
-
-def DuDoanDauTu_DT_UT():
-    m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DT_UT.pickle', 'rb'))
-    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
-    future.tail()
-    forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo-Ương tạo')
-
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
 
 def DuDoanDauTu_DV():
     m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DV.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Dịch Vụ')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Dịch Vụ')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
 
 def DuDoanDauTu_PTHT():
     m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_PTHT.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Phát triển hạ tầng')
-
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Phát triển hạ tầng')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
 
 def DuDoanDauTu_DT():
@@ -172,31 +183,32 @@ def DuDoanDauTu_DT():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
 
 def DuDoanDauTu_DVCNC():
     m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DT.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư R&D Đào Tạo')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-
-    return uri
+    return forecast[["yhat"]].tail()
 
 
 def DuDoanDauTu_KHAC():
@@ -204,12 +216,18 @@ def DuDoanDauTu_KHAC():
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
     future.tail()
     forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư vào lĩnh vực khác')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư vào lĩnh vực khác')
+    #
+    # buf = io.BytesIO()
+    # fig1.savefig(buf, format='png')
+    # buf.seek(0)
+    # string = base64.b64encode(buf.read())
+    # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    return forecast[["yhat"]].tail()
 
-    buf = io.BytesIO()
-    fig1.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return uri
+
+class SoLieuThongKe:
+    def __init__(self, ds, yhat):
+        self.ds = ds
+        self.yhat = yhat
