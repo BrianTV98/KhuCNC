@@ -54,7 +54,8 @@
                         class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="" class="nav-link">Home</a>
+                <a href="/
+" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -212,111 +213,184 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" style="transform: translateY(-10px);" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
 
-
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active" style="backgroundColor: unset">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <!-- Thêm dashboard -->
+                   <li class="nav-item" style="border-radius: 6px;">
+                        <div style="display: inline-block;
+    transform: translate(60px, 31px);
+    color: #fff;
+    position: relative;
+    z-index: 99;"><a href="/" style="color: #fff;" class="thongke1">Dashboard</a></div>
+                        <a href="/thongke" class="nav-link nav-item active " style="background-color: dimgrey;">
+                            <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
-                                Dashboard
-                                <i class="right fas fa-angle-left" style="margin-top: 7px"></i>
+
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview" style="display: block;">
+                        <ul class="nav nav-treeview" style="display: none;">
                             <li class="nav-item">
-                                <a href="/" class="nav-link ">
+                                <a href="pages/tables/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Tổng kết</p>
+                                    <p>Simple Tables</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/thongke" class="nav-link">
+                                <a href="pages/tables/data.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Thống kê </p>
+                                    <p>DataTables</p>
                                 </a>
                             </li>
-                            <li class="nav-item" style="border-bottom: 1px solid #4b545c;">
-                                <a href="/phantich" class="nav-link active">
+                            <li class="nav-item">
+                                <a href="pages/tables/jsgrid.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Phân tích</p>
+                                    <p>jsGrid</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="border-radius: 6px;transform: translateY(-20px);">
+                        <div style="display: inline-block;
+    transform: translate(60px, 31px);
+    color: #fff;
+    position: relative;
+    z-index: 99;"><a href="/phantich" style="color: #fff;" class="thongke1">Phân tích</a></div>
+                        <a href="/phantich" class="nav-link nav-item active " style="background-color: dimgrey;">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="pages/tables/simple.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Simple Tables</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/data.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>DataTables</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/jsgrid.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>jsGrid</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                     <li class="nav-item" style="border-radius: 6px;transform: translateY(-40px);">
+                        <div style="display: inline-block;
+    transform: translate(60px, 31px);
+    color: #fff;
+    position: relative;
+    z-index: 99;"><a href="/thongke" style="color: #fff;" class="thongke1">Thống kê</a></div>
+                        <a href="/thongke" class="nav-link nav-item active " style="background-color: dimgrey;">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="pages/tables/simple.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Simple Tables</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/data.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>DataTables</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/jsgrid.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>jsGrid</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="phantich" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                    <li class="nav-item" style="transform: translateY(-30px);">
+                        <a href="/thongke" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 Phân tích
-                                <span class="right badge badge-danger" style="color: #fff;
-    background-color: #dc3545;">New</span>
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Layout Options
-
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview" style="display: none;">
                             <li class="nav-item">
-                                <a href="pages/layout/top-nav.html" class="nav-link">
+                                <a href="pages/layout/top-nav.html" class="nav-link" style="background-color: rgba(255,255,255,.9);
+    color: #343a40;">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Top Navigation</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link" style="background-color: rgba(255,255,255,.9);
+    color: #343a40;">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Top Navigation + Sidebar</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/boxed.html" class="nav-link">
+                                <a href="pages/layout/boxed.html" class="nav-link" style="background-color: rgba(255,255,255,.9);
+    color: #343a40;">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Boxed</p>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="transform: translateY(-35px);">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Forms
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                                <a href="pages/forms/general.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Fixed Sidebar</p>
+                                    <p>General Elements</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                                <a href="pages/forms/advanced.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Fixed Sidebar <small>+ Custom Area</small></p>
+                                    <p>Advanced Elements</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                                <a href="pages/forms/editors.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Fixed Navbar</p>
+                                    <p>Editors</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-footer.html" class="nav-link">
+                                <a href="pages/forms/validation.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Fixed Footer</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Collapsed Sidebar</p>
+                                    <p>Validation</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
+
+
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

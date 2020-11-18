@@ -10,7 +10,7 @@ from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, Du
     DuDoanDauTu_PTHT, DuDoanDauTu_DT
 from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu
 import pickle
-
+from django.http import HttpResponseRedirect
 import pandas as pd
 
 from fbprophet import Prophet
@@ -22,6 +22,23 @@ import base64
 import io
 import urllib
 import json
+
+# url(r'^createPost', CreatePost.as_view())
+
+# from testapp.models import User
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+# def index(request):
+#     template = 'index.html'
+#     return render(request, template)
+#
+#
+# def create_user(request):
+#     if request.method == "POST":
+#         fname = request.POST['fname']
+#         lname = request.POST['lname']
 
 
 def index(request):
@@ -35,8 +52,22 @@ def index(request):
     # thong ke vong dau tu
     from_to = getYearFromTo()
 
+    val1 = request.POST.get("fname");
+    val2 = request.POST.get("lname")
+
+    if val1 is None or val1 == "":
+        val1 = "2010"
+    if val2 is None or val2 == "":
+        val2 = "2020"
+
+    val3 = str(val1)
+    val4 = str(val2)
+
+    print(val3)
+    print(val4)
+
     return render(request, 'indext.html', {"thongkechung": response[0],
-                                           "thongkeDauTu": getThongDauTu("2013", "2020")[0],
+                                           "thongkeDauTu": getThongDauTu(val3, val4)[0],
                                            "year_from_to": from_to})
 
 
