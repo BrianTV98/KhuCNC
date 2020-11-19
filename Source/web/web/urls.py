@@ -27,6 +27,14 @@ urlpatterns = [
     path("phantich", views.phantich, name="phantich"),
     path("testData", views.testData, name="testData"),
 
+    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+
 ]
 
 
