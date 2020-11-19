@@ -205,6 +205,7 @@ def vonVND(request):
     return render(request, "phantich_von_dt_vnd.html", {'thongke': thongKeVonDauTuVND(),
                                                         'phantich': DuDoanDauTuVND()})
 
+# 5 cai
 
 def vonSX(request):
     return render(request, "phantich_von_dt_SX.html", {'thongke': thongKeVonDauTuSX(),
