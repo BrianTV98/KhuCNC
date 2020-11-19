@@ -7,7 +7,7 @@ from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
 from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
-    DuDoanDauTu_PTHT, DuDoanDauTu_DT
+    DuDoanDauTu_PTHT, DuDoanDauTu_DT, thongKeVonDauTuVND
 from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu
 import pickle
 from django.http import HttpResponseRedirect
@@ -163,11 +163,13 @@ def phantich(request):
 
     args = {
         'image_dau_tu_VND': DuDoanDauTuVND(),
+        'thong_ke_dau_tu_VND': thongKeVonDauTuVND(),
         'image_dau_tu_USD': DuDoanDauTuUSD(),
         'image_dau_tu_SX': DuDoanDauTu_SX(),
         'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
         'image_dau_tu_DV': DuDoanDauTu_DV(),
         'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
+
         # 'image_dau_tu_DT': DuDoanDauTu_DT(),
          # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
          # 'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
