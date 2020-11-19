@@ -29,6 +29,7 @@ urlpatterns = [
 
 ]
 
+
 # urlpatterns = patterns('',
 #                        url(r'^$', 'testapp.views.index'),
 #                        url(r'^user/create/$', 'testapp.views.create_user'),

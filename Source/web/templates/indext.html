@@ -56,6 +56,8 @@
 
 
 
+
+
     </style>
     <!-- Datetime Year Picker-->
 
@@ -63,7 +65,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-{{thongkeDauTu}}
+<!--{{thongkeDauTu}}-->
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -551,17 +553,24 @@
                                 <div class="tab-content p-0">
                                     <!--                          Tab [1]      -->
                                     <div class="tabcontent" id="London" style="position: relative;">
-<!--                                        Form post-->
+                                        <!--                                        Form post-->
 
                                         <form action="" id="testForm" method="POST">
                                             {% csrf_token %}
                                             <label for="fname">From:</label>
                                             <input type="text" id="fname" name="fname"><br><br>
                                             <label for="lname">To:</label>
-                                            <input type="text" id="lname" name="lname" style="transform: translateX(20px);"><br><br>
-<!--                                            <input type="submit" value="Submit" class="continue-btn">-->
-                                            <button type="submit" id="btnFetch" class="btn btn-primary mb-2">Submit</button>
+                                            <input type="text" id="lname" name="lname"
+                                                   style="transform: translateX(20px);"><br><br>
+                                            <!--                                            <input type="submit" value="Submit" class="continue-btn">-->
+                                            <button type="submit" id="btnFetch" class="btn btn-primary mb-2">Submit
+                                            </button>
                                         </form>
+
+                                        <div class="alert alert-light" role="alert" style="display: flex;">
+                                            Thống kê từ năm <p style="color: crimson;margin: 0px 5px; text-align:center;"> 2003 </p>  đến
+                                            <p style="color: crimson;margin: 0px 5px;">  2020 </p>
+                                        </div>
 
                                         <div class="modal-1" id="ahihi"
                                              style="display: flex; margin-top: 20px;">
@@ -661,6 +670,8 @@
 
 
 
+
+
 </script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -707,13 +718,28 @@
 <script>
 
 
-
 </script>
 
 <!-- Snippet-->
 <script>
  $(document).ready(function () {
+
+
+
       $("#btnFetch").click(function () {
+
+         var a = $("#fname").val();
+         var b =  $("#lname").val();
+           console.log(a );
+          console.log(b );
+        localStorage.setItem("cart", JSON.stringify(a));
+        localStorage.setItem("cart2", JSON.stringify(b));
+
+         const cart = JSON.parse(localStorage.getItem("cart"));
+        console.log(cart);
+
+
+
         // disable button
         $(this).prop("disabled", true);
         // add spinner to button
@@ -728,6 +754,8 @@
 
       });
     });
+
+
 </script>
 
 <!--Year picker -->
@@ -740,8 +768,9 @@
                 $(`<i class="fa fa-spinner"></i>`).appendTo(".continue-btn");
     });
 
-</script>
 
+
+</script>
 
 
 <script type="text/javascript">
@@ -772,6 +801,11 @@
                     endDate: new Date('2020')
                 });
             });
+
+
+
+
+
 
 
 
@@ -818,6 +852,8 @@
 
              $(".tong1").text({{thongkeDauTu.SOLUONG_FDI}} + {{thongkeDauTu.SOLUONG_VN}});
              $(".tong2").text( {{thongkeDauTu.TONGVONDAUTU_FDI}} + {{thongkeDauTu.TONGVONDAUTU_VN}} );
+
+
 
 
 

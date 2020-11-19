@@ -26,7 +26,7 @@ import json
 # url(r'^createPost', CreatePost.as_view())
 
 # from testapp.models import User
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.http import HttpResponse
 
 
@@ -56,7 +56,7 @@ def index(request):
     val2 = request.POST.get("lname")
 
     if val1 is None or val1 == "":
-        val1 = "2010"
+        val1 = "2003"
     if val2 is None or val2 == "":
         val2 = "2020"
 
@@ -127,9 +127,9 @@ def phantich(request):
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
     #
 
-    duDoanDauTuUSD_uri = DuDoanDauTuUSD()
-    DuDoanDauTu_SX_uri = DuDoanDauTu_SX()
-    duDoanDauTu_DT_UT_uri = DuDoanDauTu_DT_UT()
+    # duDoanDauTuUSD_uri = DuDoanDauTuUSD()
+    # DuDoanDauTu_SX_uri = DuDoanDauTu_SX()
+    # duDoanDauTu_DT_UT_uri = DuDoanDauTu_DT_UT()
 
     # buf2 = io.BytesIO()
     # fig2 = m.plot_components(forecast)
@@ -163,14 +163,14 @@ def phantich(request):
 
     args = {
         'image_dau_tu_VND': DuDoanDauTuVND(),
-            # 'image_dau_tu_USD': duDoanDauTuUSD_uri,
-            # 'image_dau_tu_SX': DuDoanDauTu_SX_uri,
-            # 'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
-            # 'image_dau_tu_DV': DuDoanDauTu_DV(),
-            # 'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
+        'image_dau_tu_USD': DuDoanDauTuUSD(),
+        'image_dau_tu_SX': DuDoanDauTu_SX(),
+        'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
+        'image_dau_tu_DV': DuDoanDauTu_DV(),
+        'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
         # 'image_dau_tu_DT': DuDoanDauTu_DT(),
-        # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
-        # 'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
+         # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
+         # 'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
 
         "lable": lable,
         "value": value}

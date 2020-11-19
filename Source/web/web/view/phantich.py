@@ -71,6 +71,7 @@ def DuDoanDauTuVND():
         (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
         index, row in forecast.iterrows()]
     thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
     return thongKeTyLeChiRDResponse
 
 
@@ -88,31 +89,37 @@ def DuDoanDauTuUSD():
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
-
     forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ USD)')
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ USD)')
+    #
+    # ax = fig1.gca()
+    #
+    # arr = np.array([datetime.datetime(i, 1, 1) for i in
+    #                 range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    #
+    # fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    # years = mdates.YearLocator()  # every year
+    # months = mdates.MonthLocator()  # every month
+    #
+    # yearsFmt = mdates.DateFormatter('%Y')
+    #
+    # ax.xaxis.set_major_locator(years)
+    # ax.xaxis.set_major_formatter(yearsFmt)
+    # ax.xaxis.set_minor_locator(months)
+    #
+    # fig1.autofmt_xdate()
+    #
+    # ax.set_xticks(arr)
+    # plt.savefig('web\\images\\vondautuUSD.png')
 
-    ax = fig1.gca()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
-    arr = np.array([datetime.datetime(i, 1, 1) for i in
-                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
-
-    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
-    years = mdates.YearLocator()  # every year
-    months = mdates.MonthLocator()  # every month
-
-    yearsFmt = mdates.DateFormatter('%Y')
-
-    ax.xaxis.set_major_locator(years)
-    ax.xaxis.set_major_formatter(yearsFmt)
-    ax.xaxis.set_minor_locator(months)
-
-    fig1.autofmt_xdate()
-
-    ax.set_xticks(arr)
-    plt.savefig('web\\images\\vondautuUSD.png')
-
-    return forecast[["yhat"]].tail()
+    # return forecast[["yhat"]].tail()
 
 
 def DuDoanDauTu_SX():
@@ -129,27 +136,35 @@ def DuDoanDauTu_SX():
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+    #
+    # ax = fig1.gca()
+    #
+    # arr = np.array([datetime.datetime(i, 1, 1) for i in
+    #                 range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    # fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư cho sản xuất")
+    # years = mdates.YearLocator()  # every year
+    # months = mdates.MonthLocator()  # every month
+    # yearsFmt = mdates.DateFormatter('%Y')
+    #
+    # ax.xaxis.set_major_locator(years)
+    # ax.xaxis.set_major_formatter(yearsFmt)
+    # ax.xaxis.set_minor_locator(months)
+    #
+    # fig1.autofmt_xdate()
+    #
+    # ax.set_xticks(arr)
+    # plt.savefig('web\\images\\vondautuSX.png')
+    # return forecast[["yhat"]].tail()
 
-    ax = fig1.gca()
 
-    arr = np.array([datetime.datetime(i, 1, 1) for i in
-                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
-    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư cho sản xuất")
-    years = mdates.YearLocator()  # every year
-    months = mdates.MonthLocator()  # every month
-    yearsFmt = mdates.DateFormatter('%Y')
-
-    ax.xaxis.set_major_locator(years)
-    ax.xaxis.set_major_formatter(yearsFmt)
-    ax.xaxis.set_minor_locator(months)
-
-    fig1.autofmt_xdate()
-
-    ax.set_xticks(arr)
-    plt.savefig('web\\images\\vondautuSX.png')
-    return forecast[["yhat"]].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
 
 def DuDoanDauTu_DT_UT():
@@ -166,29 +181,34 @@ def DuDoanDauTu_DT_UT():
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+    #
+    # ax = fig1.gca()
+    #
+    # arr = np.array([datetime.datetime(i, 1, 1) for i in
+    #                 range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    # fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    # years = mdates.YearLocator()  # every year
+    # months = mdates.MonthLocator()  # every month
+    # yearsFmt = mdates.DateFormatter('%Y')
+    #
+    # ax.xaxis.set_major_locator(years)
+    # ax.xaxis.set_major_formatter(yearsFmt)
+    # ax.xaxis.set_minor_locator(months)
+    #
+    # fig1.autofmt_xdate()
+    #
+    # ax.set_xticks(arr)
+    # plt.savefig('web\\images\\linhVucDauTu_DT_UT.png')
+    # return forecast[["yhat"]].tail()
 
-
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
-
-    ax = fig1.gca()
-
-    arr = np.array([datetime.datetime(i, 1, 1) for i in
-                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
-    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
-    years = mdates.YearLocator()  # every year
-    months = mdates.MonthLocator()  # every month
-    yearsFmt = mdates.DateFormatter('%Y')
-
-    ax.xaxis.set_major_locator(years)
-    ax.xaxis.set_major_formatter(yearsFmt)
-    ax.xaxis.set_minor_locator(months)
-
-    fig1.autofmt_xdate()
-
-    ax.set_xticks(arr)
-    plt.savefig('web\\images\\linhVucDauTu_DT_UT.png')
-    return forecast[["yhat"]].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
 
 def DuDoanDauTu_DT_UT():
@@ -205,8 +225,14 @@ def DuDoanDauTu_DT_UT():
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
-    return forecast[["yhat"]].tail()
+    # return forecast[["yhat"]].tail()
 
 
 def DuDoanDauTu_DV():
@@ -217,23 +243,23 @@ def DuDoanDauTu_DV():
     forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
     fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
 
-    ax = fig1.gca()
-
-    arr = np.array([datetime.datetime(i, 1, 1) for i in
-                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
-    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
-    years = mdates.YearLocator()  # every year
-    months = mdates.MonthLocator()  # every month
-    yearsFmt = mdates.DateFormatter('%Y')
-
-    ax.xaxis.set_major_locator(years)
-    ax.xaxis.set_major_formatter(yearsFmt)
-    ax.xaxis.set_minor_locator(months)
-
-    fig1.autofmt_xdate()
-
-    ax.set_xticks(arr)
-    plt.savefig('web\\images\\linhVucDauTu_DV.png')
+    # ax = fig1.gca()
+    #
+    # arr = np.array([datetime.datetime(i, 1, 1) for i in
+    #                 range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    # fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    # years = mdates.YearLocator()  # every year
+    # months = mdates.MonthLocator()  # every month
+    # yearsFmt = mdates.DateFormatter('%Y')
+    #
+    # ax.xaxis.set_major_locator(years)
+    # ax.xaxis.set_major_formatter(yearsFmt)
+    # ax.xaxis.set_minor_locator(months)
+    #
+    # fig1.autofmt_xdate()
+    #
+    # ax.set_xticks(arr)
+    # plt.savefig('web\\images\\linhVucDauTu_DV.png')
     # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
     # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư Dịch Vụ')
     #
@@ -242,7 +268,13 @@ def DuDoanDauTu_DV():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return forecast[["yhat"]].tail()
+    # return forecast[["yhat"]].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
 
 def DuDoanDauTu_PTHT():
@@ -258,27 +290,34 @@ def DuDoanDauTu_PTHT():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+    #
+    # ax = fig1.gca()
+    #
+    # arr = np.array([datetime.datetime(i, 1, 1) for i in
+    #                 range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    # fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    # years = mdates.YearLocator()  # every year
+    # months = mdates.MonthLocator()  # every month
+    # yearsFmt = mdates.DateFormatter('%Y')
+    #
+    # ax.xaxis.set_major_locator(years)
+    # ax.xaxis.set_major_formatter(yearsFmt)
+    # ax.xaxis.set_minor_locator(months)
+    #
+    # fig1.autofmt_xdate()
+    #
+    # ax.set_xticks(arr)
+    # plt.savefig('web\\images\\linhVucDauTu_PTHT.png')
+    # return forecast[["yhat"]].tail()
 
-    ax = fig1.gca()
-
-    arr = np.array([datetime.datetime(i, 1, 1) for i in
-                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
-    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
-    years = mdates.YearLocator()  # every year
-    months = mdates.MonthLocator()  # every month
-    yearsFmt = mdates.DateFormatter('%Y')
-
-    ax.xaxis.set_major_locator(years)
-    ax.xaxis.set_major_formatter(yearsFmt)
-    ax.xaxis.set_minor_locator(months)
-
-    fig1.autofmt_xdate()
-
-    ax.set_xticks(arr)
-    plt.savefig('web\\images\\linhVucDauTu_PTHT.png')
-    return forecast[["yhat"]].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
 
 def DuDoanDauTu_DT():
@@ -294,7 +333,13 @@ def DuDoanDauTu_DT():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    return forecast[["yhat"]].tail()
+    #  return forecast[["yhat"]].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
 
 def DuDoanDauTu_DVCNC():
@@ -311,7 +356,13 @@ def DuDoanDauTu_DVCNC():
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
-    return forecast[["yhat"]].tail()
+    # return forecast[["yhat"]].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
 
 def DuDoanDauTu_KHAC():
@@ -327,28 +378,34 @@ def DuDoanDauTu_KHAC():
     # buf.seek(0)
     # string = base64.b64encode(buf.read())
     # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-    fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+    # forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+    # fig1 = m.plot(forecast, xlabel='Năm', ylabel='Vốn đầu tư (tỷ VND)')
+    #
+    # ax = fig1.gca()
+    #
+    # arr = np.array([datetime.datetime(i, 1, 1) for i in
+    #                 range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
+    # fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
+    # years = mdates.YearLocator()  # every year
+    # months = mdates.MonthLocator()  # every month
+    # yearsFmt = mdates.DateFormatter('%Y')
+    #
+    # ax.xaxis.set_major_locator(years)
+    # ax.xaxis.set_major_formatter(yearsFmt)
+    # ax.xaxis.set_minor_locator(months)
+    #
+    # fig1.autofmt_xdate()
+    #
+    # ax.set_xticks(arr)
+    # plt.savefig('web\\images\\linhVucDauTu_DV.png')
 
-    ax = fig1.gca()
-
-    arr = np.array([datetime.datetime(i, 1, 1) for i in
-                    range(pd.to_datetime(min(forecast["ds"])).year, pd.to_datetime(max(forecast["ds"])).year + 2)])
-    fig1.suptitle("Biểu đồ thể nguồn vốn đầu tư và dự đoán đầu tư")
-    years = mdates.YearLocator()  # every year
-    months = mdates.MonthLocator()  # every month
-    yearsFmt = mdates.DateFormatter('%Y')
-
-    ax.xaxis.set_major_locator(years)
-    ax.xaxis.set_major_formatter(yearsFmt)
-    ax.xaxis.set_minor_locator(months)
-
-    fig1.autofmt_xdate()
-
-    ax.set_xticks(arr)
-    plt.savefig('web\\images\\linhVucDauTu_DV.png')
-
-    return forecast[["yhat"]].tail()
+    # return forecast[["yhat"]].tail()
+    thongKeTyLeChiRDResult = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    thongKeTyLeChiRDResponse = [vars(ob) for ob in thongKeTyLeChiRDResult]
+    print(thongKeTyLeChiRDResponse)
+    return thongKeTyLeChiRDResponse
 
 
 class SoLieuThongKe:

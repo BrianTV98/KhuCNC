@@ -36,14 +36,25 @@
 
     <!-- Phân tích-->
     <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
+    <!--    <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
 
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
-{{image_dau_tu_VND}}
+<!--{{image_dau_tu_VND}}    Done-->
+<!--            {{image_dau_tu_USD}}-->
+<!--            {{ image_dau_tu_SX }}-->
+<!--            {{image_dau_tu_DT_UT}}-->
+<!--            {{image_dau_tu_DV }}-->
+<!--            {{image_dau_tu_PTHT  }}-->
+<!--            {{image_dau_tu_DT  }}-->
+<!--            {{image_dau_tu_VDT }}-->
+<!--            {{image_dau_tu_KHAC }}-->
+
+
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -213,12 +224,13 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" style="transform: translateY(-10px);" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    style="transform: translateY(-10px);" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
 
                     <!-- Thêm dashboard -->
-                   <li class="nav-item" style="border-radius: 6px;">
+                    <li class="nav-item" style="border-radius: 6px;">
                         <div style="display: inline-block;
     transform: translate(60px, 31px);
     color: #fff;
@@ -286,7 +298,7 @@
                             </li>
                         </ul>
                     </li>
-                     <li class="nav-item" style="border-radius: 6px;transform: translateY(-40px);">
+                    <li class="nav-item" style="border-radius: 6px;transform: translateY(-40px);">
                         <div style="display: inline-block;
     transform: translate(60px, 31px);
     color: #fff;
@@ -390,7 +402,6 @@
                     </li>
 
 
-
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -441,44 +452,23 @@
                                 </div>
                             </div><!-- /.card-header -->
                             <div class="card-body row ">
-
-                                <div class="ahihi col-12" style="position: relative">
-                                    <div class="images1 col" style="transform: scale(0.5);position: absolute;
-    top: -140px;
-    left: -277px;"><img src="{{ image }} "></div>
-                                    <div class="col" style="transform: scale(0.5);transform: scale(0.5);
-
-    position: relative;
-    top: -216px;
-    right: -336px;"><img src="{{ image2 }} "></div>
-
-                                    <div class="col" id="canvas-holder" style="width:40%">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
-                                            </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
-                                            </div>
-                                        </div>
-                                        <canvas id="chart-area" style="display: block; height: 60px; width: 120px;"
-                                                width="150" height="75"
-                                                class="chartjs-render-monitor"></canvas>
-                                    </div>
-                                    <div class="col" id="randomizeData" style="transform: translateX(90px);
-    margin-top: 20px;">Biểu đồ tỷ lệ đầu tư vào các loại hình dự án
-                                    </div>
-                                </div>
-                                <div class="images1">
-                                    <img src="{{ image_dau_tu_VND }} ">
+                                <!--  Chart ds and yhat   -->
+                                <div class="container">
+                                    <canvas id="myChart">
+                                        <p> VND</p>
+                                    </canvas>
                                 </div>
 
-                                <div class="images2">
-                                    <img src="{{ image_dau_tu_USD }} ">
-                                </div>
-                                <div class="images3">
-                                    <img src="{{ image_dau_tu_SX }} ">
-                                </div>
+                                <!--                                <div class="images1">-->
+                                <!--                                    <img src="{{ image_dau_tu_VND }} ">-->
+                                <!--                                </div>-->
+
+                                <!--                                <div class="images2">-->
+                                <!--                                    <img src="{{ image_dau_tu_USD }} ">-->
+                                <!--                                </div>-->
+                                <!--                                <div class="images3">-->
+                                <!--                                    <img src="{{ image_dau_tu_SX }} ">-->
+                                <!--                                </div>-->
 
 
                             </div>
@@ -487,175 +477,175 @@
                         </div><!-- /.card-body -->
 
 
-        </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-2 connectedSortable" style="display:none">
+                    </section>
+                    <!-- /.Left col -->
+                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                    <section class="col-lg-2 connectedSortable" style="display:none">
 
-            <!-- Map card -->
-            <div class="card bg-gradient-primary">
-                <div class="card-header border-0">
-                    <h3 class="card-title">
-                        <i class="fas fa-map-marker-alt mr-1"></i>
-                        Visitors
-                    </h3>
-                    <!-- card tools -->
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-primary btn-sm daterange"
-                                title="Date range">
-                            <i class="far fa-calendar-alt"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-sm"
-                                data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                    </div>
-                    <!-- /.card-tools -->
-                </div>
-                <div class="card-body">
-                    <div id="world-map" style="height: 250px; width: 100%;"></div>
-                </div>
-                <!-- /.card-body-->
-                <div class="card-footer bg-transparent">
-                    <div class="row">
-                        <div class="col-4 text-center">
-                            <div id="sparkline-1"></div>
-                            <div class="text-white">Visitors</div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-4 text-center">
-                            <div id="sparkline-2"></div>
-                            <div class="text-white">Online</div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-4 text-center">
-                            <div id="sparkline-3"></div>
-                            <div class="text-white">Sales</div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-            </div>
-            <!-- /.card -->
-
-            <!-- solid sales graph -->
-            <div class="card bg-gradient-info">
-                <div class="card-header border-0">
-                    <h3 class="card-title">
-                        <i class="fas fa-th mr-1"></i>
-                        Sales Graph
-                    </h3>
-
-                    <div class="card-tools">
-                        <button type="button" class="btn bg-info btn-sm"
-                                data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <canvas class="chart" id="line-chart"
-                            style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer bg-transparent">
-                    <div class="row">
-                        <div class="col-4 text-center">
-                            <input type="text" class="knob" data-readonly="true" value="20"
-                                   data-width="60" data-height="60"
-                                   data-fgColor="#39CCCC">
-
-                            <div class="text-white">Mail-Orders</div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-4 text-center">
-                            <input type="text" class="knob" data-readonly="true" value="50"
-                                   data-width="60" data-height="60"
-                                   data-fgColor="#39CCCC">
-
-                            <div class="text-white">Online</div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-4 text-center">
-                            <input type="text" class="knob" data-readonly="true" value="30"
-                                   data-width="60" data-height="60"
-                                   data-fgColor="#39CCCC">
-
-                            <div class="text-white">In-Store</div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-
-            <!-- Calendar -->
-            <div class="card bg-gradient-success">
-                <div class="card-header border-0">
-
-                    <h3 class="card-title">
-                        <i class="far fa-calendar-alt"></i>
-                        Calendar
-                    </h3>
-                    <!-- tools card -->
-                    <div class="card-tools">
-                        <!-- button with a dropdown -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-success btn-sm dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    data-offset="-52">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                            <div class="dropdown-menu" role="menu">
-                                <a href="#" class="dropdown-item">Add new event</a>
-                                <a href="#" class="dropdown-item">Clear events</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">View calendar</a>
+                        <!-- Map card -->
+                        <div class="card bg-gradient-primary">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">
+                                    <i class="fas fa-map-marker-alt mr-1"></i>
+                                    Visitors
+                                </h3>
+                                <!-- card tools -->
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-primary btn-sm daterange"
+                                            title="Date range">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-sm"
+                                            data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+                            <div class="card-body">
+                                <div id="world-map" style="height: 250px; width: 100%;"></div>
+                            </div>
+                            <!-- /.card-body-->
+                            <div class="card-footer bg-transparent">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <div id="sparkline-1"></div>
+                                        <div class="text-white">Visitors</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <div id="sparkline-2"></div>
+                                        <div class="text-white">Online</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <div id="sparkline-3"></div>
+                                        <div class="text-white">Sales</div>
+                                    </div>
+                                    <!-- ./col -->
+                                </div>
+                                <!-- /.row -->
                             </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-sm"
-                                data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-success btn-sm"
-                                data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <!-- /. tools -->
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body pt-0">
-                    <!--The calendar -->
-                    <div id="calendar" style="width: 100%"></div>
-                </div>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-        </section>
-        <!-- right col -->
-    </div>
-    <!-- /.row (main row) -->
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<footer class="main-footer">
-    <strong>Develop by <a href="https://www.facebook.com/haylachinhminh1998">Trần Văn Hiếu</a>.</strong>
-</footer>
+                        <!-- /.card -->
 
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
+                        <!-- solid sales graph -->
+                        <div class="card bg-gradient-info">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">
+                                    <i class="fas fa-th mr-1"></i>
+                                    Sales Graph
+                                </h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn bg-info btn-sm"
+                                            data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <canvas class="chart" id="line-chart"
+                                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer bg-transparent">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <input type="text" class="knob" data-readonly="true" value="20"
+                                               data-width="60" data-height="60"
+                                               data-fgColor="#39CCCC">
+
+                                        <div class="text-white">Mail-Orders</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <input type="text" class="knob" data-readonly="true" value="50"
+                                               data-width="60" data-height="60"
+                                               data-fgColor="#39CCCC">
+
+                                        <div class="text-white">Online</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <input type="text" class="knob" data-readonly="true" value="30"
+                                               data-width="60" data-height="60"
+                                               data-fgColor="#39CCCC">
+
+                                        <div class="text-white">In-Store</div>
+                                    </div>
+                                    <!-- ./col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!-- /.card -->
+
+                        <!-- Calendar -->
+                        <div class="card bg-gradient-success">
+                            <div class="card-header border-0">
+
+                                <h3 class="card-title">
+                                    <i class="far fa-calendar-alt"></i>
+                                    Calendar
+                                </h3>
+                                <!-- tools card -->
+                                <div class="card-tools">
+                                    <!-- button with a dropdown -->
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                                data-toggle="dropdown"
+                                                data-offset="-52">
+                                            <i class="fas fa-bars"></i>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            <a href="#" class="dropdown-item">Add new event</a>
+                                            <a href="#" class="dropdown-item">Clear events</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item">View calendar</a>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-success btn-sm"
+                                            data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-sm"
+                                            data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <!-- /. tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body pt-0">
+                                <!--The calendar -->
+                                <div id="calendar" style="width: 100%"></div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </section>
+                    <!-- right col -->
+                </div>
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Develop by <a href="https://www.facebook.com/haylachinhminh1998">Trần Văn Hiếu</a>.</strong>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 
 
@@ -667,6 +657,7 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
             $.widget.bridge('uibutton', $.ui.button)
+
 
 
 
@@ -777,214 +768,109 @@
 
 
 
+
 </script>
+
+
+<!-- Chart js first:  Dự đoán đầu tư VND
+ -->
 <script>
-     window.chartColors = {
-	red: 'rgb(255, 99, 132)',
-	orange: 'rgb(255, 159, 64)',
-	yellow: 'rgb(255, 205, 86)',
-	green: 'rgb(75, 192, 192)',
-	blue: 'rgb(54, 162, 235)',
-	purple: 'rgb(153, 102, 255)',
-	grey: 'rgb(201, 203, 207)'
+        var a = {{image_dau_tu_VND}};
+        console.log(a);
+
+        var arrds = [];
+        var arryhat = [];
+
+        for (var index = 0; index < a.length; index++) {
+        arrds[index] = a[index].ds;
+        arryhat[index] = a[index].yhat ;
+      }
+
+      console.log(arrds);
+      console.log(arryhat);
+
+<!--  Chart ds and yhat-->
+       let myChart = document.getElementById('myChart').getContext('2d');
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+        var internalData = [300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,300, 50, 100, 75,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+        var graphColors =[];
+        var internalDataLength = internalData.length;
+        i = 0;
+while (i <= internalDataLength) {
+    var randomR = Math.floor((Math.random() * 130) + 100);
+    var randomG = Math.floor((Math.random() * 130) + 100);
+    var randomB = Math.floor((Math.random() * 130) + 100);
+
+    var graphBackground = "rgb("
+            + randomR + ", "
+            + randomG + ", "
+            + randomB + ")";
+    graphColors.push(graphBackground);
+
+  i++;
 };
 
-(function(global) {
-	var MONTHS = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December'
-	];
 
-	var COLORS = [
-		'#4dc9f6',
-		'#f67019',
-		'#f53794',
-		'#537bc4',
-		'#acc236',
-		'#166a8f',
-		'#00a950',
-		'#58595b',
-		'#8549ba'
-	];
 
-	var Samples = global.Samples || (global.Samples = {});
-	var Color = Chart.helpers.color;
 
-	function applyDefaultNumbers(config) {
-		var cfg = config || {};
-		cfg.min = cfg.min || 0;
-		cfg.max = cfg.max || 1;
-		cfg.from = cfg.from || [];
-		cfg.count = cfg.count || 8;
-		cfg.decimals = cfg.decimals || 8;
-		cfg.continuity = cfg.continuity || 1;
-
-		return cfg;
-	}
-
-	Samples.utils = {
-		// Adapted from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
-		srand: function(seed) {
-			this._seed = seed;
-		},
-
-		rand: function(min, max) {
-			var seed = this._seed;
-			min = min === undefined ? 0 : min;
-			max = max === undefined ? 1 : max;
-			this._seed = (seed * 9301 + 49297) % 233280;
-			return min + (this._seed / 233280) * (max - min);
-		},
-
-		numbers: function(config) {
-			var cfg = applyDefaultNumbers(config);
-			var dfactor = Math.pow(10, cfg.decimals) || 0;
-			var data = [];
-			var i, value;
-
-			for (i = 0; i < cfg.count; ++i) {
-				value = (cfg.from[i] || 0) + this.rand(cfg.min, cfg.max);
-				if (this.rand() <= cfg.continuity) {
-					data.push(Math.round(dfactor * value) / dfactor);
-				} else {
-					data.push(null);
-				}
-			}
-
-			return data;
-		},
-
-		labels: function(config) {
-			var cfg = config || {};
-			var min = cfg.min || 0;
-			var max = cfg.max || 100;
-			var count = cfg.count || 8;
-			var step = (max - min) / count;
-			var decimals = cfg.decimals || 8;
-			var dfactor = Math.pow(10, decimals) || 0;
-			var prefix = cfg.prefix || '';
-			var values = [];
-			var i;
-
-			for (i = min; i < max; i += step) {
-				values.push(prefix + Math.round(dfactor * i) / dfactor);
-			}
-
-			return values;
-		},
-
-		months: function(config) {
-			var cfg = config || {};
-			var count = cfg.count || 12;
-			var section = cfg.section;
-			var values = [];
-			var i, value;
-
-			for (i = 0; i < count; ++i) {
-				value = MONTHS[Math.ceil(i) % 12];
-				values.push(value.substring(0, section));
-			}
-
-			return values;
-		},
-
-		color: function(index) {
-			return COLORS[index % COLORS.length];
-		},
-
-		transparentize: function(color, opacity) {
-			var alpha = opacity === undefined ? 0.5 : 1 - opacity;
-			return Color(color).alpha(alpha).rgbString();
-		}
-	};
-
-	// DEPRECATED
-	window.randomScalingFactor = function() {
-		return Math.round(Samples.utils.rand(-100, 100));
-	};
-
-	// INITIALIZATION
-
-	Samples.utils.srand(Date.now());
-
-	// Google Analytics
-	/* eslint-disable */
-	if (document.location.hostname.match(/^(www\.)?chartjs\.org$/)) {
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-28909194-3', 'auto');
-		ga('send', 'pageview');
-	}
-	/* eslint-enable */
-
-}(this));
-        var list_lable ={{ lable }}
-            var value ={{ value }}
-            var config = {
-                type: 'pie',
-                data: {
-                    datasets: [{
-                        data: value,
-                        backgroundColor: [
-                            '#4dc9f6',
-                            '#f67019',
-                            '#f53794',
-                            '#537bc4',
-                            '#acc236',
-                            '#166a8f',
-                            '#00a950',
-                            '#58595b',
-                            '#8549ba'
-                        ],
-                        label: 'Dataset 1',
-                    }],
-                    labels: list_lable
-                },
-                options: {
-                    responsive: true,
-                    showTooltips: false,
-                    tooltips: {
-                        enabled: false
-                    },
-                    plugins: {
-            datalabels: {
-                formatter: (value, ctx) => {
-                    let sum = 0;
-                  let dataArr = ctx.chart.data.datasets[0].data;
-                  dataArr.map(data => {
-                      sum += data;
-                  });
-                  let percentage = (value*100 / sum).toFixed(2)+"%";
-                  return percentage;
-                },
-                color: '#fff',
-                     }
-                    }
-                }
-            };
-
-            window.onload = function () {
-                var ctx = document.getElementById('chart-area').getContext('2d');
-                window.myPie = new Chart(ctx, config);
-            };
-
+    let massPopChart = new Chart(myChart, {
+      type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data: {
+        labels: arrds,
+        datasets: [{
+          label: 'VND',
+          data:
+          arryhat,
+          //backgroundColor:'green',
+          backgroundColor: graphColors,
+          borderWidth: 1,
+          borderColor: '#777',
+          hoverBorderWidth: 3,
+          hoverBorderColor: '#000'
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Thống kê giá trị đầu tư VND',
+          fontSize: 25
+        },
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            fontColor: '#000'
+          }
+        },
+        layout: {
+          padding: {
+            left: 50,
+            right: 0,
+            bottom: 0,
+            top: 0
+          }
+        },
+        tooltips: {
+          enabled: true
+        }
+      }
+    });
 
 
 
 
 </script>
+
+<!-- Chartjs DuDoanDauTu_DT() -->
+<script>
+
+</script>
+
+
 </body>
 
 {% endautoescape %}
