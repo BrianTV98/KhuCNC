@@ -28,12 +28,12 @@ urlpatterns = [
     path("testData", views.testData, name="testData"),
 
     path("phantichvonVND", views.vonVND, name="phantichvonVND"),
-    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
-    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
-    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
-    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
-    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
-    path("phantichvonVND", views.vonVND, name="phantichvonVND"),
+    path("phantichvonSX", views.vonSX, name="phantichvonSX"),
+    path("phantichvonKhac", views.vonKhac, name="phantichvonKhac"),
+    path("phantichvonPTHT", views.vonVND, name="phantichvonPTHT"),
+    path("phantichvonDV", views.DuDoanDauTu_DV, name="phantichvonDV"),
+    path("phantichvonDT_UT", views.DuDoanDauTu_DT_UT, name="phantichvonDT_UT"),
+
 
 ]
 
