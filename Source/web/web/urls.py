@@ -31,8 +31,8 @@ urlpatterns = [
     path("phantichvonSX", views.vonSX, name="phantichvonSX"),
     path("phantichvonKhac", views.vonKhac, name="phantichvonKhac"),
     path("phantichvonPTHT", views.vonVND, name="phantichvonPTHT"),
-    path("phantichvonDV", views.DuDoanDauTu_DV, name="phantichvonDV"),
-    path("phantichvonDT_UT", views.DuDoanDauTu_DT_UT, name="phantichvonDT_UT"),
+    path("phantichvonDV", views.vonDV, name="phantichvonDV"),
+    path("phantichvonDT_UT", views.vonDT_UT, name="phantichvonDT_UT"),
 
 
 ]
