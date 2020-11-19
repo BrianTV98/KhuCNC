@@ -164,6 +164,7 @@ def phantich(request):
 
     args = {
         'image_dau_tu_VND': DuDoanDauTuVND(),
+        # Cần làm
         'thong_ke_dau_tu_VND': thongKeVonDauTuVND(),
         'image_dau_tu_USD': DuDoanDauTuUSD(),
         'image_dau_tu_SX': DuDoanDauTu_SX(),
