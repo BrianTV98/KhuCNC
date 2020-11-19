@@ -96,7 +96,6 @@ def DuDoanDauTu_DT_UT():
     return phanTichJson
 
 
-
 def DuDoanDauTu_DV():
     m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DV.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
@@ -158,15 +157,6 @@ def DuDoanDauTu_KHAC():
     return phanTichJson
 
 
-def thongKeVonDauTuVND():
-    query ="Select * From V_VonDauTuVND"
-    dataVonDauTuVND = pd.read_sql_query(query,
-                                        base_url.conn)
-    thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
-        index, row in dataVonDauTuVND.iterrows()]
-    thongKeJson = [vars(ob) for ob in thongKeArray]
-    return thongKeJson;
 
 
 

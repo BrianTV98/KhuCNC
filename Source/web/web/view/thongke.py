@@ -4,6 +4,8 @@ import web.contrains.base_url as base_url
 
 from web.model.RD_ViewModel import RD_ViewModel
 from web.model.TyLeLoaiHinhDauTu import TyLeLoaiHinhDauTu
+from web.view.phantich import SoLieuThongKe
+
 
 def thongketylechiRD():
     sp = "SELECT * FROM V_RD"
@@ -37,3 +39,70 @@ def thongKeTyLeLoaiHinhDauTu():
         print(e)
         return
     pass
+
+
+#### Thong Ke
+def thongKeVonDauTuVND():
+    query = "Select * From V_VonDauTuVND"
+    dataVonDauTuVND = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in dataVonDauTuVND.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+
+def thongKeVonDauTuSX():
+    query = "Select * From V_VonDauTuSX"
+    dataVonDauTuVND = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in dataVonDauTuVND.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+
+def thongKeVonDauTuPTHT():
+    query = "Select * From V_VonDauTuPTHT"
+    dataVonDauTuVND = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in dataVonDauTuVND.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+
+def thongKeVonDauTuKHAC():
+    query = "Select * From V_VonDauTuKhac"
+    dataVonDauTuVND = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in dataVonDauTuVND.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+
+def thongKeVonDauTuDV():
+    query = "Select * From V_VonDauTuDV"
+    dataVonDauTuVND = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in dataVonDauTuVND.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+
+def thongKeVonDauTuDT_UT():
+    query = "Select * From V_VonDauTuDT_UT"
+    dataVonDauTuVND = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in dataVonDauTuVND.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson

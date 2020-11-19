@@ -7,8 +7,9 @@ from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
 from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
-    DuDoanDauTu_PTHT, DuDoanDauTu_DT, thongKeVonDauTuVND
-from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu
+    DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC
+from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu, thongKeVonDauTuVND, thongKeVonDauTuSX, \
+    thongKeVonDauTuPTHT, thongKeVonDauTuDV, thongKeVonDauTuKHAC, thongKeVonDauTuDT_UT
 import pickle
 from django.http import HttpResponseRedirect
 import pandas as pd
@@ -171,8 +172,8 @@ def phantich(request):
         'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
 
         # 'image_dau_tu_DT': DuDoanDauTu_DT(),
-         # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
-         # 'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
+        # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
+        # 'image_dau_tu_KHAC': DuDoanDauTu_SX_uri,
 
         "lable": lable,
         "value": value}
@@ -195,3 +196,35 @@ def testData(request):
         index, row in thongkeChung.iterrows()]
     response = [vars(ob) for ob in thongKeChungResult]
     return render(request, "testdata.html", {'thongkechung': response[0]})
+
+
+# new 19/11/2020
+
+def vonVND(request):
+    return render(request, "phantich_von_dt_vnd.html", {'thongke': thongKeVonDauTuVND(),
+                                                        'phantich': DuDoanDauTuVND()})
+
+
+def vonSX(request):
+    return render(request, "phantich_von_dt_SX.html", {'thongke': thongKeVonDauTuSX(),
+                                                       'phantich': DuDoanDauTu_SX()})
+
+
+def vonPTHT(request):
+    return render(request, "phantich_von_dt_PTHT.html", {'thongke': thongKeVonDauTuPTHT(),
+                                                         'phantich': DuDoanDauTu_PTHT()})
+
+
+def vonDV(request):
+    return render(request, "phantich_von_dt_DV.html", {'thongke': thongKeVonDauTuDV(),
+                                                       'phantich': DuDoanDauTu_DV()})
+
+
+def vonKhac(request):
+    return render(request, "phantich_von_dt_Khac.html", {'thongke': thongKeVonDauTuKHAC(),
+                                                         'phantich': DuDoanDauTu_KHAC()})
+
+
+def vonDT_UT(request):
+    return render(request, "phantich_von_dt_DT_UT.html", {'thongke': thongKeVonDauTuDT_UT(),
+                                                          'phantich': DuDoanDauTu_DT_UT()})
