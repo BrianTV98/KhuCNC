@@ -163,7 +163,7 @@ def thongKeVonDauTuVND():
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        (SoLieuThongKe(row.ds, row.yhat)) for
         index, row in dataVonDauTuVND.iterrows()]
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson;
