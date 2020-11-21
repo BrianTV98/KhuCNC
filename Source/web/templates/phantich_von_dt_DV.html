@@ -45,6 +45,10 @@
     <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
     <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
 
+    <!--  Font - chữ  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -68,7 +72,7 @@
 " class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" style="display: none" >Contact</a>
             </li>
         </ul>
 
@@ -76,7 +80,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none" >
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-comments"></i>
                     <span class="badge badge-danger navbar-badge"></span>
@@ -140,7 +144,7 @@
                 </div>
             </li>
             <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-bell"></i>
                     <span class="badge badge-warning navbar-badge"></span>
@@ -246,19 +250,19 @@
                             <li class="nav-item">
                                 <a href="pages/tables/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Tỉ lệ chi RD</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/tables/data.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Tỉ lệ ĐH/ĐH tham gia RD </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
                                 <a href="pages/tables/jsgrid.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Kinh phi</p>
                                 </a>
                             </li>
                         </ul>
@@ -332,19 +336,19 @@
                             <li class="nav-item">
                                 <a href="pages/tables/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Tỉ lệ chi RD</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/tables/data.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Tỉ lệ ĐH/ĐH tham gia RD </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
                                 <a href="pages/tables/jsgrid.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Kinh phi</p>
                                 </a>
                             </li>
                         </ul>
@@ -436,7 +440,7 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">Phân tích</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
+                    <div class="col-sm-6"  style="display: none">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">23 <span>Columns</span></li>
                             <li class="breadcrumb-item active">51.000 <span>Rows</span></li>
@@ -460,9 +464,9 @@
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">
+                                <h3 class="card-title" style="font-family: 'Roboto', sans-serif;" >
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Thống Kê tỉ lệ nhà máy qua từng năm
+                                    Thống kê,phân tích tỉ vốn đầu tư DV qua từng năm
                                 </h3>
                                 <div class="card-tools">
                                     <ul class="nav nav-pills ml-auto">

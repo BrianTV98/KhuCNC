@@ -32,27 +32,29 @@
     <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'dist/js/demo.js' %}">
     <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
-    <!-- Year-->
-    <!--        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"-->
-    <!--              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" >-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
-          rel="stylesheet">
 
     <!-- Snippet  -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 
+    <!--    Check validate Year Jquery-->
+    <link rel="stylesheet prefetch"
+          href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+    <!--  Font - chữ  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+
 
     <style>
-        .thongke1:hover{
-            //color: red !important;
+        .thongke1:hover {
+            /* color: red !important; */
             opacity: 0.8 !important;
 
         }
-
 
 
 
@@ -72,19 +74,18 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                        class="fas fa-bars"></i></a>
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="" class="nav-link">Home</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+            <li class="nav-item d-none d-sm-inline-block" >
+                <a href="#" class="nav-link" style="display: none">Contact</a>
             </li>
         </ul>
 
         <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
+        <form class="form-inline ml-3" style="display: none">
             <div class="input-group input-group-sm">
                 <input class="form-control form-control-navbar" type="search" placeholder="Search"
                        aria-label="Search">
@@ -99,7 +100,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-comments"></i>
                     <span class="badge badge-danger navbar-badge"></span>
@@ -113,8 +114,7 @@
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
-                                    <span class="float-right text-sm text-danger"><i
-                                            class="fas fa-star"></i></span>
+                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                                 </h3>
                                 <p class="text-sm">Call me whenever you can...</p>
                                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -131,8 +131,7 @@
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
-                                    <span class="float-right text-sm text-muted"><i
-                                            class="fas fa-star"></i></span>
+                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                                 </h3>
                                 <p class="text-sm">I got your message bro</p>
                                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -163,7 +162,7 @@
                 </div>
             </li>
             <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-bell"></i>
                     <span class="badge badge-warning navbar-badge"></span>
@@ -208,8 +207,7 @@
         <!-- Brand Logo -->
         <a href="" class="brand-link">
             <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
-                 class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
+                 class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">Exploratory</span>
         </a>
 
@@ -242,10 +240,9 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    style="transform: translateY(-10px);"
-                    data-accordion="false">
+                    style="transform: translateY(-10px);" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
-                       with font-awesome or any other icon font library -->
+                   with font-awesome or any other icon font library -->
 
                     <!-- Thêm dashboard -->
                     <li class="nav-item" style="border-radius: 6px;">
@@ -296,7 +293,7 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                           <li class="nav-item">
+                            <li class="nav-item">
                                 <a href="/phantichvonDT_UT" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Vốn đầu tư DT_UT</p>
@@ -351,19 +348,19 @@
                             <li class="nav-item">
                                 <a href="pages/tables/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Tỉ lệ chi RD</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/tables/data.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Tỉ lệ ĐH/ĐH tham gia RD </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
                                 <a href="pages/tables/jsgrid.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Kinh phi</p>
                                 </a>
                             </li>
                         </ul>
@@ -455,7 +452,7 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">Trang Chủ</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="display: none">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">23 <span>Columns</span></li>
                             <li class="breadcrumb-item active">51.000 <span>Rows</span></li>
@@ -481,7 +478,7 @@
                             <div class="icon">
                                 <i class="fas fa-table"></i>
                             </div>
-                            <div class="small-box-footer ">More info
+                            <div class="small-box-footer ">Xem thêm
                                 <i class="fas fa-arrow-circle-right"></i></div>
                         </div>
                     </div>
@@ -499,8 +496,7 @@
                                 <i class="ion ion-stats-bars"></i>
                             </div>
                             <div href="#" class="small-box-footer ">
-                                More info <i
-                                    class="fas fa-arrow-circle-right"></i>
+                                Xem thêm<i class="fas fa-arrow-circle-right"></i>
                             </div>
                         </div>
                     </div>
@@ -517,8 +513,7 @@
                                 <i class="far fa-chart-bar"></i>
                             </div>
                             <div href="#" class="small-box-footer ">
-                                More info <i
-                                    class="fas fa-arrow-circle-right"></i></div>
+                                Xem thêm<i class="fas fa-arrow-circle-right"></i></div>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -534,8 +529,7 @@
                             <div class="icon">
                                 <i class="far fa-lightbulb"></i>
                             </div>
-                            <div href="#" class="small-box-footer "
-                            >More info <i
+                            <div href="#" class="small-box-footer ">Xem thêm<i
                                     class="fas fa-arrow-circle-right"></i></div>
                         </div>
                     </div>
@@ -551,15 +545,24 @@
                     <section class="col-lg-12 connectedSortable">
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">
+                            <div class="card-header" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                                <h3 class="card-title" style="display: flex;font-size: 22px;font-family: 'Roboto', sans-serif;">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Sales
+
+                                            Thống kê từ năm
+                                    <p class="startYear" style="color: crimson;margin: 0px 5px; text-align:center;">2010</p>
+                                         đến
+                                            <p style="color: crimson;margin: 0px 5px;" class="endYear">2020</p>
+
+
                                 </h3>
-                                <div class="card-tools">
+                                <div class="card-tools" style="display: none">
                                     <ul class="nav nav-pills ml-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                                            <a class="nav-link active" href="#revenue-chart"
+                                               data-toggle="tab">Area</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
@@ -571,27 +574,60 @@
                                 <div class="tab-content p-0">
                                     <!--                          Tab [1]      -->
                                     <div class="tabcontent" id="London" style="position: relative;">
-                                        <!--                                        Form post-->
+<!--                                                                                Form post-->
 
-                                        <form action="" id="testForm" method="POST">
-                                            {% csrf_token %}
-                                            <label for="fname">From:</label>
-                                            <input type="text" id="fname" name="fname"><br><br>
-                                            <label for="lname">To:</label>
-                                            <input type="text" id="lname" name="lname"
-                                                   style="transform: translateX(20px);"><br><br>
-                                            <!--                                            <input type="submit" value="Submit" class="continue-btn">-->
-                                            <button type="submit" id="btnFetch" class="btn btn-primary mb-2">Submit
-                                            </button>
-                                        </form>
+<!--                                                                                <form action="" id="testForm" method="POST">-->
+<!--                                                                                    {% csrf_token %}-->
+<!--                                                                                    <label for="fname">From:</label>-->
 
-                                        <div class="alert alert-light" role="alert" style="display: flex;">
-                                            Thống kê từ năm <p style="color: crimson;margin: 0px 5px; text-align:center;"> 2003 </p>  đến
-                                            <p style="color: crimson;margin: 0px 5px;">  2020 </p>
+<!--                                                                                    <input type="text" id="fname" name="fname" required><br><br>-->
+
+<!--                                                                                    <label for="lname">To:</label>-->
+
+<!--                                                                                    <input type="text" id="lname" name="lname" required-->
+<!--                                                                                           style="margin-left: 19px"><br><br>-->
+<!--                                                                                    &lt;!&ndash;                                            <input type="submit" value="Submit" class="continue-btn">&ndash;&gt;-->
+<!--                                                                                    <button  type="submit" id="btnFetch"-->
+<!--                                                                                            class="btn btn-primary mb-2">Submit-->
+<!--                                                                                    </button>-->
+<!--                                                                                </form>-->
+
+                                        <!-- Test form year datepicker        -->
+<form action="" id="testForm" method="POST">
+     {% csrf_token %}
+                                        <label for="fname">Từ Năm: </label>
+                                        <div id="datepicker"  style="width: 240px;cursor: pointer;" class="input-group date " data-date-format="yyyy">
+                                            <input class="form-control picker1" id="fname" name="fname"
+                                                readonly="" type="text"> <span class="input-group-addon"><i
+                                                class="glyphicon glyphicon-calendar"></i>
+                                            <i class="far fa-calendar-alt" style="font-size: 37px;margin-left: 5px;margin-top: 0px;"></i>
+                                            </span>
                                         </div>
 
-                                        <div class="modal-1" id="ahihi"
-                                             style="display: flex; margin-top: 20px;">
+                                        <label for="lname">Đến năm: </label>
+                                        <div id="datepicker1" style="width: 240px;cursor: pointer;" class="input-group date" data-date-format="yyyy"><input
+                                                class="form-control picker2"   id="lname" name="lname"
+                                                readonly="" type="text"> <span class="input-group-addon"><i
+                                                class="glyphicon glyphicon-calendar"></i>
+                                            <i class="far fa-calendar-alt" style="font-size: 37px;margin-left: 5px;margin-top: 0px;"></i>
+                                        </span>
+                                        </div>
+
+                                        <button type="submit" id="btnFetch" class="btn btn-primary mb-2" style="margin-top: 10px;">Submit
+        </button>
+</form>
+
+                                        <!--  End test       -->
+
+
+<!--                                        <div class="alert alert-light" role="alert" style="display: flex;">-->
+<!--                                            Thống kê từ năm <p class="startYear"-->
+<!--                                                style="color: crimson;margin: 0px 5px; text-align:center;" > 2003-->
+<!--                                        </p> đến-->
+<!--                                            <p style="color: crimson;margin: 0px 5px;" class="endYear"> 2020 </p>-->
+<!--                                        </div>-->
+
+                                        <div class="modal-1" id="ahihi" style="display: flex; margin-top: 20px;">
                                             <ul class="list-group col-lg-3"
                                                 style="border-radius:inherit !important;width: 248px;padding-right: unset;">
                                                 <li class="list-group-item"
@@ -615,7 +651,8 @@
                                                     style="border-right: none !important;height:50px;text-align: center;"
                                                     ;></li>
                                                 <li class="list-group-item vondautufdi"
-                                                    style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                    style="border-right: none !important;height:50px;text-align: center;">
+                                                </li>
                                             </ul>
                                             <ul class="list-group col-lg-3"
                                                 style="border-radius: inherit !important;width: 248px;padding-right: unset;">
@@ -624,14 +661,16 @@
                                                     VIỆT NAM
                                                 </li>
                                                 <li class="list-group-item soluongvn"
-                                                    style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                    style="border-right: none !important;height:50px;text-align: center;">
+                                                </li>
                                                 <li class="list-group-item vondautuvn"
-                                                    style="border-right: none !important;height:50px;text-align: center;"></li>
+                                                    style="border-right: none !important;height:50px;text-align: center;">
+                                                </li>
                                             </ul>
                                             <ul class="list-group col-lg-3"
                                                 style="border-radius: inherit !important;width: 248px;padding-right: unset;">
-                                                <li class="list-group-item"
-                                                    style="height:50px;text-align: center;">TỔNG
+                                                <li class="list-group-item" style="height:50px;text-align: center;">
+                                                    TỔNG
                                                 </li>
                                                 <li class="list-group-item tong1"
                                                     style="height:50px;text-align: center;"></li>
@@ -681,7 +720,12 @@
 <script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-            $.widget.bridge('uibutton', $.ui.button)
+        $.widget.bridge('uibutton', $.ui.button)
+
+
+
+
+
 
 
 
@@ -733,97 +777,106 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
 
-<script>
+<!-- Year picker -->
+<script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker({
+                autoclose: true,
+                //todayHighlight: true,
+                format: 'yyyy',
+                minViewMode: 'years',
+                startDate: new Date('2003'),
+                endDate: new Date('2019'),
+            })
+        });
+
+        $(function () {
+            $("#datepicker1").datepicker({
+                autoclose: true,
+                //todayHighlight: true,
+                format: 'yyyy',
+                minViewMode: 'years',
+                startDate: new Date('2004'),
+                endDate: new Date('2020'),
+            })
+        });
+
+
 
 
 </script>
 
+
+<!---->
+<!---->
+<!---->
 <!-- Snippet-->
 <script>
- $(document).ready(function () {
+        $(document).ready(function () {
+
+
+        const cartStart = JSON.parse(localStorage.getItem("cart1"));
+        console.log(cartStart);
+
+        const cartEnd = JSON.parse(localStorage.getItem("cart2"));
+        console.log(cartEnd);
+
+        //$(".startYear").empty();
+        $(".startYear").text(cartStart);
+
+        //$(".endYear").empty();
+        $(".endYear").text(cartEnd);
 
 
 
-      $("#btnFetch").click(function () {
 
-         var a = $("#fname").val();
-         var b =  $("#lname").val();
-           console.log(a );
-          console.log(b );
-        localStorage.setItem("cart", JSON.stringify(a));
-        localStorage.setItem("cart2", JSON.stringify(b));
+            $("#btnFetch").click(function () {
 
-         const cart = JSON.parse(localStorage.getItem("cart"));
-        console.log(cart);
+                var a = $("#fname").val();
+                var b = $("#lname").val();
+                console.log(a);
+                console.log(b);
+                localStorage.setItem("cart1", JSON.stringify(a));
+                localStorage.setItem("cart2", JSON.stringify(b));
 
 
 
-        // disable button
-        $(this).prop("disabled", true);
-        // add spinner to button
-        $(this).html(
-          `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
-        );
 
-        setTimeout(function () {
-          /*submit the form after 5 secs*/
-          $('#testForm').submit();
-        }, 1000)
 
-      });
-    });
+
+
+                // disable button
+                $(this).prop("disabled", true);
+                // add spinner to button
+                $(this).html(
+                    `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+                );
+
+                setTimeout(function () {
+                    /*submit the form after 5 secs*/
+                    $('#testForm').submit();
+                }, 1000)
+
+            });
+        });
+
+
+
+
+
 
 
 </script>
 
-<!--Year picker -->
+<!--Spinner  -->
 <script>
-    $("body").on("click", ".continue-btn", function (e) {
+        $("body").on("click", ".continue-btn", function (e) {
             e.preventDefault();
             $(window).scrollTop(200);
             console.log("ahihi");
-             $(".continue-btn").empty();
-                $(`<i class="fa fa-spinner"></i>`).appendTo(".continue-btn");
-    });
-
-
-
-</script>
-
-
-<script type="text/javascript">
-            // When the document is ready
-            $(document).ready(function () {
-
-
-
-                $('#example1').datepicker({
-                    format: "yyyy",
-                    viewMode: "years",
-                    minViewMode: "years",
-                    startDate: new Date('2003'),
-                    endDate: new Date('2020'),
-                    autoclose: true,
-                     todayHighlight: true,
-                });
-
-
-                $('#example2').datepicker({
-                    minViewMode: 'years',
-                    autoclose: true,
-                    format: 'yyyy',
-                    format: "yyyy",
-                    viewMode: "years",
-                    minViewMode: "years",
-                    startDate: new Date('2003'),
-                    endDate: new Date('2020')
-                });
-            });
-
-
-
-
-
+            $(".continue-btn").empty();
+            $(`<i class="fa fa-spinner"></i>`).appendTo(".continue-btn");
+        });
 
 
 
@@ -834,42 +887,45 @@
 
 </script>
 
+
+<!-- Bảng thống kê tổng-->
 <script>
 
 
-            function openCity(evt, cityName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(cityName).style.display = "block";
-                evt.currentTarget.className += " active";
-
-
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
             }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
 
 
-            // bảng thống kê
-            $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
-            $(".inner-2").text({{thongkechung.DOANH_NGHIEP_HOAT_DONG}});
-            $(".inner-3").text({{thongkechung.SO_DA_RD}});
-            $(".inner-4").text({{thongkechung.LAO_DONG_CHAT_LUONG_CAO}});
+        }
 
 
-             //bảng số lượng và vốn fdi vào việt nam
-             $(".soluongfdi").text({{thongkeDauTu.SOLUONG_FDI}});
-             $(".soluongvn").text({{thongkeDauTu.SOLUONG_VN}});
-             $(".vondautufdi").text({{thongkeDauTu.TONGVONDAUTU_FDI}});
-             $(".vondautuvn").text({{thongkeDauTu.TONGVONDAUTU_VN}});
+        // bảng thống kê
+        $(".inner-1").text({{ thongkechung.SO_DU_AN_DT }});
+        $(".inner-2").text({{ thongkechung.DOANH_NGHIEP_HOAT_DONG }});
+        $(".inner-3").text({{ thongkechung.SO_DA_RD }});
+        $(".inner-4").text({{ thongkechung.LAO_DONG_CHAT_LUONG_CAO }});
 
 
-             $(".tong1").text({{thongkeDauTu.SOLUONG_FDI}} + {{thongkeDauTu.SOLUONG_VN}});
-             $(".tong2").text( {{thongkeDauTu.TONGVONDAUTU_FDI}} + {{thongkeDauTu.TONGVONDAUTU_VN}} );
+        //bảng số lượng và vốn fdi vào việt nam
+        $(".soluongfdi").text({{ thongkeDauTu.SOLUONG_FDI }});
+        $(".soluongvn").text({{ thongkeDauTu.SOLUONG_VN }});
+        $(".vondautufdi").text({{ thongkeDauTu.TONGVONDAUTU_FDI }});
+        $(".vondautuvn").text({{ thongkeDauTu.TONGVONDAUTU_VN }});
+
+
+        $(".tong1").text({{ thongkeDauTu.SOLUONG_FDI }} + {{ thongkeDauTu.SOLUONG_VN }});
+        $(".tong2").text({{ thongkeDauTu.TONGVONDAUTU_FDI }} + {{ thongkeDauTu.TONGVONDAUTU_VN }});
+
 
 
 
@@ -877,6 +933,8 @@
 
 </script>
 
+
 </body>
 {% endblock %}
+
 </html>
