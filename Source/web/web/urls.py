@@ -34,8 +34,12 @@ urlpatterns = [
     path("phantichvonDV", views.vonDV, name="phantichvonDV"),
     path("phantichvonDT_UT", views.vonDT_UT, name="phantichvonDT_UT"),
     path("thongke_kinh_phi", views.thongKe_kinh_phi, name="thongke_kinh_phi"),
-    path("thongke_ti_le_ld_clc_tham_gia_rd", views.thongke_tile_ld_clc_tham_gia_rd, name="thongke_ti_le_ld_clc_tham_gia_rd")
+    path("thongke_ti_le_ld_clc_tham_gia_rd", views.thongke_tile_ld_clc_tham_gia_rd, name="thongke_ti_le_ld_clc_tham_gia_rd"),
 
+    path("thongke_du_an_dau_tu", views.thong_ke_du_an_dau_tu,
+         name="thongke_du_an_dau_tu"),
+    path("thong_ke_doanh_nghiep_hoat_dong", views.thong_ke_doanh_nghiep_hoat_dong,
+         name="thong_ke_doanh_nghiep_hoat_dong")
 
 ]
 

@@ -205,6 +205,7 @@ def vonVND(request):
     return render(request, "phantich_von_dt_vnd.html", {'thongke': thongKeVonDauTuVND(),
                                                         'phantich': DuDoanDauTuVND()})
 
+
 # 5 cai
 
 def vonSX(request):
@@ -239,3 +240,42 @@ def thongKe_kinh_phi(request):
 
 def thongke_tile_ld_clc_tham_gia_rd(request):
     return render(request, "thongke_kinh_phi.html", {"thongke": thongketylechiRD()})
+
+
+def thongke_doanh_nghiep_hoat_dong(request):
+    query = ' SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT';
+    data = pd.read_sql_query(query, conn)
+
+    dataResult = [
+        (DoanhNghiepHoatDong(row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
+                             row.VON_DAU_TU_VND)) for
+        index, row in data.iterrows()]
+    response = [vars(ob) for ob in dataResult]
+
+    return render(request, "thong_ke_doanh_nghiep_hoat_dong.html", {"thongke": response})
+
+
+class DoanhNghiepHoatDong:
+    def __init__(self, TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT, MUC_TIEU_HOAT_DONG, VON_DAU_TU_VND):
+        self.TEN_DU_AN_TIENG_VIET = TEN_DU_AN_TIENG_VIET
+        self.TEN_DU_AN_VIET_TAT = TEN_DU_AN_VIET_TAT
+        self.MUC_TIEU_HOAT_DONG = MUC_TIEU_HOAT_DONG
+        self.VON_DAU_TU_VND = VON_DAU_TU_VND
+
+
+
+def thong_ke_du_an_dau_tu(request):
+    query = ' SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT';
+    data = pd.read_sql_query(query, conn)
+
+    dataResult = [
+        (DoanhNghiepHoatDong(row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
+                             row.VON_DAU_TU_VND)) for
+        index, row in data.iterrows()]
+    response = [vars(ob) for ob in dataResult]
+
+    return render(request, "thong_ke_du_an_dau_tu.html", {"thongke": response})
+
+
+def thong_ke_doanh_nghiep_hoat_dong():
+    return None
