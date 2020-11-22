@@ -229,3 +229,12 @@ def vonKhac(request):
 def vonDT_UT(request):
     return render(request, "phantich_von_dt_DT_UT.html", {'thongke': thongKeVonDauTuDT_UT(),
                                                           'phantich': DuDoanDauTu_DT_UT()})
+
+
+# thong_ke_
+def thongKe_kinh_phi(request):
+    return render(request, "thongke_kinh_phi.html", {"thongke": thongketylechiRD()})
+
+
+def thongke_tile_ld_clc_tham_gia_rd(request):
+    return render(request, "thongke_kinh_phi.html", {"thongke": thongketylechiRD()})

@@ -33,6 +33,8 @@ urlpatterns = [
     path("phantichvonPTHT", views.vonVND, name="phantichvonPTHT"),
     path("phantichvonDV", views.vonDV, name="phantichvonDV"),
     path("phantichvonDT_UT", views.vonDT_UT, name="phantichvonDT_UT"),
+    path("thongke_kinh_phi", views.thongKe_kinh_phi, name="thongke_kinh_phi"),
+    path("thongke_ti_le_ld_clc_tham_gia_rd", views.thongke_tile_ld_clc_tham_gia_rd, name="thongke_ti_le_ld_clc_tham_gia_rd")
 
 
 ]
