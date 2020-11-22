@@ -45,9 +45,17 @@
     <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
     <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
 
+    <!--  Font - chữ  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+
+{{lable}}
+
+{{value}}
 
 <!--{{image_dau_tu_VND}}    Done -->
 <!--{{thong_ke_dau_tu_VND}} Done-->
@@ -74,8 +82,8 @@
                 <a href="/
 " class="nav-link">Home</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+            <li class="nav-item d-none d-sm-inline-block" style="display: none">
+                <a href="#" class="nav-link" style="display: none">Contact</a>
             </li>
         </ul>
 
@@ -83,7 +91,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-comments"></i>
                     <span class="badge badge-danger navbar-badge"></span>
@@ -147,7 +155,7 @@
                 </div>
             </li>
             <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-bell"></i>
                     <span class="badge badge-warning navbar-badge"></span>
@@ -250,22 +258,22 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview" style="display: none;">
-                            <li class="nav-item">
+                           <li class="nav-item">
                                 <a href="pages/tables/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Tỉ lệ chi RD</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/tables/data.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Tỉ lệ ĐH/ĐH tham gia RD </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
                                 <a href="pages/tables/jsgrid.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Kinh phi</p>
                                 </a>
                             </li>
                         </ul>
@@ -285,21 +293,39 @@
                         </a>
                         <ul class="nav nav-treeview" style="display: none;">
                             <li class="nav-item">
-                                <a href="pages/tables/simple.html" class="nav-link">
+                                <a href="/phantichvonDT_UT" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Vốn đầu tư DT_UT</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/data.html" class="nav-link">
+                                <a href="/phantichvonDV" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Vốn đầu tư DV</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <a href="/phantichvonKhac" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Vốn đầu tư khác</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonPTHT" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư PTHT</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonSX" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư SX</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonVND" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư VND</p>
                                 </a>
                             </li>
                         </ul>
@@ -321,19 +347,19 @@
                             <li class="nav-item">
                                 <a href="pages/tables/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Tỉ lệ chi RD</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/tables/data.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Tỉ lệ ĐH/ĐH tham gia RD </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
                                 <a href="pages/tables/jsgrid.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Kinh phi</p>
                                 </a>
                             </li>
                         </ul>
@@ -425,7 +451,7 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">Phân tích</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="display: none">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">23 <span>Columns</span></li>
                             <li class="breadcrumb-item active">51.000 <span>Rows</span></li>
@@ -449,9 +475,9 @@
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">
+                                <h3 class="card-title" style="font-family: 'Roboto', sans-serif;">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Thống Kê tỉ lệ nhà máy qua từng năm
+                                    Thống kê tỉ lệ vốn đầu tư theo phần trăm
                                 </h3>
                                 <div class="card-tools">
                                     <ul class="nav nav-pills ml-auto">
@@ -982,7 +1008,7 @@ console.log(what1);
       options:{
         title:{
           display:true,
-          text:'Phân tích vốn đầu tư VND',
+          text:'Thống kê vốn đầu tư VND',
           fontSize:25
         },
         legend:{

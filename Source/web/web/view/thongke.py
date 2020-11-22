@@ -47,7 +47,7 @@ def thongKeVonDauTuVND():
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        (SoLieuThongKe(row.ds, row.yhat)) for
         index, row in dataVonDauTuVND.iterrows()]
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson
@@ -58,7 +58,7 @@ def thongKeVonDauTuSX():
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        (SoLieuThongKe(row.ds, row.yhat)) for
         index, row in dataVonDauTuVND.iterrows()]
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson
@@ -69,7 +69,7 @@ def thongKeVonDauTuPTHT():
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        (SoLieuThongKe(row.ds, row.yhat)) for
         index, row in dataVonDauTuVND.iterrows()]
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson
@@ -80,7 +80,7 @@ def thongKeVonDauTuKHAC():
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        (SoLieuThongKe(row.ds, row.yhat)) for
         index, row in dataVonDauTuVND.iterrows()]
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson
@@ -91,7 +91,7 @@ def thongKeVonDauTuDV():
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        (SoLieuThongKe(row.ds, row.yhat)) for
         index, row in dataVonDauTuVND.iterrows()]
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson
@@ -102,7 +102,7 @@ def thongKeVonDauTuDT_UT():
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
-        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        (SoLieuThongKe(row.ds, row.yhat)) for
         index, row in dataVonDauTuVND.iterrows()]
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson

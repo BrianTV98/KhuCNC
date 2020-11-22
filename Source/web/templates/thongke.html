@@ -36,15 +36,19 @@
 
 
 
-
-
-
     <!-- DataTable -->
    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+
+<!--  Font - chữ  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+
 
     <style>
 <!--    tr{-->
@@ -87,7 +91,7 @@
                 <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" style="display: none">Contact</a>
             </li>
         </ul>
 
@@ -95,7 +99,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-comments"></i>
                     <span class="badge badge-danger navbar-badge"></span>
@@ -159,7 +163,7 @@
                 </div>
             </li>
             <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-bell"></i>
                     <span class="badge badge-warning navbar-badge"></span>
@@ -262,21 +266,21 @@
                         </a>
                         <ul class="nav nav-treeview" style="display: none;">
                             <li class="nav-item">
-                                <a href="pages/tables/simple.html" class="nav-link">
+                                <a href="pages/forms/general.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>General Elements</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/data.html" class="nav-link">
+                                <a href="pages/forms/advanced.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Advanced Elements</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <a href="pages/forms/editors.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Editors</p>
                                 </a>
                             </li>
                         </ul>
@@ -296,21 +300,39 @@
                         </a>
                         <ul class="nav nav-treeview" style="display: none;">
                             <li class="nav-item">
-                                <a href="pages/tables/simple.html" class="nav-link">
+                                <a href="/phantichvonDT_UT" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Vốn đầu tư DT_UT</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/data.html" class="nav-link">
+                                <a href="/phantichvonDV" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Vốn đầu tư DV</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <a href="/phantichvonKhac" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Vốn đầu tư khác</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonPTHT" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư PTHT</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonSX" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư SX</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonVND" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư VND</p>
                                 </a>
                             </li>
                         </ul>
@@ -320,7 +342,8 @@
     transform: translate(60px, 31px);
     color: #fff;
     position: relative;
-    z-index: 99;"><a href="/thongke" style="color: #fff;" class="thongke1">Thống kê</a></div>
+    z-index: 99;"><a href="/thongke" style="color: #fff;" class="
+">Thống kê</a></div>
                         <a href="/thongke" class="nav-link nav-item active " style="background-color: dimgrey;">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
@@ -332,19 +355,19 @@
                             <li class="nav-item">
                                 <a href="pages/tables/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
+                                    <p>Tỉ lệ chi RD</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/tables/data.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
+                                    <p>Tỉ lệ đại học tham gia RD</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/tables/jsgrid.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Kinh phí</p>
                                 </a>
                             </li>
                         </ul>
@@ -438,7 +461,7 @@
                         <h1 class="m-0">Thống kê</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right" style="display:none;">
                             <li class="breadcrumb-item">23 <span>Columns</span></li>
                             <li class="breadcrumb-item active">51.000 <span>Rows</span></li>
                         </ol>
@@ -460,10 +483,12 @@
                     <section class="col-lg-12 connectedSortable">
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title" style="margin-top: 7px !important ; font-size: 1.5rem !important">
+                            <div class="card-header" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                                <h3 class="card-title" style="margin-top: 7px !important ; font-size: 1.6rem ;    font-family: 'Roboto', sans-serif;">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Thống Kê tỉ lệ nhà máy qua từng năm
+                                    Thống kê tỉ lệ nghiên cứu phát triển(RD) qua từng năm
                                 </h3>
                                 <div class="card-tools">
 
