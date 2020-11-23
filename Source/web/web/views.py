@@ -163,14 +163,14 @@ def phantich(request):
     value = [desc for desc in data['SO_LUONG']]
 
     args = {
-        'image_dau_tu_VND': DuDoanDauTuVND(),
-        # Cần làm
-        'thong_ke_dau_tu_VND': thongKeVonDauTuVND(),
-        'image_dau_tu_USD': DuDoanDauTuUSD(),
-        'image_dau_tu_SX': DuDoanDauTu_SX(),
-        'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
-        'image_dau_tu_DV': DuDoanDauTu_DV(),
-        'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
+        # 'image_dau_tu_VND': DuDoanDauTuVND(),
+        # # Cần làm
+        # 'thong_ke_dau_tu_VND': thongKeVonDauTuVND(),
+        # 'image_dau_tu_USD': DuDoanDauTuUSD(),
+        # 'image_dau_tu_SX': DuDoanDauTu_SX(),
+        # 'image_dau_tu_DT_UT': DuDoanDauTu_DT_UT(),
+        # 'image_dau_tu_DV': DuDoanDauTu_DV(),
+        # 'image_dau_tu_PTHT': DuDoanDauTu_PTHT(),
 
         # 'image_dau_tu_DT': DuDoanDauTu_DT(),
         # 'image_dau_tu_VDT': DuDoanDauTu_VDT(),
@@ -239,7 +239,7 @@ def thongKe_kinh_phi(request):
 
 
 def thongke_tile_ld_clc_tham_gia_rd(request):
-    return render(request, "thongke_kinh_phi.html", {"thongke": thongketylechiRD()})
+    return render(request, "thongke_lao_dong_clc_tham_gia_rd.html", {"thongke": thongketylechiRD()})
 
 
 def thongke_doanh_nghiep_hoat_dong(request):
