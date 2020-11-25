@@ -67,7 +67,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-<!--{{thongkeDauTu}}-->
+{{thongkeDauTu}}
 <!--{{ thongkechung}}-->
 <div class="wrapper">
     <!-- Navbar -->
@@ -835,16 +835,10 @@
 
                 var a = $("#fname").val();
                 var b = $("#lname").val();
-                console.log(a);
-                console.log(b);
+<!--                console.log(a);-->
+<!--                console.log(b);-->
                 localStorage.setItem("cart1", JSON.stringify(a));
                 localStorage.setItem("cart2", JSON.stringify(b));
-
-
-
-
-
-
 
                 // disable button
                 $(this).prop("disabled", true);
@@ -918,14 +912,44 @@
 
 
         //bảng số lượng và vốn fdi vào việt nam
+        console.log({{thongkeDauTu.SOLUONG_FDI}} );
+        console.log({{ thongkeDauTu.SOLUONG_VN }} );
+        console.log({{ thongkeDauTu.TONGVONDAUTU_FDI }} );
+        console.log({{ thongkeDauTu.TONGVONDAUTU_VN }} );
+
+
+
+<!--var money =123456789;-->
+
+<!--    var moneyDots = money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");-->
+<!--    console.log(moneyDots);-->
+
+
+        var TongVonDauTuFPI = {{ thongkeDauTu.TONGVONDAUTU_FDI }};
+            var TongVonDauTuFPI1 = TongVonDauTuFPI.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+    console.log(TongVonDauTuFPI1);
+
+
+        var TongVonDauTuVN = {{ thongkeDauTu.TONGVONDAUTU_VN }};
+    var TongVonDauTuVN1 =  TongVonDauTuVN.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+    console.log(TongVonDauTuVN1);
+
+
+
+
         $(".soluongfdi").text({{ thongkeDauTu.SOLUONG_FDI }});
         $(".soluongvn").text({{ thongkeDauTu.SOLUONG_VN }});
-        $(".vondautufdi").text({{ thongkeDauTu.TONGVONDAUTU_FDI }});
-        $(".vondautuvn").text({{ thongkeDauTu.TONGVONDAUTU_VN }});
+        $(".vondautufdi").text( TongVonDauTuFPI1 );
+        $(".vondautuvn").text( TongVonDauTuVN1 );
+
+        var tong2 = {{ thongkeDauTu.TONGVONDAUTU_FDI }} +  {{ thongkeDauTu.TONGVONDAUTU_VN }};
+        console.log(tong2);
+          var tong2End =  tong2.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+
 
 
         $(".tong1").text({{ thongkeDauTu.SOLUONG_FDI }} + {{ thongkeDauTu.SOLUONG_VN }});
-        $(".tong2").text({{ thongkeDauTu.TONGVONDAUTU_FDI }} + {{ thongkeDauTu.TONGVONDAUTU_VN }});
+        $(".tong2").text(tong2End);
 
 
 
