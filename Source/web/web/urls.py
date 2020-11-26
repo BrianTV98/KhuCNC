@@ -40,7 +40,9 @@ urlpatterns = [
     path("thongke_du_an_dau_tu", views.thong_ke_du_an_dau_tu,
          name="thongke_du_an_dau_tu"),
     path("thong_ke_doanh_nghiep_hoat_dong", views.thong_ke_doanh_nghiep_hoat_dong,
-         name="thong_ke_doanh_nghiep_hoat_dong")
+         name="thong_ke_doanh_nghiep_hoat_dong"),
+    path("thong_ke_hoat_dong_rd", views.thong_ke_hoat_dong_rd,
+         name="thong_ke_hoat_dong_rd")
 
 ]
 

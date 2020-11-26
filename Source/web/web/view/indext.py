@@ -23,3 +23,14 @@ def getThongDauTu(val1, val2):
     thongkeDauTuresponse = [vars(ob) for ob in thongkegDauTuResult]
 
     return thongkeDauTuresponse
+
+
+def thongKeDanhNghiepHoatDong():
+    query = "SELECT  SO_CNDKKD, TEN_DN FROM dbo.DOANHNGHIEP  WHERE dbo.DOANHNGHIEP.DA_GIAI_THE =0"
+    thongkeDauTu = pd.read_sql_query(query, conn)
+
+
+    return thongkeDauTu
+
+
+

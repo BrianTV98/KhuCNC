@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+ {% load static %}
 </head>
 <body>
-
+{% autoescape off  %}
+    {{thongke}}
+{% endautoescape  %}
 </body>
 </html>

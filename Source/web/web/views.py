@@ -247,7 +247,7 @@ def thongke_doanh_nghiep_hoat_dong(request):
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
-        (DoanhNghiepHoatDong(row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
+        (DoanhNghiepHoatDong(row.SO_CNDKKD, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
                              row.VON_DAU_TU_VND)) for
         index, row in data.iterrows()]
     response = [vars(ob) for ob in dataResult]
@@ -256,20 +256,21 @@ def thongke_doanh_nghiep_hoat_dong(request):
 
 
 class DoanhNghiepHoatDong:
-    def __init__(self, TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT, MUC_TIEU_HOAT_DONG, VON_DAU_TU_VND):
+    def __init__(self, SO_CNDKKD, TEN_DN, TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT, MUC_TIEU_HOAT_DONG, VON_DAU_TU_VND):
+        self.SO_CNDKKD = SO_CNDKKD,
+        self.TEN_DN = TEN_DN,
         self.TEN_DU_AN_TIENG_VIET = TEN_DU_AN_TIENG_VIET
         self.TEN_DU_AN_VIET_TAT = TEN_DU_AN_VIET_TAT
         self.MUC_TIEU_HOAT_DONG = MUC_TIEU_HOAT_DONG
-        self.VON_DAU_TU_VND = VON_DAU_TU_VND
-
+        self.VON_DAU_TU_VND = VON_DAU_TU_VND,
 
 
 def thong_ke_du_an_dau_tu(request):
-    query = ' SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT';
+    query = 'SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT'
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
-        (DoanhNghiepHoatDong(row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
+        (DoanhNghiepHoatDong("", "", row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
                              row.VON_DAU_TU_VND)) for
         index, row in data.iterrows()]
     response = [vars(ob) for ob in dataResult]
@@ -277,5 +278,39 @@ def thong_ke_du_an_dau_tu(request):
     return render(request, "thong_ke_du_an_dau_tu.html", {"thongke": response})
 
 
-def thong_ke_doanh_nghiep_hoat_dong():
-    return None
+def thong_ke_doanh_nghiep_hoat_dong(request):
+    query = ' SELECT  GIAY_CNDT.SO_CNDKKD, TEN_DN,TEN_DU_AN_TIENG_VIET,TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.DOANHNGHIEP   Left join GIAY_CNDT on GIAY_CNDT.SO_CNDKKD =DOANHNGHIEP.SO_CNDKKD WHERE dbo.DOANHNGHIEP.DA_GIAI_THE =0 ';
+    data = pd.read_sql_query(query, conn)
+
+    dataResult = [
+        (DoanhNghiepHoatDong(row.SO_CNDKKD, row.TEN_DN, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT,
+                             row.MUC_TIEU_HOAT_DONG,
+                             row.VON_DAU_TU_VND)) for
+        index, row in data.iterrows()]
+    response = [vars(ob) for ob in dataResult]
+
+    return render(request, "thong_ke_danh_nghiep_hoat_dong.html", {"thongke": response})
+
+
+def thong_ke_hoat_dong_rd(request):
+    query = "SELECT GIAY_CNDT.SO_GCNDT,GIAY_CNDT.TEN_DU_AN_TIENG_VIET,GIAY_CNDT.TEN_DU_AN_VIET_TAT,GIAY_CNDT.NGAY_DANG_KY,GCNDT_DANG_KY_HOAT_DONG_RD.NOI_DUNG,GCNDT_DANG_KY_HOAT_DONG_RD.HINH_THUC_RD   FROM DBO.GCNDT_DANG_KY_HOAT_DONG_RD JOIN GIAY_CNDT ON GIAY_CNDT.SO_GCNDT = GCNDT_DANG_KY_HOAT_DONG_RD.SO_GCNDT"
+    data = pd.read_sql_query(query, conn)
+
+    dataResult = [
+        HoatDongRD(row.SO_GCNDT, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, pd.to_datetime(row.NGAY_DANG_KY).date().isoformat(),
+          row.NOI_DUNG,row.HINH_THUC_RD
+          ) for
+        index, row in data.iterrows()]
+    response = [vars(ob) for ob in dataResult]
+
+    return render(request, "thong_ke_du_an_rd.html", {"thongke": response})
+
+
+class HoatDongRD:
+    def __init__(self, SO_GCNDT, TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT, NGAY_DANG_KY, NOI_DUNG, HINH_THUC_RD):
+        self.SO_GCNDT = SO_GCNDT,
+        self.TEN_DU_AN_TIENG_VIET = TEN_DU_AN_TIENG_VIET,
+        self.TEN_DU_AN_VIET_TAT = TEN_DU_AN_VIET_TAT
+        self.NGAY_DANG_KY = NGAY_DANG_KY
+        self.NOI_DUNG = NOI_DUNG
+        self.HINH_THUC_RD = HINH_THUC_RD,
