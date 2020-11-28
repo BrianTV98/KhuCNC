@@ -255,31 +255,29 @@ def thongke_doanh_nghiep_hoat_dong(request):
     return render(request, "thong_ke_doanh_nghiep_hoat_dong.html", {"thongke": response})
 
 
-class DoanhNghiepHoatDong:
-    def __init__(self, SO_CNDKKD, TEN_DN, TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT, MUC_TIEU_HOAT_DONG, VON_DAU_TU_VND):
-        self.SO_CNDKKD = SO_CNDKKD,
-        self.TEN_DN = TEN_DN,
-        self.TEN_DU_AN_TIENG_VIET = TEN_DU_AN_TIENG_VIET
-        self.TEN_DU_AN_VIET_TAT = TEN_DU_AN_VIET_TAT
-        self.MUC_TIEU_HOAT_DONG = MUC_TIEU_HOAT_DONG
-        self.VON_DAU_TU_VND = VON_DAU_TU_VND,
-
-
 def thong_ke_du_an_dau_tu(request):
-    query = 'SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT'
+    # query = 'SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT'
+    query = 'EXEC [dbo].[Test]'
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
         (DoanhNghiepHoatDong("", "", row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
                              row.VON_DAU_TU_VND)) for
         index, row in data.iterrows()]
+    # fix bug
+    for x in dataResult:
+        x.SO_CNDKKD = x.SO_CNDKKD[0],
+        x.TEN_DN = x.TEN_DN[0],
+        x.VON_DAU_TU_VND = x.VON_DAU_TU_VND[0]
+
     response = [vars(ob) for ob in dataResult]
 
     return render(request, "thong_ke_du_an_dau_tu.html", {"thongke": response})
 
 
 def thong_ke_doanh_nghiep_hoat_dong(request):
-    query = ' SELECT  GIAY_CNDT.SO_CNDKKD, TEN_DN,TEN_DU_AN_TIENG_VIET,TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.DOANHNGHIEP   Left join GIAY_CNDT on GIAY_CNDT.SO_CNDKKD =DOANHNGHIEP.SO_CNDKKD WHERE dbo.DOANHNGHIEP.DA_GIAI_THE =0 ';
+    query = 'SET NOCOUNT ON; SELECT GIAY_CNDT.SO_CNDKKD,TEN_DN,TEN_DU_AN_TIENG_VIET,TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.DOANHNGHIEP   Left join GIAY_CNDT on GIAY_CNDT.SO_CNDKKD =DOANHNGHIEP.SO_CNDKKD WHERE dbo.DOANHNGHIEP.DA_GIAI_THE =0';
+    # query = 'EXEC [dbo].[Test]'
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
@@ -287,9 +285,15 @@ def thong_ke_doanh_nghiep_hoat_dong(request):
                              row.MUC_TIEU_HOAT_DONG,
                              row.VON_DAU_TU_VND)) for
         index, row in data.iterrows()]
+
+    # fix bug
+    for x in dataResult:
+        x.TEN_DN = x.TEN_DN[0]
+        x.SO_CNDKKD = x.SO_CNDKKD[0]
+
     response = [vars(ob) for ob in dataResult]
 
-    return render(request, "thong_ke_danh_nghiep_hoat_dong.html", {"thongke": response})
+    return render(request, "thong_ke_doanh_nghiep_hoat_dong.html", {"thongke": response})
 
 
 def thong_ke_hoat_dong_rd(request):
@@ -297,13 +301,21 @@ def thong_ke_hoat_dong_rd(request):
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
-        HoatDongRD(row.SO_GCNDT, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, pd.to_datetime(row.NGAY_DANG_KY).date().isoformat(),
-          row.NOI_DUNG,row.HINH_THUC_RD
-          ) for
+        (HoatDongRD(row.SO_GCNDT, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT,
+                    pd.to_datetime(row.NGAY_DANG_KY).date().isoformat(),
+                    row.NOI_DUNG, row.HINH_THUC_RD
+                    ))
+        for
         index, row in data.iterrows()]
+
+    # fix bug
+    for x in dataResult:
+        x.SO_GCNDT = x.SO_GCNDT[0]
+        x.TEN_DU_AN_TIENG_VIET = x.TEN_DU_AN_TIENG_VIET[0]
+
     response = [vars(ob) for ob in dataResult]
 
-    return render(request, "thong_ke_du_an_rd.html", {"thongke": response})
+    return render(request, "thong_ke_hoat_dong_rd.html", {"thongke": response})
 
 
 class HoatDongRD:
@@ -314,3 +326,16 @@ class HoatDongRD:
         self.NGAY_DANG_KY = NGAY_DANG_KY
         self.NOI_DUNG = NOI_DUNG
         self.HINH_THUC_RD = HINH_THUC_RD,
+
+
+class DoanhNghiepHoatDong:
+    def __init__(self, SO_CNDKKD, TEN_DN, TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT, MUC_TIEU_HOAT_DONG, VON_DAU_TU_VND):
+        self.SO_CNDKKD = SO_CNDKKD,
+        self.TEN_DN = TEN_DN,
+        self.TEN_DU_AN_TIENG_VIET = TEN_DU_AN_TIENG_VIET
+        self.TEN_DU_AN_VIET_TAT = TEN_DU_AN_VIET_TAT
+        self.MUC_TIEU_HOAT_DONG = MUC_TIEU_HOAT_DONG
+        self.VON_DAU_TU_VND = VON_DAU_TU_VND,
+
+    def __str__(self):
+        return self.SO_CNDKKD;
