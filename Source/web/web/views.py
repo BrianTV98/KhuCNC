@@ -290,7 +290,7 @@ def thong_ke_doanh_nghiep_hoat_dong(request):
     for x in dataResult:
         x.TEN_DN = x.TEN_DN[0]
         x.SO_CNDKKD = x.SO_CNDKKD[0]
-
+        x.VON_DAU_TU_VND = x.VON_DAU_TU_VND[0]
     response = [vars(ob) for ob in dataResult]
 
     return render(request, "thong_ke_doanh_nghiep_hoat_dong.html", {"thongke": response})
@@ -312,6 +312,7 @@ def thong_ke_hoat_dong_rd(request):
     for x in dataResult:
         x.SO_GCNDT = x.SO_GCNDT[0]
         x.TEN_DU_AN_TIENG_VIET = x.TEN_DU_AN_TIENG_VIET[0]
+        x.HINH_THUC_RD = x.HINH_THUC_RD[0]
 
     response = [vars(ob) for ob in dataResult]
 
