@@ -64,12 +64,17 @@ def index(request):
     val3 = str(val1)
     val4 = str(val2)
 
-    print(val3)
-    print(val4)
+    query = ' SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT';
+    data = pd.read_sql_query(query, conn)
+
+
 
     return render(request, 'indext.html', {"thongkechung": response[0],
                                            "thongkeDauTu": getThongDauTu(val3, val4)[0],
-                                           "year_from_to": from_to})
+                                           "year_from_to": from_to,
+                                           "thongkeduandautu":thong_ke_du_an_dau_tu(),
+                                           "thongkeduanrd":thongke,
+                                           "thongkedoanhnghiephoatodng":thong_ke_doanh_nghiep_hoat_dong()})
 
 
 def report(request):
@@ -255,9 +260,9 @@ def thongke_doanh_nghiep_hoat_dong(request):
     return render(request, "thong_ke_doanh_nghiep_hoat_dong.html", {"thongke": response})
 
 
-def thong_ke_du_an_dau_tu(request):
-    # query = 'SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT'
-    query = 'EXEC [dbo].[Test]'
+def thong_ke_du_an_dau_tu():
+    query = 'SELECT TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.GIAY_CNDT'
+    #query = 'EXEC [dbo].[Test]'
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
@@ -272,10 +277,10 @@ def thong_ke_du_an_dau_tu(request):
 
     response = [vars(ob) for ob in dataResult]
 
-    return render(request, "thong_ke_du_an_dau_tu.html", {"thongke": response})
+    return response
 
 
-def thong_ke_doanh_nghiep_hoat_dong(request):
+def thong_ke_doanh_nghiep_hoat_dong():
     query = 'SET NOCOUNT ON; SELECT GIAY_CNDT.SO_CNDKKD,TEN_DN,TEN_DU_AN_TIENG_VIET,TEN_DU_AN_VIET_TAT,MUC_TIEU_HOAT_DONG,VON_DAU_TU_VND FROM dbo.DOANHNGHIEP   Left join GIAY_CNDT on GIAY_CNDT.SO_CNDKKD =DOANHNGHIEP.SO_CNDKKD WHERE dbo.DOANHNGHIEP.DA_GIAI_THE =0';
     # query = 'EXEC [dbo].[Test]'
     data = pd.read_sql_query(query, conn)
@@ -293,10 +298,10 @@ def thong_ke_doanh_nghiep_hoat_dong(request):
 
     response = [vars(ob) for ob in dataResult]
 
-    return render(request, "thong_ke_doanh_nghiep_hoat_dong.html", {"thongke": response})
+    return response
 
 
-def thong_ke_hoat_dong_rd(request):
+def thong_ke_hoat_dong_rd():
     query = "SELECT GIAY_CNDT.SO_GCNDT,GIAY_CNDT.TEN_DU_AN_TIENG_VIET,GIAY_CNDT.TEN_DU_AN_VIET_TAT,GIAY_CNDT.NGAY_DANG_KY,GCNDT_DANG_KY_HOAT_DONG_RD.NOI_DUNG,GCNDT_DANG_KY_HOAT_DONG_RD.HINH_THUC_RD   FROM DBO.GCNDT_DANG_KY_HOAT_DONG_RD JOIN GIAY_CNDT ON GIAY_CNDT.SO_GCNDT = GCNDT_DANG_KY_HOAT_DONG_RD.SO_GCNDT"
     data = pd.read_sql_query(query, conn)
 
@@ -315,7 +320,7 @@ def thong_ke_hoat_dong_rd(request):
 
     response = [vars(ob) for ob in dataResult]
 
-    return render(request, "thong_ke_hoat_dong_rd.html", {"thongke": response})
+    return  response
 
 
 class HoatDongRD:
