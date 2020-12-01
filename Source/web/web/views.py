@@ -266,13 +266,13 @@ def thong_ke_du_an_dau_tu():
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
-        (DoanhNghiepHoatDong("", "", row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
+        (DoanhNghiepHoatDong("","", row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
                              row.VON_DAU_TU_VND)) for
         index, row in data.iterrows()]
     # fix bug
     for x in dataResult:
-        x.SO_CNDKKD = x.SO_CNDKKD[0],
-        x.TEN_DN = x.TEN_DN[0],
+        x.SO_CNDKKD =""
+        x.TEN_DN = ""
         x.VON_DAU_TU_VND = x.VON_DAU_TU_VND[0]
 
     response = [vars(ob) for ob in dataResult]
