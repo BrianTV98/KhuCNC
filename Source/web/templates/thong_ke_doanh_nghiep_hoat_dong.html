@@ -1,13 +1,741 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thống kê doanh nghiệp hoạt động</title>
+    {% load static %}
+
+    {% autoescape off %}
+    <link rel="stylesheet" href="{% static 'dist/js/demo.js' %}">
+    <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet"
+          href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+    <!-- iCheck -->
+    <!-- test -->
+    <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte.css' %}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
+
+
+    <!-- DataTable -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+
+    <!--  Font - chữ  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+
+    <style>
+<!--    tr{-->
+<!--       text-align: center;-->
+<!--    }-->
+
+        .card-body{
+           cursor: pointer;
+        }
+        .th-inner {
+            background-color: #343a40;
+            color: #c2c7d0;
+        }
+        .fixed-table-header{
+            background-color: #343a40;
+            color: #c2c7d0;
+        }
+
+.bootstrap-table .table thead>tr>th{
+    border-top: unset;
+    border-bottom: unset;
+    text-align: center;
+}
+
+
+    </style>
+
 </head>
-<body>
-{% autoescape off  %}
-    {{thongke}}
-{% endautoescape  %}
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<!--{{thongke}}-->
+<div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                        class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link" style="display: none">Contact</a>
+            </li>
+        </ul>
+
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Messages Dropdown Menu -->
+            <li class="nav-item dropdown" style="display: none">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-comments"></i>
+                    <span class="badge badge-danger navbar-badge"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Brad Diesel
+                                    <span class="float-right text-sm text-danger"><i
+                                            class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">Call me whenever you can...</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    John Pierce
+                                    <span class="float-right text-sm text-muted"><i
+                                            class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">I got your message bro</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Nora Silvester
+                                    <span class="float-right text-sm text-warning"><i
+                                            class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">The subject goes here</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                </div>
+            </li>
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown" style="display: none">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 friend requests
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divide"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="" class="brand-link" style="height: 49px;position: relative;    text-align: center;">
+            <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
+                 class="brand-image img-circle elevation-3"
+                 style="opacity: .8;position: absolute;
+    left: 10px;
+    top: 9px;">
+            <span class="brand-text font-weight-light" style="position: absolute;
+    left: 69px;
+    top: 11px;
+    font-size: 16px;">Exploratory</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="{% static 'dist/fontawesome/119171448_1657984694364386_4955939991367944081_o.jpg' %}"
+                         class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="https://www.facebook.com/haylachinhminh1998/" class="d-block">Trần Văn Hiếu</a>
+                </div>
+            </div>
+
+            <!-- SidebarSearch Form -->
+            <div class="form-inline">
+                <div class="input-group" data-widget="sidebar-search">
+                    <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                           aria-label="Search">
+                    <div class="input-group-append" style="display: none">
+                        <button class="btn btn-sidebar">
+                            <i class="fas fa-search fa-fw"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    style="transform: translateY(-10px);" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
+
+                    <!-- Thêm dashboard -->
+                    <li class="nav-item" style="border-radius: 6px;">
+                        <div style="display: inline-block;
+    transform: translate(60px, 31px);
+    color: #fff;
+    position: relative;
+    z-index: 99;"><a href="/" style="color: #fff;" class="thongke1">Dashboard</a></div>
+                        <a href="/thongke" class="nav-link nav-item active " style="background-color: dimgrey;">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="pages/forms/general.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>General Elements</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/advanced.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Advanced Elements</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/editors.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Editors</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="border-radius: 6px;transform: translateY(-20px);">
+                        <div style="display: inline-block;
+    transform: translate(60px, 31px);
+    color: #fff;
+    position: relative;
+    z-index: 99;"><a href="/phantich" style="color: #fff;" class="thongke1">Phân tích</a></div>
+                        <a href="/phantich" class="nav-link nav-item active " style="background-color: dimgrey;">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/phantichvonDT_UT" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư DT_UT</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonDV" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư DV</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonKhac" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư khác</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonPTHT" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư PTHT</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonSX" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư SX</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/phantichvonVND" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư VND</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="border-radius: 6px;transform: translateY(-40px);">
+                        <div style="display: inline-block;
+    transform: translate(60px, 31px);
+    color: #fff;
+    position: relative;
+    z-index: 99;"><a href="/thongke" style="color: #fff;" class="
+">Thống kê</a></div>
+                        <a href="/thongke" class="nav-link nav-item active " style="background-color: dimgrey;">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/thongke" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tỉ lệ chi RD</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/thongke_ti_le_ld_clc_tham_gia_rd" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tỉ lệ đại học tham gia RD</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/thongke_kinh_phi" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kinh phí</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" style="transform: translateY(-30px);">
+                        <a href="/thongke" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Phân tích
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav.html" class="nav-link" style="background-color: rgba(255,255,255,.9);
+    color: #343a40;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Top Navigation</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link" style="background-color: rgba(255,255,255,.9);
+    color: #343a40;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Top Navigation + Sidebar</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/boxed.html" class="nav-link" style="background-color: rgba(255,255,255,.9);
+    color: #343a40;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Boxed</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="transform: translateY(-35px);">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Forms
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/forms/general.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>General Elements</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/advanced.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Advanced Elements</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/editors.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Editors</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/forms/validation.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Validation</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="display:none;">
+                            <li class="breadcrumb-item">23 <span>Columns</span></li>
+                            <li class="breadcrumb-item active">51.000 <span>Rows</span></li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+
+                <!-- /.row -->
+                <!-- Main row -->
+                <div class="row">
+                    <!-- Left col -->
+                    <section class="col-lg-12 connectedSortable">
+                        <!-- Custom tabs (Charts with tabs)-->
+                        <div class="card">
+                            <div class="card-header" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                                <h3 class="card-title"
+                                    style="margin-top: 7px !important ; font-size: 1.6rem ;    font-family: 'Roboto', sans-serif;">
+                                    <i class="fas fa-chart-pie mr-1"></i>
+                                    Thống kê doanh nghiệp hoạt động
+                                </h3>
+                                <div class="card-tools">
+
+                                </div>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <p id="console1" style="display: none"> {{tylechiRd}} </p>
+                                <div class="container">
+
+                                    <table id="table" data-height="600">
+                                        <thead>
+                                        <tr>
+                                            <th data-field="SO_CNDKKD">Số đăng kí kinh doanh</th>
+                                            <th data-field="TEN_DN">Tên dự án</th>
+                                            <th data-field="TEN_DU_AN_TIENG_VIET">Tên dự án tiếng việt</th>
+                                            <th data-field="MUC_TIEU_HOAT_DONG">Mục tiêu hoạt động</th>
+                                            <th data-field="VON_DAU_TU_VND">Vốn đầu tư VND</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+
+                                </div>
+
+
+                            </div><!-- /.card-body -->
+                        </div>
+
+                    </section>
+                    <!-- /.Left col -->
+                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                    <section class="col-lg-2 connectedSortable" style="display:none">
+
+                        <!-- Map card -->
+                        <div class="card bg-gradient-primary">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">
+                                    <i class="fas fa-map-marker-alt mr-1"></i>
+                                    Visitors
+                                </h3>
+                                <!-- card tools -->
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-primary btn-sm daterange"
+                                            title="Date range">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-sm"
+                                            data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+                            <div class="card-body">
+                                <div id="world-map" style="height: 250px; width: 100%;"></div>
+                            </div>
+                            <!-- /.card-body-->
+                            <div class="card-footer bg-transparent">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <div id="sparkline-1"></div>
+                                        <div class="text-white">Visitors</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <div id="sparkline-2"></div>
+                                        <div class="text-white">Online</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <div id="sparkline-3"></div>
+                                        <div class="text-white">Sales</div>
+                                    </div>
+                                    <!-- ./col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                        </div>
+                        <!-- /.card -->
+
+                        <!-- solid sales graph -->
+                        <div class="card bg-gradient-info">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">
+                                    <i class="fas fa-th mr-1"></i>
+                                    Sales Graph
+                                </h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn bg-info btn-sm"
+                                            data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <canvas class="chart" id="line-chart"
+                                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer bg-transparent">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <input type="text" class="knob" data-readonly="true" value="20"
+                                               data-width="60" data-height="60"
+                                               data-fgColor="#39CCCC">
+
+                                        <div class="text-white">Mail-Orders</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <input type="text" class="knob" data-readonly="true" value="50"
+                                               data-width="60" data-height="60"
+                                               data-fgColor="#39CCCC">
+
+                                        <div class="text-white">Online</div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-4 text-center">
+                                        <input type="text" class="knob" data-readonly="true" value="30"
+                                               data-width="60" data-height="60"
+                                               data-fgColor="#39CCCC">
+
+                                        <div class="text-white">In-Store</div>
+                                    </div>
+                                    <!-- ./col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!-- /.card -->
+
+                        <!-- Calendar -->
+                        <div class="card bg-gradient-success">
+                            <div class="card-header border-0">
+
+                                <h3 class="card-title">
+                                    <i class="far fa-calendar-alt"></i>
+                                    Calendar
+                                </h3>
+                                <!-- tools card -->
+                                <div class="card-tools">
+                                    <!-- button with a dropdown -->
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                                data-toggle="dropdown"
+                                                data-offset="-52">
+                                            <i class="fas fa-bars"></i>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            <a href="#" class="dropdown-item">Add new event</a>
+                                            <a href="#" class="dropdown-item">Clear events</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item">View calendar</a>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-success btn-sm"
+                                            data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-sm"
+                                            data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <!-- /. tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body pt-0">
+                                <!--The calendar -->
+                                <div id="calendar" style="width: 100%"></div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </section>
+                    <!-- right col -->
+                </div>
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Develop by <a href="https://www.facebook.com/haylachinhminh1998">Trần Văn Hiếu</a>.</strong>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+
+
+<!-- form -->
+<script>
+
+var data = {{thongke}};
+
+console.log(data);
+    $(function () {
+      $('#table').bootstrapTable({
+        data: data
+      });
+    });
+
+</script>
+
+
+
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+            $.widget.bridge('uibutton', $.ui.button)
+
+</script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+<!-- Sparkline -->
+<script src="{% static 'plugins/sparklines/sparkline.js' %}"></script>
+<!-- JQVMap -->
+<script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+<!-- daterangepicker -->
+<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Summernote -->
+<script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js' %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+
+
 </body>
-</body>
+
+{% endautoescape %}
 </html>
