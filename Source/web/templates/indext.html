@@ -78,11 +78,11 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-{{thongkeduandautu}}
+<!--{{thongkeduandautu}}-->
 
 <!--{{thong_ke_hoat_dong_rd}}-->
 
-<!--{{thongkedoanhnghiephoatodng}}-->
+{{thongkedoanhnghiephoatodng}}
 
 <div class="wrapper">
     <!-- Navbar -->
@@ -832,27 +832,16 @@
 
 
 <!--var data = {{thongkedoanhnghiephoatodng}};-->
-<!--console.log(data);-->
-<!--&lt;!&ndash;    console.log(data);&ndash;&gt;-->
-<!--&lt;!&ndash;    {{thongkedoanhnghiephoatodng}}.splice(-1,1)&ndash;&gt;-->
-<!--&lt;!&ndash;    console.log({{thongkedoanhnghiephoatodng}});&ndash;&gt;-->
-<!--$(function () {-->
-<!--    $('#table').bootstrapTable({-->
-<!--        data: data-->
-<!--    });-->
-<!--});-->
+<!--    console.log(data);-->
+    {{thongkedoanhnghiephoatodng}}.splice(-1,1)
+    
+$(function () {
+    $('#table').bootstrapTable({
+        data: data
+    });
+});
 
 </script>
-
-<!--Form 3-->
-<script >
-
-    var data  = {{thongkeduandautu}};
-    console.log(data);
-
-</script >
-
-
 
 
 <!-- Snippet-->
