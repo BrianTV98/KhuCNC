@@ -47,7 +47,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
-
+    <!-- DataTable -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
 
     <style>
         .thongke1:hover {
@@ -55,24 +60,20 @@
             opacity: 0.8 !important;
 
         }
-
-
-
-
-
-    </style>
+  </style>
     <!-- Datetime Year Picker-->
-
 
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <!--{{thongkeduandautu}}-->
 
-{{thongkeduandautu}}
+<!--{{thong_ke_hoat_dong_rd}}-->
 
 <!--{{thongkedoanhnghiephoatodng}}-->
-<!--{{ thongkechung}}-->
+
+
+
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -84,7 +85,7 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="" class="nav-link">Home</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block" >
+            <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link" style="display: none">Contact</a>
             </li>
         </ul>
@@ -473,8 +474,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-info tablinks" class="tablinks"
-                             onclick="openCity(event, 'London')">
+                        <div class="small-box bg-info tablinks" >
                             <div class="inner">
                                 <h3 class="inner-1"></h3>
 
@@ -490,8 +490,7 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-success tablinks" class="tablinks"
-                             onclick="openCity(event, 'Paris')">
+                        <div class="small-box bg-success tablinks" >
                             <div class="inner">
                                 <h3 class="inner-2"><sup style="font-size: 20px">%</sup></h3>
 
@@ -501,31 +500,30 @@
                                 <i class="ion ion-stats-bars"></i>
                             </div>
                             <div href="#" class="small-box-footer ">
-                                Xem thêm<i class="fas fa-arrow-circle-right"></i>
+                                <a href="/thong_ke_doanh_nghiep_hoat_dong" style="color: rgba(255, 255, 255, 0.8);"> Xem thêm </a>  <i class="fas fa-arrow-circle-right"></i>
                             </div>
                         </div>
                     </div>
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-warning " class="tablinks" onclick="openCity(event, 'Tokyo')">
+                        <div class="small-box bg-warning " >
                             <div class="inner">
                                 <h3 class="inner-3"></h3>
 
-                                <p style="text-transform: uppercase;">Dự án R&D</p>
+                                <p style="text-transform: uppercase;"> Dự án R&D</p>
                             </div>
                             <div class="icon">
                                 <i class="far fa-chart-bar"></i>
                             </div>
                             <div href="#" class="small-box-footer ">
-                                Xem thêm<i class="fas fa-arrow-circle-right"></i></div>
+                                <a href="/thong_ke_hoat_dong_rd" style="color: rgba(255, 255, 255, 0.8);"> Xem thêm </a><i class="fas fa-arrow-circle-right"></i></div>
                         </div>
                     </div>
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-danger tablinks" class="tablinks"
-                             onclick="openCity(event, 'Analytics')">
+                        <div class="small-box bg-danger tablinks" >
                             <div class="inner">
                                 <h3 class="inner-4"></h3>
 
@@ -534,7 +532,7 @@
                             <div class="icon">
                                 <i class="far fa-lightbulb"></i>
                             </div>
-                            <div href="#" class="small-box-footer ">Xem thêm<i
+                            <div href="#" class="small-box-footer "><a href="/thong_ke_du_an_dau_tu" style="color: rgba(255, 255, 255, 0.8);"> Xem thêm </a><i
                                     class="fas fa-arrow-circle-right"></i></div>
                         </div>
                     </div>
@@ -577,50 +575,37 @@
                             </div><!-- /.card-header -->
                             <div class="card-body">
                                 <div class="tab-content p-0">
-                                    <!--                          Tab [1]      -->
+
                                     <div class="tabcontent" id="London" style="position: relative;">
-<!--                                                                                Form post-->
 
-<!--                                                                                <form action="" id="testForm" method="POST">-->
-<!--                                                                                    {% csrf_token %}-->
-<!--                                                                                    <label for="fname">From:</label>-->
-
-<!--                                                                                    <input type="text" id="fname" name="fname" required><br><br>-->
-
-<!--                                                                                    <label for="lname">To:</label>-->
-
-<!--                                                                                    <input type="text" id="lname" name="lname" required-->
-<!--                                                                                           style="margin-left: 19px"><br><br>-->
-<!--                                                                                    &lt;!&ndash;                                            <input type="submit" value="Submit" class="continue-btn">&ndash;&gt;-->
-<!--                                                                                    <button  type="submit" id="btnFetch"-->
-<!--                                                                                            class="btn btn-primary mb-2">Submit-->
-<!--                                                                                    </button>-->
-<!--                                                                                </form>-->
-
-                                        <!-- Test form year datepicker        -->
-<form action="" id="testForm" method="POST">
-     {% csrf_token %}
-                                        <label for="fname">Từ Năm: </label>
-                                        <div id="datepicker"  style="width: 240px;cursor: pointer;" class="input-group date " data-date-format="yyyy">
-                                            <input class="form-control picker1" id="fname" name="fname"
-                                                readonly="" type="text"> <span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-calendar"></i>
-                                            <i class="far fa-calendar-alt" style="font-size: 37px;margin-left: 5px;margin-top: 0px;"></i>
+                                        <form action="" id="testForm" method="POST">
+                                            {% csrf_token %}
+                                            <label for="fname">Từ Năm: </label>
+                                            <div id="datepicker" style="width: 240px;cursor: pointer;"
+                                                 class="input-group date " data-date-format="yyyy">
+                                                <input class="form-control picker1" id="fname" name="fname"
+                                                       readonly="" type="text"> <span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-calendar"></i>
+                                            <i class="far fa-calendar-alt"
+                                               style="font-size: 37px;margin-left: 5px;margin-top: 0px;"></i>
                                             </span>
-                                        </div>
+                                            </div>
 
-                                        <label for="lname">Đến năm: </label>
-                                        <div id="datepicker1" style="width: 240px;cursor: pointer;" class="input-group date" data-date-format="yyyy"><input
-                                                class="form-control picker2"   id="lname" name="lname"
-                                                readonly="" type="text"> <span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-calendar"></i>
-                                            <i class="far fa-calendar-alt" style="font-size: 37px;margin-left: 5px;margin-top: 0px;"></i>
+                                            <label for="lname">Đến năm: </label>
+                                            <div id="datepicker1" style="width: 240px;cursor: pointer;"
+                                                 class="input-group date" data-date-format="yyyy"><input
+                                                    class="form-control picker2" id="lname" name="lname"
+                                                    readonly="" type="text"> <span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-calendar"></i>
+                                            <i class="far fa-calendar-alt"
+                                               style="font-size: 37px;margin-left: 5px;margin-top: 0px;"></i>
                                         </span>
-                                        </div>
+                                            </div>
 
-                                        <button type="submit" id="btnFetch" class="btn btn-primary mb-2" style="margin-top: 10px;">Submit
-        </button>
-</form>
+                                            <button type="submit" id="btnFetch" class="btn btn-primary mb-2"
+                                                    style="margin-top: 10px;">Submit
+                                            </button>
+                                        </form>
 
                                         <!--  End test       -->
 
@@ -833,8 +818,6 @@
         $(".endYear").text(cartEnd);
 
 
-
-
             $("#btnFetch").click(function () {
 
                 var a = $("#fname").val();
@@ -860,11 +843,6 @@
         });
 
 
-
-
-
-
-
 </script>
 
 <!--Spinner  -->
@@ -872,24 +850,16 @@
         $("body").on("click", ".continue-btn", function (e) {
             e.preventDefault();
             $(window).scrollTop(200);
-            console.log("ahihi");
+
             $(".continue-btn").empty();
             $(`<i class="fa fa-spinner"></i>`).appendTo(".continue-btn");
         });
-
-
-
-
-
-
-
 
 </script>
 
 
 <!-- Bảng thống kê tổng-->
 <script>
-
 
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
@@ -903,25 +873,18 @@
             }
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
-
-
         }
-
-
         // bảng thống kê
         $(".inner-1").text({{ thongkechung.SO_DU_AN_DT }});
         $(".inner-2").text({{ thongkechung.DOANH_NGHIEP_HOAT_DONG }});
         $(".inner-3").text({{ thongkechung.SO_DA_RD }});
         $(".inner-4").text({{ thongkechung.LAO_DONG_CHAT_LUONG_CAO }});
 
-
         //bảng số lượng và vốn fdi vào việt nam
         console.log({{thongkeDauTu.SOLUONG_FDI}} );
         console.log({{ thongkeDauTu.SOLUONG_VN }} );
         console.log({{ thongkeDauTu.TONGVONDAUTU_FDI }} );
         console.log({{ thongkeDauTu.TONGVONDAUTU_VN }} );
-
-
 
 <!--var money =123456789;-->
 
@@ -948,17 +911,10 @@
 
         var tong2 = {{ thongkeDauTu.TONGVONDAUTU_FDI }} +  {{ thongkeDauTu.TONGVONDAUTU_VN }};
         console.log(tong2);
-          var tong2End =  tong2.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-
-
+        var tong2End =  tong2.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
 
         $(".tong1").text({{ thongkeDauTu.SOLUONG_FDI }} + {{ thongkeDauTu.SOLUONG_VN }});
         $(".tong2").text(tong2End);
-
-
-
-
-
 
 </script>
 

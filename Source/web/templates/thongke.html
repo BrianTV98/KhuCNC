@@ -9,7 +9,7 @@
 
     {% autoescape off %}
     <link rel="stylesheet" href="{% static 'dist/js/demo.js' %}">
-        <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
+    <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -21,7 +21,7 @@
           href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
     <!-- iCheck -->
     <!-- test -->
-     <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
     <!-- Theme style -->
@@ -35,19 +35,17 @@
     <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
 
 
-
     <!-- DataTable -->
-   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
 
 
-<!--  Font - chữ  -->
+    <!--  Font - chữ  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
 
     <style>
@@ -72,6 +70,7 @@
     border-bottom: unset;
     text-align: center;
 }
+
     </style>
 
 </head>
@@ -246,12 +245,13 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" style="transform: translateY(-10px);" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    style="transform: translateY(-10px);" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
 
                     <!-- Thêm dashboard -->
-                   <li class="nav-item" style="border-radius: 6px;">
+                    <li class="nav-item" style="border-radius: 6px;">
                         <div style="display: inline-block;
     transform: translate(60px, 31px);
     color: #fff;
@@ -337,7 +337,7 @@
                             </li>
                         </ul>
                     </li>
-                     <li class="nav-item" style="border-radius: 6px;transform: translateY(-40px);">
+                    <li class="nav-item" style="border-radius: 6px;transform: translateY(-40px);">
                         <div style="display: inline-block;
     transform: translate(60px, 31px);
     color: #fff;
@@ -442,7 +442,6 @@
                     </li>
 
 
-
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -486,7 +485,8 @@
                             <div class="card-header" style="display: flex;
     justify-content: center;
     align-items: center;">
-                                <h3 class="card-title" style="margin-top: 7px !important ; font-size: 1.6rem ;    font-family: 'Roboto', sans-serif;">
+                                <h3 class="card-title"
+                                    style="margin-top: 7px !important ; font-size: 1.6rem ;    font-family: 'Roboto', sans-serif;">
                                     <i class="fas fa-chart-pie mr-1"></i>
                                     Thống kê tỉ lệ chi phí(RD) qua từng năm
                                 </h3>
@@ -494,14 +494,15 @@
 
                                 </div>
                             </div><!-- /.card-header -->
-                            <div class="card-body" >
+                            <div class="card-body">
                                 <p id="console1" style="display: none"> {{tylechiRd}} </p>
                                 <div class="container">
                                     <table id="table" data-height="460" style="">
                                         <thead>
-                                        <tr id="body-table" >
+                                        <tr id="body-table">
                                             <th data-field="col1" scope="background-color: #343a40;
-color: #c2c7d0;">Tên dự án</th>
+color: #c2c7d0;">Tên dự án
+                                            </th>
                                             <!-- <th data-field="row2">Năm 2015</th>
                                             <th data-field="row3">Năm 2016</th>
                                             <th data-field="row4">Năm 2017</th>
@@ -688,7 +689,6 @@ color: #c2c7d0;">Tên dự án</th>
 </div>
 
 
-
 <!--Year picker -->
 <script type="text/javascript">
     var aheui1 = {{tylechiRd}}
@@ -747,6 +747,8 @@ color: #c2c7d0;">Tên dự án</th>
         data: dataTable
       });
     });
+
+
 </script>
 <script>
 
@@ -811,45 +813,45 @@ color: #c2c7d0;">Tên dự án</th>
                 });
             });
 
-</script>
- <!-- jQuery -->
-        <!--<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>-->
 
-        <!-- jQuery UI 1.11.4 -->
-        <script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
+</script>
+
+
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
             $.widget.bridge('uibutton', $.ui.button)
-        </script>
-        <!-- Bootstrap 4 -->
-        <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-        <!-- ChartJS -->
-        <script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
-        <!-- Sparkline -->
-        <script src="{% static 'plugins/sparklines/sparkline.js' %}"></script>
-        <!-- JQVMap -->
-        <script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
-        <script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
-        <!-- jQuery Knob Chart -->
-        <script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %}"></script>
-        <!-- daterangepicker -->
-        <script src="{% static 'plugins/moment/moment.min.js' %}"></script>
-        <script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
-        <!-- Tempusdominus Bootstrap 4 -->
-        <script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-        <!-- Summernote -->
-        <script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
-        <!-- overlayScrollbars -->
-        <script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
-        <!-- AdminLTE App -->
-        <script src="{% static 'dist/js/adminlte.js' %}"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="{% static 'dist/js/demo.js' %}"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+</script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+<!-- Sparkline -->
+<script src="{% static 'plugins/sparklines/sparkline.js' %}"></script>
+<!-- JQVMap -->
+<script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+<!-- daterangepicker -->
+<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Summernote -->
+<script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js' %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+
 
 </body>
 
-{% endautoescape  %}
+{% endautoescape %}
 </html>
