@@ -53,9 +53,8 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
-<!--{{thongke}}-->
+{{thongke}}
 <!--{{phantich}}-->
-
 
 
 <div class="wrapper">
@@ -72,7 +71,7 @@
 " class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link" style="display: none" >Contact</a>
+                <a href="#" class="nav-link" style="display: none">Contact</a>
             </li>
         </ul>
 
@@ -80,7 +79,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown" style="display: none" >
+            <li class="nav-item dropdown" style="display: none">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-comments"></i>
                     <span class="badge badge-danger navbar-badge"></span>
@@ -440,7 +439,7 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">Phân tích</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6" style="display: none" >
+                    <div class="col-sm-6" style="display: none">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">23 <span>Columns</span></li>
                             <li class="breadcrumb-item active">51.000 <span>Rows</span></li>
@@ -539,8 +538,6 @@
                                     </div>
 
                                 </div>
-
-
 
 
                             </div>
@@ -741,6 +738,7 @@
 
 
 
+
 </script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -857,6 +855,7 @@
 
 
 
+
 </script>
 
 
@@ -884,6 +883,7 @@
 
     var config = {
         type: 'line',
+
         data: {
             labels: ds,
             datasets: [{
@@ -896,6 +896,30 @@
         },
 
         options: {
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'VND'
+                        },
+                        ticks: {
+              beginAtZero: true,
+
+              userCallback: function (value, index, values) {
+                value = value.toString();
+                value = value.split(/(?=(?:...)*$)/);
+                value = value.join('.');
+                return   value;
+              }
+            }
+                    }],
+                    xAxes: [{
+                        scaleLabel:{
+                        display: true,
+                        labelString: 'Ngày tháng năm',
+                        },
+                    }],
+                },
             responsive: true,
             title: {
                 display: true,
@@ -903,26 +927,19 @@
         },
         scales: {
           xAxes: [{
-            ticks: {}
+           scaleLabel:{
+                        display: true,
+                        labelString: 'VND',
+                        fontColor: "#546372"
+                        },
+
+            ticks: {},
+
           }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              //stepSize: 100000,
 
-              // Return an empty string to draw the tick line but hide the tick label
-              // Return `null` or `undefined` to hide the tick line entirely
-              userCallback: function (value, index, values) {
-                // Convert the number to a string and splite the string every 3 charaters from the end
-                value = value.toString();
-                value = value.split(/(?=(?:...)*$)/);
 
-                // Convert the array to a string and format the output
-                value = value.join('.');
-                return '€' + value;
-              }
-            }
-          }]
+
+
         }
     };
 
@@ -930,12 +947,6 @@
         var ctx = document.getElementById('canvas').getContext('2d');
         window.myLine = new Chart(ctx, config);
     };
-
-
-
-
-
-
 
 </script>
 
@@ -980,7 +991,7 @@ while (i <= internalDataLength) {
 
 
 var  thongkeVND = {{thongke}};
-console.log(thongkeVND);
+console.log("1",thongkeVND);
 
     var ds1 = [];
     var what1 = [];
@@ -1014,11 +1025,14 @@ console.log(what1);
         }]
       },
       options:{
+
         title:{
           display:true,
           text:'Thống kê tỉ lệ vốn đầu tư DT_UT',
-          fontSize:25
+          fontSize:25,
+
         },
+
         legend:{
           display:true,
           position:'right',
@@ -1039,21 +1053,26 @@ console.log(what1);
         },
         scales: {
           xAxes: [{
+          scaleLabel:{
+                       display: true,
+                       labelString: 'Năm',
+                       fontColor: "#546372"
+                      },
+
             ticks: {}
           }],
           yAxes: [{
+                    scaleLabel:{
+                            display: true,
+                            labelString: 'VND',
+                            fontColor: "#546372"
+                        },
             ticks: {
               beginAtZero: true,
-              //stepSize: ,
 
-              // Return an empty string to draw the tick line but hide the tick label
-              // Return `null` or `undefined` to hide the tick line entirely
               userCallback: function (value, index, values) {
-                // Convert the number to a string and splite the string every 3 charaters from the end
                 value = value.toString();
                 value = value.split(/(?=(?:...)*$)/);
-
-                // Convert the array to a string and format the output
                 value = value.join('.');
                 return   value;
               }
@@ -1067,6 +1086,7 @@ console.log(what1);
 
       }
     });
+
 
 
 

@@ -897,6 +897,30 @@
         },
 
         options: {
+        scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'VND'
+                        },
+                        ticks: {
+              beginAtZero: true,
+
+              userCallback: function (value, index, values) {
+                value = value.toString();
+                value = value.split(/(?=(?:...)*$)/);
+                value = value.join('.');
+                return   value;
+              }
+            }
+                    }],
+                    xAxes: [{
+                        scaleLabel:{
+                        display: true,
+                        labelString: 'Ngày tháng năm',
+                        },
+                    }],
+                },
             responsive: true,
             title: {
                 display: true,
@@ -1018,9 +1042,19 @@ console.log(what1);
         },
         scales: {
           xAxes: [{
+          scaleLabel:{
+                            display: true,
+                            labelString: 'Năm',
+                            fontColor: "#546372"
+                        },
             ticks: {}
           }],
           yAxes: [{
+          scaleLabel:{
+                            display: true,
+                            labelString: 'VND',
+                            fontColor: "#546372"
+                        },
             ticks: {
               beginAtZero: true,
               //stepSize: ,
