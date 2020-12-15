@@ -230,4 +230,53 @@ def DuDoanNhapKhau():
         index, row in forecast.iterrows()]
     phanTichJson = [vars(ob) for ob in phanTichArray]
     return phanTichJson
-#
+
+
+# thongke dau tu ngoai FDI
+def vThongKeFDI():
+    query = "Select datepart(yyyy, GIAY_CNDT.NGAY_DANG_KY) as NGAY_DANG_KY, Sum(VON_DAU_TU_VND) as VonDauTu From GIAY_CNDT JOIN DOANHNGHIEP on GIAY_CNDT.SO_CNDKKD = DOANHNGHIEP.SO_CNDKKD where MA_LH ='FDI' group by datepart(yyyy, GIAY_CNDT.NGAY_DANG_KY)"
+
+    thongKeXuatKhau = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe( pd.to_datetime(row.NGAY_DANG_KY).date().isoformat(),
+                      row.VonDauTu)) for
+        index, row in thongKeXuatKhau.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson;
+
+
+def DuDoanFDI():
+    m = pickle.load(open(base_url.base_url_model + '\\dautuFDI.pickle', 'rb'))
+    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    future.tail()
+    forecast = m.predict(future)
+    phanTichArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    phanTichJson = [vars(ob) for ob in phanTichArray]
+    return phanTichJson
+
+
+def vthongKeDauTuNoi():
+    query = "Select datepart(yyyy, GIAY_CNDT.NGAY_DANG_KY) as NGAY_DANG_KY, Sum(VON_DAU_TU_VND) as VonDauTu From GIAY_CNDT JOIN DOANHNGHIEP on GIAY_CNDT.SO_CNDKKD = DOANHNGHIEP.SO_CNDKKD where MA_LH ='VN' group by datepart(yyyy, GIAY_CNDT.NGAY_DANG_KY)"
+
+    thongKeXuatKhau = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe( pd.to_datetime(row.NGAY_DANG_KY).date().isoformat(),
+                      row.VonDauTu)) for
+        index, row in thongKeXuatKhau.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+def DuDoanDauTuNoi():
+    m = pickle.load(open(base_url.base_url_model + '\\dautuVN.pickle', 'rb'))
+    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    future.tail()
+    forecast = m.predict(future)
+    phanTichArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    phanTichJson = [vars(ob) for ob in phanTichArray]
+    return phanTichJson
