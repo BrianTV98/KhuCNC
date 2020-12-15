@@ -48,7 +48,11 @@ urlpatterns = [
          name="thong_ke_xuat_khau"),
 
     path("thong_ke_nhap_khau", views.thongKeNhapKhau,
-         name="thong_ke_nhap_khau")
+         name="thong_ke_nhap_khau"),
+    path("phan_tich_FDI", views.thongKeVonFDI,
+         name="phan_tich_FDI"),
+    path("phan_tich_VN", views.thongKeVonVND,
+         name="phan_tich_VN")
 
 ]
 
