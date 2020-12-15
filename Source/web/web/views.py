@@ -7,7 +7,7 @@ from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
 from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
-    DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC
+    DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC, vThongKeXuatKhau, DuDoanXuatKhau
 from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu, thongKeVonDauTuVND, thongKeVonDauTuSX, \
     thongKeVonDauTuPTHT, thongKeVonDauTuDV, thongKeVonDauTuKHAC, thongKeVonDauTuDT_UT
 import pickle
@@ -324,6 +324,7 @@ def thong_ke_hoat_dong_rd(request):
 
     return render(request, "thong_ke_hoat_dong_rd.html", {"thongke": response})
 
+
 class HoatDongRD:
     def __init__(self, SO_GCNDT, TEN_DU_AN_TIENG_VIET, TEN_DU_AN_VIET_TAT, NGAY_DANG_KY, NOI_DUNG, HINH_THUC_RD):
         self.SO_GCNDT = SO_GCNDT,
@@ -363,3 +364,12 @@ class DoanhNghiepHoatDong:
 
     def __str__(self):
         return self.SO_CNDKKD
+
+
+####################----------thong Ke xuat nhap khau
+
+def thongKeXuatKhau(request):
+    return render(request, "thong_ke_xuat_khau.html",
+                  {"thongke": vThongKeXuatKhau(),
+                   "phantich": DuDoanXuatKhau()}
+                  )

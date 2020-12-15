@@ -42,7 +42,10 @@ urlpatterns = [
     path("thong_ke_doanh_nghiep_hoat_dong", views.thong_ke_doanh_nghiep_hoat_dong,
          name="thong_ke_doanh_nghiep_hoat_dong"),
     path("thong_ke_hoat_dong_rd", views.thong_ke_hoat_dong_rd,
-         name="thong_ke_hoat_dong_rd")
+         name="thong_ke_hoat_dong_rd"),
+
+    path("thong_ke_xuat_khau", views.thongKeXuatKhau,
+         name="thong_ke_xuat_khau")
 
 ]
 

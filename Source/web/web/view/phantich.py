@@ -19,6 +19,8 @@ import matplotlib.pyplot as plt
 
 # read data
 # VonDauTuVND
+from web.model.XuatNhapKhau import XuatNhapKhau
+
 dataVonDauTuVND = pd.read_sql_query('SELECT NGAY_DANG_KY, VON_DAU_TU_VND FROM dbo.GIAY_CNDT',
                                     base_url.conn)  # get data from db
 dataVonDauTuVND = dataVonDauTuVND.rename(columns={'NGAY_DANG_KY': 'ds', 'VON_DAU_TU_VND': 'y'})  # rename
@@ -96,7 +98,6 @@ def DuDoanDauTu_DT_UT():
     return phanTichJson
 
 
-
 def DuDoanDauTu_DV():
     m = pickle.load(open(base_url.base_url_model + '\\linhVucDauTu_DV.pickle', 'rb'))
     future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
@@ -159,7 +160,7 @@ def DuDoanDauTu_KHAC():
 
 
 def thongKeVonDauTuVND():
-    query ="Select * From V_VonDauTuVND"
+    query = "Select * From V_VonDauTuVND"
     dataVonDauTuVND = pd.read_sql_query(query,
                                         base_url.conn)
     thongKeArray = [
@@ -169,8 +170,43 @@ def thongKeVonDauTuVND():
     return thongKeJson;
 
 
-
 class SoLieuThongKe:
     def __init__(self, ds, yhat):
         self.ds = ds
         self.yhat = yhat
+
+        #####--------------------------------- Du Bao FDI
+
+
+def vThongKeXuatKhau():
+    query = " Exec SP_THONGKE_XUAT_NHAP_KHAU 'X'"
+    thongKeXuatKhau = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (XuatNhapKhau(row.SO_CNDKKD, row.TEN_DN, pd.to_datetime(row.NGAY_DANG_KY).date().isoformat(),
+                      row.KIM_NGACH_VND)) for
+        index, row in thongKeXuatKhau.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson;
+
+#
+def DuDoanXuatKhau():
+    m = pickle.load(open(base_url.base_url_model + '\\tinhHinhXuatKhau.pickle', 'rb'))
+    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    future.tail()
+    forecast = m.predict(future)
+    phanTichArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    phanTichJson = [vars(ob) for ob in phanTichArray]
+    return phanTichJson
+
+#
+#
+#
+# def ThongKeNhapKhau():
+#
+#
+#
+# def DuDoanNhapKhau():
+#
