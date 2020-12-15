@@ -45,7 +45,10 @@ urlpatterns = [
          name="thong_ke_hoat_dong_rd"),
 
     path("thong_ke_xuat_khau", views.thongKeXuatKhau,
-         name="thong_ke_xuat_khau")
+         name="thong_ke_xuat_khau"),
+
+    path("thong_ke_nhap_khau", views.thongKeNhapKhau,
+         name="thong_ke_nhap_khau")
 
 ]
 

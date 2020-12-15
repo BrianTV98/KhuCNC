@@ -7,7 +7,8 @@ from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
 from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
-    DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC, vThongKeXuatKhau, DuDoanXuatKhau
+    DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC, vThongKeXuatKhau, DuDoanXuatKhau, vThongKeNhapKhau, \
+    DuDoanNhapKhau
 from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu, thongKeVonDauTuVND, thongKeVonDauTuSX, \
     thongKeVonDauTuPTHT, thongKeVonDauTuDV, thongKeVonDauTuKHAC, thongKeVonDauTuDT_UT
 import pickle
@@ -373,3 +374,10 @@ def thongKeXuatKhau(request):
                   {"thongke": vThongKeXuatKhau(),
                    "phantich": DuDoanXuatKhau()}
                   )
+
+
+def thongKeNhapKhau(request):
+    return render(request, "thong_ke_nhap_khau.html", {
+        "thongke": vThongKeNhapKhau(),
+        "phantich": DuDoanNhapKhau(),
+    })

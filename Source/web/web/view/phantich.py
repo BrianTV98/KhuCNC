@@ -189,6 +189,7 @@ def vThongKeXuatKhau():
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson;
 
+
 #
 def DuDoanXuatKhau():
     m = pickle.load(open(base_url.base_url_model + '\\tinhHinhXuatKhau.pickle', 'rb'))
@@ -201,12 +202,32 @@ def DuDoanXuatKhau():
     phanTichJson = [vars(ob) for ob in phanTichArray]
     return phanTichJson
 
+
+## ---- Thong Ke Nhap Khauu
+
+def vThongKeNhapKhau():
+    query = " Exec SP_THONGKE_XUAT_NHAP_KHAU 'N'"
+    thongKeXuatKhau = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (XuatNhapKhau(row.SO_CNDKKD, row.TEN_DN, pd.to_datetime(row.NGAY_DANG_KY).date().isoformat(),
+                      row.KIM_NGACH_VND)) for
+        index, row in thongKeXuatKhau.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson;
+
+
 #
 #
 #
-# def ThongKeNhapKhau():
-#
-#
-#
-# def DuDoanNhapKhau():
+def DuDoanNhapKhau():
+    m = pickle.load(open(base_url.base_url_model + '\\tinhHinhNhapKhau.pickle', 'rb'))
+    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    future.tail()
+    forecast = m.predict(future)
+    phanTichArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    phanTichJson = [vars(ob) for ob in phanTichArray]
+    return phanTichJson
 #
