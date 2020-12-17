@@ -172,7 +172,15 @@ pickle.dump(m, open(base_url_model + '/tinhHinhNhapKhau.pickle', 'wb'))
 
 ###---------------------------------------------------------------------------------------------------------------
 # # Ti le lao dong
-#
+
+laodongchatluongcao = pd.read_sql_query("SELECT cast(cast(NAM as varchar(8)) as date) as NGAY_DANG_KY, SO_LD FROM DN_SO_LAO_DONG where MA_HV !='PTTH'",
+    conn)  # get data from db
+laodongchatluongcao = laodongchatluongcao.rename(columns={'NGAY_DANG_KY': 'ds', 'SO_LD': 'y'})  # rename
+laodongchatluongcao.head()
+m = Prophet()
+m.fit(laodongchatluongcao)
+pickle.dump(m, open(base_url_model + '/laodongchatluongcao.pickle', 'wb'))
+
 # # m = Prophet(seasonality_mode='multiplicative')  # init prophet
 m = Prophet()
 # create model and save model

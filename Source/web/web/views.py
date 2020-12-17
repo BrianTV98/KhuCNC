@@ -8,7 +8,8 @@ from web.model.ThongKeDauTu import ThongKeDauTu
 from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
     DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC, vThongKeXuatKhau, DuDoanXuatKhau, vThongKeNhapKhau, \
-    DuDoanNhapKhau, vThongKeFDI, DuDoanFDI, vthongKeDauTuNoi, DuDoanDauTuNoi
+    DuDoanNhapKhau, vThongKeFDI, DuDoanFDI, vthongKeDauTuNoi, DuDoanDauTuNoi, vThongKeLaoDongChatLuongCao, \
+    DuDoanNguoiLaoDong
 from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu, thongKeVonDauTuVND, thongKeVonDauTuSX, \
     thongKeVonDauTuPTHT, thongKeVonDauTuDV, thongKeVonDauTuKHAC, thongKeVonDauTuDT_UT
 import pickle
@@ -393,7 +394,15 @@ def thongKeVonFDI(request):
 
 # dau tu noi
 def thongKeVonVND(requesst):
-    return  render(requesst,"phan_tich_VN.html",{
+    return render(requesst,"phan_tich_VN.html",{
         "thongke": vthongKeDauTuNoi(),
         "phantich": DuDoanDauTuNoi(),
     })
+
+
+def thongKeLaoDong(request):
+    return render(request,"thong_ke_nguon_lao_dong_chat_luong_cao.html",
+                  {"thongke": vThongKeLaoDongChatLuongCao(),
+                    "phantich": DuDoanNguoiLaoDong()
+                   }
+                  )

@@ -36,23 +36,16 @@ urlpatterns = [
     path("thongke_kinh_phi", views.thongKe_kinh_phi, name="thongke_kinh_phi"),
     path("thongke_ti_le_ld_clc_tham_gia_rd", views.thongke_tile_ld_clc_tham_gia_rd, name="thongke_ti_le_ld_clc_tham_gia_rd"),
 
+    path("thong_ke_du_an_dau_tu", views.thong_ke_du_an_dau_tu,name="thong_ke_du_an_dau_tu"),
+    path("thong_ke_doanh_nghiep_hoat_dong", views.thong_ke_doanh_nghiep_hoat_dong,name="thong_ke_doanh_nghiep_hoat_dong"),
+    path("thong_ke_hoat_dong_rd", views.thong_ke_hoat_dong_rd,name="thong_ke_hoat_dong_rd"),
 
-    path("thong_ke_du_an_dau_tu", views.thong_ke_du_an_dau_tu,
-         name="thong_ke_du_an_dau_tu"),
-    path("thong_ke_doanh_nghiep_hoat_dong", views.thong_ke_doanh_nghiep_hoat_dong,
-         name="thong_ke_doanh_nghiep_hoat_dong"),
-    path("thong_ke_hoat_dong_rd", views.thong_ke_hoat_dong_rd,
-         name="thong_ke_hoat_dong_rd"),
+    path("thong_ke_xuat_khau", views.thongKeXuatKhau,name="thong_ke_xuat_khau"),
 
-    path("thong_ke_xuat_khau", views.thongKeXuatKhau,
-         name="thong_ke_xuat_khau"),
-
-    path("thong_ke_nhap_khau", views.thongKeNhapKhau,
-         name="thong_ke_nhap_khau"),
-    path("phan_tich_FDI", views.thongKeVonFDI,
-         name="phan_tich_FDI"),
-    path("phan_tich_VN", views.thongKeVonVND,
-         name="phan_tich_VN")
+    path("thong_ke_nhap_khau", views.thongKeNhapKhau,name="thong_ke_nhap_khau"),
+    path("phan_tich_FDI", views.thongKeVonFDI, name="phan_tich_FDI"),
+    path("phan_tich_VN", views.thongKeVonVND, name="phan_tich_VN"),
+    path("phan_tich_lao_dong", views.thongKeLaoDong, name="phan_tich_lao_dong")
 
 ]
 

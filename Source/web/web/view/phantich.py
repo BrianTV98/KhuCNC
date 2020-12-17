@@ -280,3 +280,30 @@ def DuDoanDauTuNoi():
         index, row in forecast.iterrows()]
     phanTichJson = [vars(ob) for ob in phanTichArray]
     return phanTichJson
+
+
+def vThongKeLaoDongChatLuongCao():
+    query = "SELECT cast(cast(NAM as varchar(8)) as date) as NGAY, SO_LD FROM DN_SO_LAO_DONG where MA_HV !='PTTH'"
+    thongKe = pd.read_sql_query(query,
+                                        base_url.conn)
+    thongKeArray = [
+        (SoLieuThongKe(pd.to_datetime(row.NGAY).date().isoformat(),
+                      row.SO_LD)) for
+        index, row in thongKe.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+def DuDoanNguoiLaoDong():
+    m = pickle.load(open(base_url.base_url_model + '\\laodongchatluongcao.pickle', 'rb'))
+    future = m.make_future_dataframe(periods=12, freq='M')  # so ngay can du bao
+    future.tail()
+    forecast = m.predict(future)
+    phanTichArray = [
+        (SoLieuThongKe(pd.to_datetime(row.ds).date().isoformat(), row.yhat)) for
+        index, row in forecast.iterrows()]
+    phanTichJson = [vars(ob) for ob in phanTichArray]
+    return phanTichJson
+
+
+
+
