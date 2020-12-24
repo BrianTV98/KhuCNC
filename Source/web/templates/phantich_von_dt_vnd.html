@@ -789,18 +789,6 @@
                 });
             });
 
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 
@@ -814,10 +802,9 @@
             var ds =[];
             var what = []
 
-
             for(var i = 0 ; i <a.length ; i++){
                  ds[i] = a[i].ds;
-                 what[i] = a[i].yhat;
+                 what[i] = a[i].yhat / 1000000000;
             }
             console.log(ds);
             console.log(what);
@@ -844,7 +831,7 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'VND'
+                            labelString: 'Tỉ VND'
                         },
                         ticks: {
               beginAtZero: true,
@@ -878,19 +865,10 @@
     };
 
 
-
-
-
-
-
 </script>
 
 <!-- Chart 2: Thống kê tỉ lệ đầu tư USD -->
 <script>
-
-
-
-
 
         var internalData = [300, 50, 100, 75,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,37,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,];
 
@@ -926,8 +904,6 @@ while (i <= internalDataLength) {
   i++;
 };
 
-
-
 var  thongkeVND = {{thongke}};
 console.log(thongkeVND);
 
@@ -935,7 +911,7 @@ console.log(thongkeVND);
     var what1 = [];
      for(var i = 0 ; i < thongkeVND.length ; i++){
                  ds1[i] = thongkeVND[i].ds;
-                 what1[i] = thongkeVND[i].yhat;
+                 what1[i] = thongkeVND[i].yhat / 1000000000;
             }
 console.log(ds1);
 console.log(what1);
@@ -990,7 +966,7 @@ console.log(what1);
           xAxes: [{
           scaleLabel:{
                             display: true,
-                            labelString: 'Năm',
+                            labelString: 'Tỉ Năm',
                             fontColor: "#546372"
                         },
             ticks: {}
@@ -998,7 +974,7 @@ console.log(what1);
           yAxes: [{
           scaleLabel:{
                             display: true,
-                            labelString: 'VND',
+                            labelString: 'Tỉ VND',
                             fontColor: "#546372"
                         },
             ticks: {

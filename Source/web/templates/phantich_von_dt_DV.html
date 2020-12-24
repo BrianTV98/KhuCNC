@@ -674,18 +674,6 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
             $.widget.bridge('uibutton', $.ui.button)
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -742,8 +730,6 @@
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
             }
-
-
              $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
             $(".inner-2").text({{thongkechung.DOANH_NGHIEP_HOAT_DONG}});
             $(".inner-3").text({{thongkechung.SO_DA_RD}});
@@ -814,11 +800,9 @@
 
             var ds =[];
             var what = []
-
-
             for(var i = 0 ; i <a.length ; i++){
                  ds[i] = a[i].ds;
-                 what[i] = a[i].yhat;
+                 what[i] = a[i].yhat / 100000000;
             }
             //console.log(ds);
             //console.log(what);
@@ -845,7 +829,7 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'VND'
+                            labelString: 'Tỉ VND'
                         },
                         ticks: {
               beginAtZero: true,
@@ -854,6 +838,7 @@
                 value = value.toString();
                 value = value.split(/(?=(?:...)*$)/);
                 value = value.join('.');
+
                 return   value;
               }
             }
@@ -996,7 +981,7 @@ console.log(what1);
           yAxes: [{
           scaleLabel:{
                             display: true,
-                            labelString: 'VND',
+                            labelString: 'Tỉ VND',
                             fontColor: "#546372"
                         },
             ticks: {
@@ -1012,6 +997,7 @@ console.log(what1);
 
                 // Convert the array to a string and format the output
                 value = value.join('.');
+                value = value.slice(0,5 );
                 return   value;
               }
             }

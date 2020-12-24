@@ -746,7 +746,7 @@
 
             for(var i = 0 ; i <a.length ; i++){
                  ds[i] = a[i].ds;
-                 what[i] = a[i].yhat;
+                 what[i] = a[i].yhat / 1000000000;
             }
             //console.log(ds);
             //console.log(what);
@@ -774,7 +774,7 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Triệu VND'
+                            labelString: 'Tỉ VND'
                         },
                         ticks: {
               beginAtZero: true,
@@ -790,7 +790,7 @@
                     xAxes: [{
                         scaleLabel:{
                         display: true,
-                        labelString: 'Năm',
+                        labelString: 'Ngày tháng năm',
                         },
                     }],
                 },
@@ -803,17 +803,13 @@
           xAxes: [{
            scaleLabel:{
                         display: true,
-                        labelString: 'VND',
+                        labelString: 'Tỉ VND',
                         fontColor: "#546372"
                         },
 
             ticks: {},
 
           }],
-
-
-
-
         }
     };
 
@@ -862,8 +858,6 @@ while (i <= internalDataLength) {
   i++;
 };
 
-
-
 var  thongkeVND = {{thongke}};
 console.log("1",thongkeVND);
 
@@ -871,7 +865,7 @@ console.log("1",thongkeVND);
     var what1 = [];
      for(var i = 0 ; i < thongkeVND.length ; i++){
                  ds1[i] = thongkeVND[i].ds;
-                 what1[i] = thongkeVND[i].yhat;
+                 what1[i] = thongkeVND[i].yhat  / 10000000000;
             }
 console.log(ds1);
 console.log(what1);
@@ -929,7 +923,7 @@ console.log(what1);
           xAxes: [{
           scaleLabel:{
                        display: true,
-                       labelString: 'Năm',
+                       labelString: 'Ngày tháng năm',
                        fontColor: "#546372"
                       },
 
@@ -938,7 +932,7 @@ console.log(what1);
           yAxes: [{
                     scaleLabel:{
                             display: true,
-                            labelString: 'Triệu VND',
+                            labelString: 'Tỉ VND',
                             fontColor: "#546372"
                         },
             ticks: {
@@ -953,20 +947,8 @@ console.log(what1);
             }
           }]
         }
-
-
-
-
-
       }
     });
-
-
-
-
-
-
-
 
 </script>
 

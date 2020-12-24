@@ -791,19 +791,6 @@
                     }
                 });
             });
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 
@@ -820,10 +807,10 @@
 
             for(var i = 0 ; i <a.length ; i++){
                  ds[i] = a[i].ds;
-                 what[i] = a[i].yhat;
+                 what[i] = a[i].yhat / 1000000  ;
             }
             //console.log(ds);
-            //console.log(what);
+            console.log("222",what);
 
     var randomScalingFactor = function () {
         return Math.round(Math.random() * 100);
@@ -847,17 +834,22 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'VND'
+                            labelString: 'Triệu VND'
                         },
                         ticks: {
               beginAtZero: true,
 
-              userCallback: function (value, index, values) {
-                value = value.toString();
-                value = value.split(/(?=(?:...)*$)/);
-                value = value.join('.');
-                return   value;
-              }
+<!--              userCallback: function (value, index, values) {-->
+<!--                value = value.toString();-->
+<!--                value = value.split(/(?=(?:...)*$)/);-->
+<!--                value = value.join('.');-->
+<!--                //value = value.slice(1,1);-->
+<!--                return   value;-->
+
+
+
+
+<!--              }-->
             }
                     }],
                     xAxes: [{
@@ -998,7 +990,7 @@ console.log(what1);
           yAxes: [{
           scaleLabel:{
                             display: true,
-                            labelString: 'VND',
+                            labelString: 'Tỉ VND',
                             fontColor: "#546372"
                         },
             ticks: {

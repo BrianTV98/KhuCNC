@@ -672,18 +672,6 @@
 <script>
             $.widget.bridge('uibutton', $.ui.button)
 
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -741,8 +729,7 @@
                 evt.currentTarget.className += " active";
             }
 
-
-             $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
+            $(".inner-1").text({{thongkechung.SO_DU_AN_DT}});
             $(".inner-2").text({{thongkechung.DOANH_NGHIEP_HOAT_DONG}});
             $(".inner-3").text({{thongkechung.SO_DA_RD}});
             $(".inner-4").text({{thongkechung.LAO_DONG_CHAT_LUONG_CAO}});
@@ -788,36 +775,21 @@
                 });
             });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
-
 
 <!-- Chart 1:  Phân tích tỉ lệ  đầu tư VND
  -->
 <script>
 
             var a = {{phantich}} ;
-            console.log(a);
+            //console.log(a);
 
             var ds =[];
             var what = []
 
-
             for(var i = 0 ; i <a.length ; i++){
                  ds[i] = a[i].ds;
-                 what[i] = a[i].yhat;
+                 what[i] = a[i].yhat / 1000000000;
             }
             //console.log(ds);
             //console.log(what);
@@ -845,7 +817,7 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'VND'
+                            labelString: 'Tỉ VND'
                         },
                         ticks: {
               beginAtZero: true,
@@ -877,14 +849,9 @@
                         labelString: 'VND',
                         fontColor: "#546372"
                         },
-
             ticks: {},
 
           }],
-
-
-
-
         }
     };
 
@@ -1000,7 +967,7 @@ console.log(what1);
           xAxes: [{
           scaleLabel:{
                        display: true,
-                       labelString: 'Năm',
+                       labelString: 'Ngày tháng năm',
                        fontColor: "#546372"
                       },
 
@@ -1009,7 +976,7 @@ console.log(what1);
           yAxes: [{
                     scaleLabel:{
                             display: true,
-                            labelString: 'VND',
+                            labelString: 'Tỉ VND',
                             fontColor: "#546372"
                         },
             ticks: {

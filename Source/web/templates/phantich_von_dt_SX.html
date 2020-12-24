@@ -819,7 +819,7 @@
 
             for(var i = 0 ; i <a.length ; i++){
                  ds[i] = a[i].ds;
-                 what[i] = a[i].yhat;
+                 what[i] = a[i].yhat / 100000000;
             }
             //console.log(ds);
             //console.log(what);
@@ -846,17 +846,17 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'VND'
+                            labelString: 'Tỉ VND'
                         },
                         ticks: {
               beginAtZero: true,
 
-              userCallback: function (value, index, values) {
-                value = value.toString();
-                value = value.split(/(?=(?:...)*$)/);
-                value = value.join('.');
-                return   value;
-              }
+<!--              userCallback: function (value, index, values) {-->
+<!--                value = value.toString();-->
+<!--                value = value.split(/(?=(?:...)*$)/);-->
+<!--                value = value.join('.');-->
+<!--                return   value;-->
+<!--              }-->
             }
                     }],
                     xAxes: [{
@@ -934,7 +934,7 @@ console.log(thongkeVND);
     var what1 = [];
      for(var i = 0 ; i < thongkeVND.length ; i++){
                  ds1[i] = thongkeVND[i].ds;
-                 what1[i] = thongkeVND[i].yhat;
+                 what1[i] = thongkeVND[i].yhat  / 1000000000;
             }
 console.log(ds1);
 console.log(what1);
@@ -997,7 +997,7 @@ console.log(what1);
           yAxes: [{
           scaleLabel:{
                             display: true,
-                            labelString: 'VND',
+                            labelString: 'Tỉ VND',
                             fontColor: "#546372"
                         },
             ticks: {
