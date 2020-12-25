@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 
 # read data
 # VonDauTuVND
+from web.model.ThongKeLinhVucCNC import ThongKeLinhVucCNC
 from web.model.XuatNhapKhau import XuatNhapKhau
 
 dataVonDauTuVND = pd.read_sql_query('SELECT NGAY_DANG_KY, VON_DAU_TU_VND FROM dbo.GIAY_CNDT',
@@ -303,6 +304,33 @@ def DuDoanNguoiLaoDong():
         index, row in forecast.iterrows()]
     phanTichJson = [vars(ob) for ob in phanTichArray]
     return phanTichJson
+
+def thongKeLinhVucCNC_linhVuc_SL_():
+    thongKe = pd.read_sql_query("EXEC SP_THONGKE_DAU_TU_THEO_LINH_VUC_ALL",
+                                base_url.conn)
+    from web.model.ThongKeLinhVucAll import ThongKeLinhVucAll
+    thongKeArray = [
+        (ThongKeLinhVucAll(row.MA_CTHTDT, row.TONGSO,
+                           row.VONDAUTU)) for
+        index, row in thongKe.iterrows()]
+
+    for x in thongKeArray:
+        x.MA_CTHTDT = x.MA_CTHTDT[0]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+
+def thongKeLinhVucCNC_linhvucCNC_SL():
+    thongKe = pd.read_sql_query("EXEC SP_THONGKE_DAU_TU_THEO_LINH_VUC_CNC",
+                                base_url.conn)
+    thongKeArray = [
+        (ThongKeLinhVucCNC(row.MA_LVCNC,row.DIEN_GIAI,row.TONGSO,
+                           row.VONDAUTU)) for
+        index, row in thongKe.iterrows()]
+    thongKeJson = [vars(ob) for ob in thongKeArray]
+    return thongKeJson
+
+
 
 
 

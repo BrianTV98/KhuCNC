@@ -9,7 +9,7 @@ from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
     DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC, vThongKeXuatKhau, DuDoanXuatKhau, vThongKeNhapKhau, \
     DuDoanNhapKhau, vThongKeFDI, DuDoanFDI, vthongKeDauTuNoi, DuDoanDauTuNoi, vThongKeLaoDongChatLuongCao, \
-    DuDoanNguoiLaoDong
+    DuDoanNguoiLaoDong, thongKeLinhVucCNC_linhVuc_SL_, thongKeLinhVucCNC_linhvucCNC_SL
 from web.view.thongke import thongketylechiRD, thongKeTyLeLoaiHinhDauTu, thongKeVonDauTuVND, thongKeVonDauTuSX, \
     thongKeVonDauTuPTHT, thongKeVonDauTuDV, thongKeVonDauTuKHAC, thongKeVonDauTuDT_UT
 import pickle
@@ -268,13 +268,13 @@ def thong_ke_du_an_dau_tu(request):
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
-        (DoanhNghiepHoatDong("", "", row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
+        (DoanhNghiepHoatDong(row.SO_CNDKKD, row.TEN_DN, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
                              row.VON_DAU_TU_VND)) for
         index, row in data.iterrows()]
     # fix bug
     for x in dataResult:
-        x.SO_CNDKKD = ""
-        x.TEN_DN = ""
+        x.SO_CNDKKD = x.SO_CNDKKD[0]
+        x.TEN_DN = x.TEN_DN[0]
         x.VON_DAU_TU_VND = x.VON_DAU_TU_VND[0]
 
     response = [vars(ob) for ob in dataResult]
@@ -406,3 +406,27 @@ def thongKeLaoDong(request):
                     "phantich": DuDoanNguoiLaoDong()
                    }
                   )
+
+
+
+
+def linh_vuc_dau_tu_CNC_SL(request):
+    return render(request, "thongKeLinhVucCNC_SL.html",
+                  {"thongke_linh_vuc": thongKeLinhVucCNC_linhVuc_SL_(),
+                  "thongke_linh_vuc_CNC": thongKeLinhVucCNC_linhvucCNC_SL()
+                   }
+                  )
+
+
+def linh_vuc_dau_tu_CNC_VON(request):
+    dataResult =thongKeLinhVucCNC_linhVuc_SL_()
+
+    # for x in dataResult:
+    #     x.MA_LVCNC = x.MA_LVCNC
+
+
+    return render(request, "thongKeLinhVucCNC_VON.html",
+                  {"thongke_linh_vuc": dataResult,
+                   "thongke_linh_vuc_CNC": thongKeLinhVucCNC_linhvucCNC_SL()
+                   }
+                )
