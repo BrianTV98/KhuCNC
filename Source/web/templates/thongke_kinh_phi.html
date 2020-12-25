@@ -637,7 +637,7 @@ color: #c2c7d0;">Tên dự án</th>
 <!--Year picker -->
 <script type="text/javascript">
     var aheui1 = {{thongke}}
-    console.log("2",aheui1);
+    //console.log("2",aheui1);
 
     var $table = $('#table');
     var arrYears = [];
@@ -687,11 +687,26 @@ color: #c2c7d0;">Tên dự án</th>
         ("#body-table");
     }
 
+console.log("dataTable",dataTable);
+
+for(var i = 0 ; i < data.length ; i++)
+{
+   var a = data[i].VON_DAU_TU_VND.toString();
+      a = a.split(/(?=(?:...)*$)/);
+      a = a.join('.');
+      console.log(a);
+
+      data[i].VON_DAU_TU_VND = a;
+}
+
+
     $(function () {
       $('#table').bootstrapTable({
         data: dataTable
       });
     });
+
+
 </script>
 <script>
 
