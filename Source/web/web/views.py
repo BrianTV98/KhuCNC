@@ -421,7 +421,8 @@ def linh_vuc_dau_tu_CNC_VON(request):
     dataResult = thongKeLinhVucCNC_linhVuc_SL_()
 
     # for x in dataResult:
-    #     x.MA_LVCNC = x.MA_LVCNC
+    #     if x.MA_CTHTDT is None:
+    #         x.MA_CTHTDT= x.MA_CTHTDT[0]
 
     return render(request, "thongKeLinhVucCNC_VON.html",
                   {"thongke_linh_vuc": dataResult,

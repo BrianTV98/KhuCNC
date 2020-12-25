@@ -315,7 +315,8 @@ def thongKeLinhVucCNC_linhVuc_SL_():
         index, row in thongKe.iterrows()]
 
     for x in thongKeArray:
-        x.MA_CTHTDT = x.MA_CTHTDT[0]
+        if x.MA_CTHTDT is None:
+            x.MA_CTHTDT = "KHÁC"
     thongKeJson = [vars(ob) for ob in thongKeArray]
     return thongKeJson
 
