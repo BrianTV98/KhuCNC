@@ -268,7 +268,8 @@ def thong_ke_du_an_dau_tu(request):
     data = pd.read_sql_query(query, conn)
 
     dataResult = [
-        (DoanhNghiepHoatDong(row.SO_CNDKKD, row.TEN_DN, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT, row.MUC_TIEU_HOAT_DONG,
+        (DoanhNghiepHoatDong(row.SO_CNDKKD, row.TEN_DN, row.TEN_DU_AN_TIENG_VIET, row.TEN_DU_AN_VIET_TAT,
+                             row.MUC_TIEU_HOAT_DONG,
                              row.VON_DAU_TU_VND)) for
         index, row in data.iterrows()]
     # fix bug
@@ -384,49 +385,54 @@ def thongKeNhapKhau(request):
     })
 
 
-
 # dau tu ngoai
 def thongKeVonFDI(request):
-    return  render(request , "phan_tich_FDI.html",{
+    return render(request, "phan_tich_FDI.html", {
         "thongke": vThongKeFDI(),
         "phantich": DuDoanFDI(),
     })
 
+
 # dau tu noi
 def thongKeVonVND(requesst):
-    return render(requesst,"phan_tich_VN.html",{
+    return render(requesst, "phan_tich_VN.html", {
         "thongke": vthongKeDauTuNoi(),
         "phantich": DuDoanDauTuNoi(),
     })
 
 
 def thongKeLaoDong(request):
-    return render(request,"thong_ke_nguon_lao_dong_chat_luong_cao.html",
+    return render(request, "thong_ke_nguon_lao_dong_chat_luong_cao.html",
                   {"thongke": vThongKeLaoDongChatLuongCao(),
-                    "phantich": DuDoanNguoiLaoDong()
+                   "phantich": DuDoanNguoiLaoDong()
                    }
                   )
-
-
 
 
 def linh_vuc_dau_tu_CNC_SL(request):
     return render(request, "thongKeLinhVucCNC_SL.html",
                   {"thongke_linh_vuc": thongKeLinhVucCNC_linhVuc_SL_(),
-                  "thongke_linh_vuc_CNC": thongKeLinhVucCNC_linhvucCNC_SL()
+                   "thongke_linh_vuc_CNC": thongKeLinhVucCNC_linhvucCNC_SL()
                    }
                   )
 
 
 def linh_vuc_dau_tu_CNC_VON(request):
-    dataResult =thongKeLinhVucCNC_linhVuc_SL_()
+    dataResult = thongKeLinhVucCNC_linhVuc_SL_()
 
     # for x in dataResult:
     #     x.MA_LVCNC = x.MA_LVCNC
-
 
     return render(request, "thongKeLinhVucCNC_VON.html",
                   {"thongke_linh_vuc": dataResult,
                    "thongke_linh_vuc_CNC": thongKeLinhVucCNC_linhvucCNC_SL()
                    }
-                )
+                  )
+
+
+def linh_vuc_dau_tu_CNC_SL_FDI(request):
+    return render(request, "thongKeLinhVucCNC_SL_FDI.html",
+                  {"thongke_linh_vuc": thongKeLinhVucCNC_linhVuc_SL_(),
+                   "thongke_linh_vuc_CNC": thongKeLinhVucCNC_linhvucCNC_SL()
+                   }
+                  )

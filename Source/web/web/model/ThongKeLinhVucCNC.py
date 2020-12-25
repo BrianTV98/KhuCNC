@@ -1,5 +1,5 @@
 class ThongKeLinhVucCNC:
-    def __init__(self, MA_LVCNC, DIEN_GIAI,TONGSO, VONDAUTU):
+    def __init__(self, MA_LVCNC, DIEN_GIAI,TONGSO, VONDAUTU,SLFDI):
         if MA_LVCNC is None:
             self.MA_LVCNC = '',
         else:
@@ -7,3 +7,4 @@ class ThongKeLinhVucCNC:
         self.DIEN_GIAI =DIEN_GIAI
         self.TONGSO = TONGSO
         self.VONDAUTU = VONDAUTU
+        self.SLFDI =SLFDI
