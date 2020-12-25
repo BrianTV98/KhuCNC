@@ -45,7 +45,9 @@ urlpatterns = [
     path("thong_ke_nhap_khau", views.thongKeNhapKhau,name="thong_ke_nhap_khau"),
     path("phan_tich_FDI", views.thongKeVonFDI, name="phan_tich_FDI"),
     path("phan_tich_VN", views.thongKeVonVND, name="phan_tich_VN"),
-    path("phan_tich_lao_dong", views.thongKeLaoDong, name="phan_tich_lao_dong")
+    path("phan_tich_lao_dong", views.thongKeLaoDong, name="phan_tich_lao_dong"),
+    path("linh_vuc_dau_tu_CNC_SL", views.linh_vuc_dau_tu_CNC_SL, name ="linh_vuc_dau_tu_CNC_SL"), # cho nay chinh la la USD thay vi VND
+    path("linh_vuc_dau_tu_CNC_VON", views.linh_vuc_dau_tu_CNC_VON, name ="linh_vuc_dau_tu_CNC_VON")
 
 ]
 
