@@ -1,6 +1,5 @@
-import pyodbc as pyodbc
+
 from django.shortcuts import render
-import pandas as pd
 
 from web.contrains.base_url import base_url_model, conn
 from web.model.ThongKeChung import ThongKeChung

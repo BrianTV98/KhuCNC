@@ -454,7 +454,7 @@ p
                                 <div class="tab-content p-0" style="width: 100%;display: flex;
     justify-content: center;">
 
-                                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative;width: 700px;">
+                                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative;width: 500px;">
 
                 <div >
                 <div id="canvas-holder" style="">
@@ -737,7 +737,7 @@ p
 <!-- {{thongke_linh_vuc}}-->
 <!--{{thongke_linh_vuc_CNC}}-->
 
-var a =  {{thongke_linh_vuc}};
+var a =  {{thongke_linh_vuc_CNC}};
 console.log(a);
 
 var b =  {{thongke_linh_vuc_CNC}};
@@ -749,7 +749,7 @@ var ArrayB = [];
 
 for(var i = 0 ; i < a.length ; i++)
 {
-    var aa = a[i].MA_CTHTDT;
+    var aa = a[i].DIEN_GIAI;
     var bb = a[i].VONDAUTU;
     ArrayA.push(aa);
     ArrayB.push(bb);
@@ -858,15 +858,22 @@ while (i <= internalDataLength) {
   i++;
 };
 
-var data2 = {{thongke_linh_vuc_CNC }};
+var data2 = {{thongke_linh_vuc }};
 
 var ArrayNew = [];
 var ArrayNew2 = [];
 
 for(var i = 0 ; i < data2.length ; i ++ )
 {
-        var a  = data2[i].DIEN_GIAI;
-        var b  = data2[i].VONDAUTU;
+         var a  = data2[i].MA_CTHTDT;
+                 var b  = data2[i].VONDAUTU ;
+
+                b = b.toString();
+                b = b.split(/(?=(?:...)*$)/);
+
+                // Convert the array to a string and format the output
+                b = b.join('.');
+                b = b.slice(0,5 );
 
         ArrayNew.push(a);
         ArrayNew2.push(b);
