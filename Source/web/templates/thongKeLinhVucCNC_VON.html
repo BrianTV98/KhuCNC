@@ -360,10 +360,28 @@ p
                                     <p>Tỉ lệ ĐH/ĐH tham gia RD </p>
                                 </a>
                             </li>
-                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
+                            <li class="nav-item" >
                                 <a href="/thongke_kinh_phi" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Kinh phi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" >
+                                <a href="/linh_vuc_dau_tu_CNC_SL" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Số lượng đầu tư CNC</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" >
+                                <a href="/linh_vuc_dau_tu_CNC_VON" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư CNC</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
+                                <a href="/linh_vuc_dau_tu_CNC_SL_FDI" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Số lượng đầu tư FDI CNC </p>
                                 </a>
                             </li>
                         </ul>
@@ -417,10 +435,10 @@ p
                                 <div class="card-tools">
                                       <ul class="nav nav-pills ml-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab"> Thống kê phần trăm lĩnh vực công nghệ cao</a>
+                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab"> Thống kê theo phần trăm vốn lĩnh vực công nghệ cao</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Thống kê </a>
+                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Thống kê theo vốn lĩnh vực công nghệ cao </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -433,9 +451,10 @@ p
 
 
 
-                                <div class="tab-content p-0">
+                                <div class="tab-content p-0" style="width: 100%;display: flex;
+    justify-content: center;">
 
-                                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 600px;">
+                                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative;width: 700px;">
 
                 <div >
                 <div id="canvas-holder" style="">
@@ -715,6 +734,31 @@ p
 
 <!--Chartjs hình tròn-->
 <script>
+<!-- {{thongke_linh_vuc}}-->
+<!--{{thongke_linh_vuc_CNC}}-->
+
+var a =  {{thongke_linh_vuc}};
+console.log(a);
+
+var b =  {{thongke_linh_vuc_CNC}};
+console.log(b);
+
+var ArrayA = [];
+var ArrayB = [];
+
+
+for(var i = 0 ; i < a.length ; i++)
+{
+    var aa = a[i].MA_CTHTDT;
+    var bb = a[i].VONDAUTU;
+    ArrayA.push(aa);
+    ArrayB.push(bb);
+
+
+
+}
+
+
     var randomScalingFactor = function () {
       return Math.round(Math.random() * 100);
     };
@@ -724,9 +768,7 @@ p
 
       data: {
         datasets: [{
-          data: [
-            89, 28, 30, 0, 0, 0, 0, 0, 34
-          ],
+          data: ArrayB,
           backgroundColor: [
             window.chartColors.red,
             window.chartColors.orange,
@@ -740,15 +782,13 @@ p
           ],
           label: 'Dataset 1'
         }],
-        labels: [
-          'Sản xuất', 'RD - Đào tạo - Ươm tạo', 'Dịch vụ', 'Phát triển hạ tầng', 'R&D - Đào tạo', 'tru test', 'DVCNC', 'VĐT', 'khác'
-        ]
+        labels: ArrayA
       },
       options: {
         responsive: true,
         title: {
           display: true,
-          text: 'Thống kê tỉ lệ số lượng vốn đầu tư công nghệ cao',
+          text: 'Thống kê tỉ lệ số vốn đầu tư công nghệ cao',
           fontSize: 25
         },
         plugins: {
@@ -773,7 +813,6 @@ p
         }
       }
     };
-
     window.onload = function () {
       var ctx = document.getElementById('chart-area').getContext('2d');
       window.myPie = new Chart(ctx, config);
@@ -833,7 +872,7 @@ for(var i = 0 ; i < data2.length ; i ++ )
         ArrayNew2.push(b);
 }
 
-console.log(ArrayNew);
+<!--console.log(ArrayNew);-->
 
     let myChart = document.getElementById('myChart').getContext('2d');
     // Global Options

@@ -375,10 +375,28 @@
                                     <p>Tỉ lệ đại học tham gia RD</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" >
                                 <a href="/thongke_kinh_phi" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Kinh phí</p>
+                                    <p>Kinh phi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" >
+                                <a href="/linh_vuc_dau_tu_CNC_SL" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Số lượng đầu tư CNC</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" >
+                                <a href="/linh_vuc_dau_tu_CNC_VON" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vốn đầu tư CNC</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="    border-bottom: 1px solid #4f5962;">
+                                <a href="/linh_vuc_dau_tu_CNC_SL_FDI" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Số lượng đầu tư FDI CNC </p>
                                 </a>
                             </li>
                         </ul>
@@ -689,16 +707,38 @@ color: #c2c7d0;">Tên dự án</th>
 
 console.log("dataTable",dataTable);
 
-for(var i = 0 ; i < data.length ; i++)
+//var NewDataTable = dataTable;
+//console.log("NewDataTable",NewDataTable);
+
+for(var i = 0 ; i < dataTable.length ; i++)
 {
-   var a = data[i].VON_DAU_TU_VND.toString();
+      var a = dataTable[i].col2.toString();
       a = a.split(/(?=(?:...)*$)/);
       a = a.join('.');
       console.log(a);
 
-      data[i].VON_DAU_TU_VND = a;
-}
+      var b = dataTable[i].col3.toString();
+      b = b.split(/(?=(?:...)*$)/);
+      b = b.join('.');
+      console.log(b);
 
+      var c = dataTable[i].col4.toString();
+      c = c.split(/(?=(?:...)*$)/);
+      c = c.join('.');
+      console.log(c);
+
+      var d = dataTable[i].col5.toString();
+      d = d.split(/(?=(?:...)*$)/);
+      d = d.join('.');
+      console.log(d);
+
+    dataTable[i].col2 = a;
+    dataTable[i].col3 = b;
+    dataTable[i].col4 = c;
+    dataTable[i].col5 = d;
+
+}
+console.log("dataTable",dataTable);
 
     $(function () {
       $('#table').bootstrapTable({
