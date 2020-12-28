@@ -770,6 +770,40 @@ for(var i = 0 ; i < a.length ; i++)
 
 }
 
+var internalData = [300, 50, 100, 75,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,37,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,];
+
+var graphColors = [];
+var graphOutlines = [];
+var hoverColor = [];
+
+var internalDataLength = internalData.length;
+i = 0;
+while (i <= internalDataLength) {
+    var randomR = Math.floor((Math.random() * 130) + 100);
+    var randomG = Math.floor((Math.random() * 130) + 100);
+    var randomB = Math.floor((Math.random() * 130) + 100);
+
+    var graphBackground = "rgb("
+            + randomR + ", "
+            + randomG + ", "
+            + randomB + ")";
+    graphColors.push(graphBackground);
+
+    var graphOutline = "rgb("
+            + (randomR - 40) + ", "
+            + (randomG - 50) + ", "
+            + (randomB - 45) + ")";
+    graphOutlines.push(graphOutline);
+
+    var hoverColors = "rgb("
+            + (randomR + 25) + ", "
+            + (randomG + 45) + ", "
+            + (randomB + 65) + ")";
+    hoverColor.push(hoverColors);
+
+  i++;
+};
+
 
     var randomScalingFactor = function () {
       return Math.round(Math.random() * 100);
@@ -781,17 +815,7 @@ for(var i = 0 ; i < a.length ; i++)
       data: {
         datasets: [{
           data: ArrayB,
-          backgroundColor: [
-            window.chartColors.red,
-            window.chartColors.orange,
-            window.chartColors.yellow,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.blue,
-          ],
+          backgroundColor: graphColors,
           label: 'Dataset 1'
         }],
         labels: ArrayA

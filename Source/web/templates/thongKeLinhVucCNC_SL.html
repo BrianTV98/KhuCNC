@@ -746,6 +746,40 @@
 
 <!--Chartjs hình tròn-->
 <script>
+var internalData = [300, 50, 100, 75,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,37,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,1,2,3,4,5,6,7,8,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,];
+
+var graphColors = [];
+var graphOutlines = [];
+var hoverColor = [];
+
+var internalDataLength = internalData.length;
+i = 0;
+while (i <= internalDataLength) {
+    var randomR = Math.floor((Math.random() * 130) + 100);
+    var randomG = Math.floor((Math.random() * 130) + 100);
+    var randomB = Math.floor((Math.random() * 130) + 100);
+
+    var graphBackground = "rgb("
+            + randomR + ", "
+            + randomG + ", "
+            + randomB + ")";
+    graphColors.push(graphBackground);
+
+    var graphOutline = "rgb("
+            + (randomR - 10) + ", "
+            + (randomG - 30) + ", "
+            + (randomB - 60) + ")";
+    graphOutlines.push(graphOutline);
+
+    var hoverColors = "rgb("
+            + (randomR + 15) + ", "
+            + (randomG + 76) + ", "
+            + (randomB + 48) + ")";
+    hoverColor.push(hoverColors);
+
+  i++;
+};
+
 
 var a =  {{thongke_linh_vuc_CNC}};
 console.log(a);
@@ -775,18 +809,7 @@ for(var i = 0 ; i < a.length ; i++)
       data: {
         datasets: [{
           data: ArrayB,
-          backgroundColor: [
-            window.chartColors.green,
-            window.chartColors.primary,
-            window.chartColors.pink,
-            window.chartColors.brown,
-            window.chartColors.purple,
-            window.chartColors.blue,
-            window.chartColors.red,
-            window.chartColors.orange,
-            window.chartColors.yellow,
-
-          ],
+          backgroundColor: graphColors,
           label: 'Dataset 1'
         }],
         labels: ArrayA
