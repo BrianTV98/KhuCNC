@@ -399,13 +399,9 @@
                             </li>
                         </ul>
                     </li>
-
-
-
-
                 </ul>
             </nav>
-            <!-- /.sidebar-menu -->
+
 
         </div>
         <!-- /.sidebar -->
@@ -652,15 +648,15 @@
 
 var data = {{thongke}};
 
-<!--for(var i = 0 ; i < data.length ; i++)-->
-<!--{-->
-<!--   var a = data[i].VON_DAU_TU_VND.toString();-->
-<!--      a = a.split(/(?=(?:...)*$)/);-->
-<!--      a = a.join('.');-->
-<!--      console.log(a);-->
+for(var i = 0 ; i < data.length ; i++)
+{
+   var a = data[i].VON_DAU_TU_VND.toString();
+      a = a.split(/(?=(?:...)*$)/);
+      a = a.join('.');
+      console.log(a);
 
-<!--      data[i].VON_DAU_TU_VND = a;-->
-<!--}-->
+      data[i].VON_DAU_TU_VND = a;
+}
 
 
 
