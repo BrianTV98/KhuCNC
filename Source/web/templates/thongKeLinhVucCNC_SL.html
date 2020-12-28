@@ -442,15 +442,15 @@
                             <div class="card-header">
                                 <h3 class="card-title" style="font-family: 'Roboto', sans-serif;">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Thống kê tỉ lệ số lượng vốn đầu tư công nghệ cao
+                                    Thống kê tỉ lệ số lượng dự án đầu tư công nghệ cao
                                 </h3>
                                 <div class="card-tools">
                                       <ul class="nav nav-pills ml-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab"> Thống kê phần trăm lĩnh vực công nghệ cao</a>
+                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab"> Thống kê tỉ lệ số lượng dự án đầu tư công nghệ cao</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Thống kê số lượng các lĩnh vực công nghệ cao</a>
+                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Thống kê tỉ lệ vốn đầu tư công nghệ cao</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -776,15 +776,16 @@ for(var i = 0 ; i < a.length ; i++)
         datasets: [{
           data: ArrayB,
           backgroundColor: [
+            window.chartColors.green,
+            window.chartColors.primary,
+            window.chartColors.pink,
+            window.chartColors.brown,
+            window.chartColors.purple,
+            window.chartColors.blue,
             window.chartColors.red,
             window.chartColors.orange,
             window.chartColors.yellow,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.green,
-            window.chartColors.blue,
+
           ],
           label: 'Dataset 1'
         }],
@@ -794,7 +795,7 @@ for(var i = 0 ; i < a.length ; i++)
         responsive: true,
         title: {
           display: true,
-          text: 'Thống kê tỉ lệ số lượng vốn đầu tư công nghệ cao',
+          text: 'Thống kê tỉ lệ số lượng dự án đầu tư công nghệ cao',
           fontSize: 25
         },
         plugins: {
@@ -943,7 +944,7 @@ console.log(ArrayNew);
           xAxes: [{
           scaleLabel:{
                             display: true,
-                            labelString: 'Tên vốn đầu tư',
+                            labelString: 'Tên chi tiết lĩnh vực đầu tư',
                             fontColor: "#546372"
                         },
             ticks: {}
@@ -951,7 +952,7 @@ console.log(ArrayNew);
           yAxes: [{
           scaleLabel:{
                             display: true,
-                            labelString: 'Số lượng',
+                            labelString: 'Tỉ VND',
                             fontColor: "#546372"
                         },
             ticks: {
