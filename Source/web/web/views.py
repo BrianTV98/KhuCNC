@@ -453,3 +453,20 @@ def thongKeVonDauTuChung(request):
                   {"thongke": response,
                    }
                   )
+
+
+def thongKeVonDauTuChung2(request):
+    query = "SELECT SUM(CASE WHEN MA_LH='FDI' THEN VON_DAU_TU_VND ELSE 0 END) AS TONGVONDAUTU_FDI, SUM(CASE WHEN MA_LH='VN' THEN VON_DAU_TU_VND ELSE 0 END)  AS TONGVONDAUTU_VN, SUM(CASE WHEN MA_LH ='FDI' THEN 1 ELSE 0 END) AS SOLUONG_FDI, SUM(CASE WHEN MA_LH ='VN' THEN 1 ELSE 0 END) AS SOLUONG_VN FROM dbo.GIAY_CNDT"
+
+    thongkeDauTu = pd.read_sql_query(query, conn)
+    print(thongkeDauTu)
+    thongKeChungResult = [
+        (ThongKeDauTu(row.TONGVONDAUTU_FDI, row.TONGVONDAUTU_VN, row.SOLUONG_FDI, row.SOLUONG_VN)) for
+        index, row in thongkeDauTu.iterrows()]
+
+    response = [vars(ob) for ob in thongKeChungResult]
+
+    return render(request, "thongKeVonDauTuChung2.html",
+                  {"thongke": response,
+                   }
+                  )
