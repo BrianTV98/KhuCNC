@@ -2,8 +2,10 @@
 from django.shortcuts import render
 
 from web.contrains.base_url import base_url_model, conn
+from web.model.ChiTietLinhVucCNC import ChiTietLinhVucCNC
 from web.model.ThongKeChung import ThongKeChung
 from web.model.ThongKeDauTu import ThongKeDauTu
+from web.model.TyLeDauTuFDI import TyLeDauTuFDI
 from web.view.indext import getYearFromTo, getThongDauTu
 from web.view.phantich import DuDoanDauTuVND, DuDoanDauTuUSD, DuDoanDauTu_SX, DuDoanDauTu_DT_UT, DuDoanDauTu_DV, \
     DuDoanDauTu_PTHT, DuDoanDauTu_DT, DuDoanDauTu_KHAC, vThongKeXuatKhau, DuDoanXuatKhau, vThongKeNhapKhau, \
@@ -467,6 +469,71 @@ def thongKeVonDauTuChung2(request):
     response = [vars(ob) for ob in thongKeChungResult]
 
     return render(request, "thongKeVonDauTuChung2.html",
+                  {"thongke": response,
+                   }
+                  )
+
+
+def thongKeLinhVucCNC_SL_Chi_Tiet(request):
+    query1 = "EXEC SP_THONGKE_DAU_TU_THEO_LINH_VUC 0"
+
+    thongkeDauTu1 = pd.read_sql_query(query1, conn)
+    thongKeChungResult1 = [
+        (ChiTietLinhVucCNC(row.CKCX,row.CNSH,row.CNTT,row.CNHT,
+                           row.DVCNC, row.NLM, row.ROBOT, row.Service,
+                           row.TTĐTNL,row.TĐH, row.VLM, row.VĐT, row.VT,
+                           )) for
+        index, row in thongkeDauTu1.iterrows()]
+
+    response1 = [vars(ob) for ob in thongKeChungResult1]
+
+    query2 = "EXEC SP_THONGKE_DAU_TU_THEO_LINH_VUC 1"
+
+    thongkeDauTu2 = pd.read_sql_query(query2, conn)
+    thongKeChungResult2 = [
+        (ChiTietLinhVucCNC(row.CKCX, row.CNSH, row.CNTT, row.CNHT,
+                           row.DVCNC, row.NLM, row.ROBOT, row.Service,
+                           row.TTĐTNL, row.TĐH, row.VLM, row.VĐT, row.VT,
+                           )) for
+        index, row in thongkeDauTu2.iterrows()]
+    response2 = [vars(ob) for ob in thongKeChungResult2]
+
+    query3 = "EXEC SP_THONGKE_DAU_TU_THEO_LINH_VUC 2"
+
+    thongkeDauTu3 = pd.read_sql_query(query3, conn)
+
+    thongKeChungResult3 = [
+        (ChiTietLinhVucCNC(row.CKCX, row.CNSH, row.CNTT, row.CNHT,
+                           row.DVCNC, row.NLM, row.ROBOT, row.Service,
+                           row.TTĐTNL, row.TĐH, row.VLM, row.VĐT, row.VT,
+                           )) for
+        index, row in thongkeDauTu3.iterrows()]
+
+    response3 = [vars(ob) for ob in thongKeChungResult3]
+
+
+    return render(request,
+                  "thongKeLinhVucCNC_SL_Chi_Tiet.html",
+                  {"thongke1": response1,
+                   "thongke2": response2,
+                   "thongke3": response3,
+                   }
+                  )
+
+
+def thongKeTyLeDauTuFDI(request):
+    query = "EXEC SP_THONGKE_TY_LE_QUOC_GIA_DAU_TU"
+
+    thongkeDauTu = pd.read_sql_query(query, conn)
+
+    thongKeChungResult = [
+        (TyLeDauTuFDI(row.TEN_QUOC_GIA, row.TONGSO)) for
+        index, row in thongkeDauTu.iterrows()]
+
+    response = [vars(ob) for ob in thongKeChungResult]
+
+    return render(request,
+                  "thongKeTyLeDauTuFDI.html",
                   {"thongke": response,
                    }
                   )

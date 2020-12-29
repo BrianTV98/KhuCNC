@@ -50,7 +50,9 @@ urlpatterns = [
     path("linh_vuc_dau_tu_CNC_VON", views.linh_vuc_dau_tu_CNC_VON, name ="linh_vuc_dau_tu_CNC_VON"),
     path("linh_vuc_dau_tu_CNC_SL_FDI", views.linh_vuc_dau_tu_CNC_SL_FDI, name="linh_vuc_dau_tu_CNC_SL_FDI"),
     path("thongKeVonDauTuChung", views.thongKeVonDauTuChung, name="thongKeVonDauTuChung"),
-    path("thongKeVonDauTuChung2", views.thongKeVonDauTuChung2, name="thongKeVonDauTuChung2")
+    path("thongKeVonDauTuChung2", views.thongKeVonDauTuChung2, name="thongKeVonDauTuChung2"),
+    path("thongKeLinhVucCNC_SL_Chi_Tiet", views.thongKeLinhVucCNC_SL_Chi_Tiet, name="thongKeLinhVucCNC_SL_Chi_Tiet"),
+    path("thongKeTyLeDauTuFDI", views.thongKeTyLeDauTuFDI, name="thongKeTyLeDauTuFDI")
 
 ]
 
