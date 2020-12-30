@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Phân tích</title>
     {% load static %}
-
     {% autoescape off %}
     <link rel="stylesheet" href="{% static 'dist/js/demo.js' %}">
     <link rel="stylesheet" href="{% static 'dist/js/adminlte.js' %}">
@@ -33,7 +32,6 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
     <link rel="stylesheet" href="{% static 'dist/fontawesome/css/all.min.css' %}">
-
 
     <!-- DataTable -->
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
@@ -68,14 +66,24 @@
     border-top: unset;
     border-bottom: unset;
     text-align: center;
+
+
+
+}
+
+.bootstrap-table .table tbody>tr>td{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 
-
-
-
-
-
+.fixed-table-container{
+    height: unset !important;
+}
+.th-inner {
+    min-width: 200px;
+}
 
 
     </style>
@@ -495,7 +503,7 @@
                                                 2</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Thống kê
+                                            <a class="nav-link" href="#sales-chart2" data-toggle="tab">Thống kê
                                                 3</a>
                                         </li>
                                     </ul>
@@ -511,23 +519,22 @@
                                         <table id="table" data-height="600">
                                             <thead>
                                             <tr>
-                                                <th data-field="CKCX">Số đăng kí kinh doanh</th>
-                                                <th data-field="CNHT">Tên dự án</th>
-                                                <th data-field="CNSH">Tên dự án tiếng việt</th>
-                                                <th data-field="CNTT">Mục tiêu hoạt động</th>
-                                                <th data-field="DVCNC">Vốn đầu tư VND</th>
-                                                <th data-field="NLM">Số đăng kí kinh doanh</th>
-                                                <th data-field="ROBOT">Tên dự án</th>
-                                                <th data-field="Service">Tên dự án tiếng việt</th>
-                                                <th data-field="TTĐTNL">Mục tiêu hoạt động</th>
-                                                <th data-field="TĐH">Vốn đầu tư VND</th>
-                                                <th data-field="VLM">Số đăng kí kinh doanh</th>
-                                                <th data-field="VT">Tên dự án</th>
-                                                <th data-field="VĐT">Tên dự án tiếng việt</th>
+                                                <th data-field="CKCX">CKCX</th>
+                                                <th data-field="CNHT">CNHT</th>
+                                                <th data-field="CNSH">CNSH</th>
+                                                <th data-field="CNTT">CNTT</th>
+                                                <th data-field="DVCNC">DVCNC</th>
+                                                <th data-field="NLM">NLM</th>
+                                                <th data-field="ROBOT">ROBOT</th>
+                                                <th data-field="Service">Service</th>
+                                                <th data-field="TTĐTNL">TTĐTNL</th>
+                                                <th data-field="TĐH">TĐH</th>
+                                                <th data-field="VLM">VLM</th>
+                                                <th data-field="VT">VT</th>
+                                                <th data-field="VĐT">VĐT</th>
                                             </tr>
                                             </thead>
                                         </table>
-
                                     </div>
 
                                     <div class="chart tab-pane" id="sales-chart"
@@ -535,19 +542,43 @@
                                         <table id="table2" data-height="600">
                                             <thead>
                                             <tr>
-                                                <th data-field="CKCX">Số đăng kí kinh doanh</th>
-                                                <th data-field="CNHT">Tên dự án</th>
-                                                <th data-field="CNSH">Tên dự án tiếng việt</th>
-                                                <th data-field="CNTT">Mục tiêu hoạt động</th>
-                                                <th data-field="DVCNC">Vốn đầu tư VND</th>
-                                                <th data-field="NLM">Số đăng kí kinh doanh</th>
-                                                <th data-field="ROBOT">Tên dự án</th>
-                                                <th data-field="Service">Tên dự án tiếng việt</th>
-                                                <th data-field="TTĐTNL">Mục tiêu hoạt động</th>
-                                                <th data-field="TĐH">Vốn đầu tư VND</th>
-                                                <th data-field="VLM">Số đăng kí kinh doanh</th>
-                                                <th data-field="VT">Tên dự án</th>
-                                                <th data-field="VĐT">Tên dự án tiếng việt</th>
+                                                <th data-field="CKCX">CKCX</th>
+                                                <th data-field="CNHT">CNHT</th>
+                                                <th data-field="CNSH">CNSH</th>
+                                                <th data-field="CNTT">CNTT</th>
+                                                <th data-field="DVCNC">DVCNC</th>
+                                                <th data-field="NLM">NLM</th>
+                                                <th data-field="ROBOT">ROBOT</th>
+                                                <th data-field="Service">Service</th>
+                                                <th data-field="TTĐTNL">TTĐTNL</th>
+                                                <th data-field="TĐH">TĐH</th>
+                                                <th data-field="VLM">VLM</th>
+                                                <th data-field="VT">VT</th>
+                                                <th data-field="VĐT">VĐT</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+
+                                    </div>
+
+                                    <div class="chart tab-pane" id="sales-chart2"
+                                         style="position: relative; height: 600px;">
+                                        <table id="table3" data-height="600">
+                                            <thead>
+                                            <tr>
+                                                <th data-field="CKCX">CKCX</th>
+                                                <th data-field="CNHT">CNHT</th>
+                                                <th data-field="CNSH">CNSH</th>
+                                                <th data-field="CNTT">CNTT</th>
+                                                <th data-field="DVCNC">DVCNC</th>
+                                                <th data-field="NLM">NLM</th>
+                                                <th data-field="ROBOT">ROBOT</th>
+                                                <th data-field="Service">Service</th>
+                                                <th data-field="TTĐTNL">TTĐTNL</th>
+                                                <th data-field="TĐH">TĐH</th>
+                                                <th data-field="VLM">VLM</th>
+                                                <th data-field="VT">VT</th>
+                                                <th data-field="VĐT">VĐT</th>
                                             </tr>
                                             </thead>
                                         </table>
@@ -743,6 +774,49 @@ console.log(a);
 var b = {{thongke2}};
 console.log(b);
 
+for(var i = 0; i < b.length ; i ++)
+{
+      var bCham =  b[i].CKCX.toString();
+      bCham = bCham.split(/(?=(?:...)*$)/);
+      bCham = bCham.join('.');
+      b[i].CKCX = bCham;
+
+      var cCham =  b[i].CNSH.toString();
+      cCham = cCham.split(/(?=(?:...)*$)/);
+      cCham = cCham.join('.');
+      b[i].CNSH = cCham;
+
+
+
+      var dCham =  b[i].CNTT.toString();
+      dCham = dCham.split(/(?=(?:...)*$)/);
+      dCham = dCham.join('.');
+      b[i].CNTT = dCham;
+
+
+
+
+       var eCham =  b[i].NLM.toString();
+      eCham = eCham.split(/(?=(?:...)*$)/);
+      eCham = eCham.join('.');
+      b[i].NLM = eCham;
+
+
+
+       var fCham =  b[i].VLM.toString();
+      fCham = fCham.split(/(?=(?:...)*$)/);
+      fCham = fCham.join('.');
+      b[i].VLM = fCham;
+
+
+
+       var gCham =  b[i].VT.toString();
+      gCham = gCham.split(/(?=(?:...)*$)/);
+      gCham = gCham.join('.');
+      b[i].VT =  fCham;
+
+}
+
 
 $(function () {
     $('#table').bootstrapTable({
@@ -750,11 +824,22 @@ $(function () {
     });
 });
 
+
+var c = {{thongke3}};
+console.log(c);
+
 $(function () {
     $('#table2').bootstrapTable({
     data: b
     });
 });
+
+$(function () {
+    $('#table3').bootstrapTable({
+    data: c
+    });
+});
+
 
 
 
@@ -780,6 +865,7 @@ $(function () {
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
             $.widget.bridge('uibutton', $.ui.button)
+
 
 
 
